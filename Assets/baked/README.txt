@@ -1,0 +1,1 @@
+Baked objects only
