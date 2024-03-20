@@ -5,22 +5,26 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed;
-
+    [HideInInspector] public float moveSpeed;
+    public float walkSpeed;
     public float groundDrag;
 
+    [Header("Jumping")]
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
 
+    [Header("Crouching")]
+    public float crouchSpeed;
+    public float crouchYScale;
+    private float startYScale;
 
-
-    [HideInInspector] public float walkSpeed;
-    [HideInInspector] public float sprintSpeed;
+   
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode crouchKey = KeyCode.C;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -42,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
+        moveSpeed = walkSpeed;
+        startYScale = transform.localScale.y;
     }
 
     private void Update()
@@ -78,6 +84,20 @@ public class PlayerMovement : MonoBehaviour
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
+        }
+
+        if (Input.GetKeyDown(crouchKey))
+        {
+            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+            moveSpeed = crouchSpeed;
+        }
+
+        // stop crouch
+        if (Input.GetKeyUp(crouchKey))
+        {
+            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+            moveSpeed = walkSpeed;
         }
     }
 
