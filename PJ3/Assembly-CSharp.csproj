@@ -40,9 +40,34 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.10f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\MoveCamera.cs" />
-     <Compile Include="Assets\PlayerMovement.cs" />
-     <Compile Include="Assets\PlayerCam.cs" />
+     <Compile Include="Assets\InventoryAsset\Inventory\SaveSystem\InventorySaveSystem.cs" />
+     <Compile Include="Assets\InventoryAsset\Inventory\SaveSystem\InventoryData.cs" />
+     <Compile Include="Assets\InventoryAsset\InventoryController\InventoryControllerScript\InventoryController.cs" />
+     <Compile Include="Assets\Scripts\PlayerCam.cs" />
+     <Compile Include="Assets\InventoryAsset\Scenes\ExtraScene\InventoryExtraScene\Scripts\Chest.cs" />
+     <Compile Include="Assets\InventoryAsset\Inventory\InventoryItem\InventoryItemScript\ItemInitializerUnityEvent.cs" />
+     <Compile Include="Assets\InventoryAsset\InventoryUI\Slots\SlotScripts\Slot.cs" />
+     <Compile Include="Assets\InventoryAsset\Inventory\InventoryItem\InventoryItemScript\DragItem.cs" />
+     <Compile Include="Assets\InventoryAsset\Inventory\InventoryItem\InventoryItemScript\ItemInitializer.cs" />
+     <Compile Include="Assets\InventoryAsset\InventoryUI\InventoryUIScripts\InventoryUIManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
+     <Compile Include="Assets\InventoryAsset\Inventory\InventoryItem\InventoryItemScript\InventoryItem.cs" />
+     <Compile Include="Assets\InventoryAsset\Scenes\ExtraScene\InventoryExtraScene\Hats\Hat.cs" />
+     <Compile Include="Assets\InventoryAsset\Tests\TestScripts\Test.cs" />
+     <Compile Include="Assets\InventoryAsset\Inventory\InventoryItem\InventoryItemScript\AddItem.cs" />
+     <Compile Include="Assets\InventoryAsset\Inventory\SaveSystem\ItemData.cs" />
+     <Compile Include="Assets\InventoryAsset\Inventory\InventoryScripts\Inventory.cs" />
+     <Compile Include="Assets\InventoryAsset\Scenes\ExtraScene\InventoryExtraScene\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\InventoryAsset\Scenes\ExtraScene\InventoryExtraScene\Scripts\FashionApplicator.cs" />
+     <Compile Include="Assets\InventoryAsset\Inventory\InventoryScripts\InventoryInitializer.cs" />
+     <Compile Include="Assets\InventoryAsset\Scenes\SampleScene\AddItemFunctions.cs" />
+     <Compile Include="Assets\Scripts\MoveCamera.cs" />
+     <Compile Include="Assets\InventoryAsset\Scenes\ExtraScene\InventoryExtraScene\Scripts\ControlHatDrop.cs" />
+     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <None Include="Assets\InventoryAsset\README.txt" />
+     <None Include="Assets\InventoryAsset\Icons\ArtCredit.txt" />
+     <None Include="Assets\InventoryAsset\InventoryUI\Slots\SlotSprites\ArtCredit.txt" />
+     <None Include="Assets\InventoryAsset\Documentation\Documentation.txt" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.10f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
