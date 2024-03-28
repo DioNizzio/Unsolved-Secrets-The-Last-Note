@@ -27,6 +27,11 @@ public class InteractionsManager : MonoBehaviour
 
     private Rigidbody heldObjRb; //rigidbody of object we pick up
 
+    InventoryManager inventoryManager;
+
+    void Start(){
+        inventoryManager = gameObject.GetComponent<InventoryManager>();
+    }
 
     void Update(){
         //keep object position the same as the holdPosition position
@@ -60,17 +65,44 @@ public class InteractionsManager : MonoBehaviour
             //pass in object hit into the PickUpObject function
             if (interactObj.GetComponent<Rigidbody>()) //make sure the object has a RigidBody
             {
-                heldObj = interactObj; //assign heldObj to the object that was hit by the raycast (no longer == null)
-                
-                heldObjRb = interactObj.GetComponent<Rigidbody>(); //assign Rigidbody
+                inventoryManager.AddItem(interactObj);
+                //HoldObject(interactObj);
+            }
+            //Debug.Log("Picked up: " + heldObj.name);
+            //}
+        }
+    }
+
+    public void HoldObject(GameObject holdObj){
+        if(holdObj != null){
+            if(heldObj != null){
+                heldObj.gameObject.SetActive(false);
+                heldObj = holdObj; //assign heldObj to the object that was hit by the raycast (no longer == null)         
+                heldObj.gameObject.SetActive(true);
+                heldObjRb = holdObj.GetComponent<Rigidbody>(); //assign Rigidbody
+                heldObjRb.isKinematic = true;
+                heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
+                heldObj.layer = 7; //change the object layer to the holdLayer
+                //make sure object doesnt collide with player, it can cause weird bugs
+                Physics.IgnoreCollision(collider1: heldObj.GetComponent<Collider>(), interactorSource.gameObject.GetComponent<Collider>(), true);
+            }
+            else{
+                heldObj = holdObj; //assign heldObj to the object that was hit by the raycast (no longer == null)         
+                heldObj.gameObject.SetActive(true);
+                heldObjRb = holdObj.GetComponent<Rigidbody>(); //assign Rigidbody
                 heldObjRb.isKinematic = true;
                 heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
                 heldObj.layer = 7; //change the object layer to the holdLayer
                 //make sure object doesnt collide with player, it can cause weird bugs
                 Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), interactorSource.gameObject.GetComponent<Collider>(), true);
             }
-            //Debug.Log("Picked up: " + heldObj.name);
-            //}
+        }
+        else{
+            if (heldObj != null){
+                heldObj.gameObject.SetActive(false);
+                heldObj = null; //assign heldObj to the object that was hit by the raycast (no longer == null)         
+                
+            }
         }
     }
 
@@ -94,6 +126,7 @@ public class InteractionsManager : MonoBehaviour
             heldObj.transform.parent = null;
             heldObjRb.AddForce(cam.transform.forward * throwForce);
             heldObj = null;
+            inventoryManager.ClearItem();
         }
     }
 }
