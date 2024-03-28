@@ -356,6 +356,7 @@
 "Assets/Low Poly Guns/Scripts/GunView.cs"
 "Assets/Scripts/Managers/InputManager.cs"
 "Assets/Scripts/Managers/InteractionsManager.cs"
+"Assets/Scripts/Managers/InventoryManager.cs"
 "Assets/Scripts/Objects/Gun1.cs"
 "Assets/Scripts/Player/MoveCamera.cs"
 "Assets/Scripts/Player/PlayerCam.cs"

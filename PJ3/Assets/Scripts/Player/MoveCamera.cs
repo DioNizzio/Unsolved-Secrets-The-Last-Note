@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -18,7 +19,8 @@ public class MoveCamera : MonoBehaviour
 
     void Start(){
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
+        // Cursor.visible = true;
+        Cursor.SetCursor(Texture2D.blackTexture, new Vector2(100,100), CursorMode.ForceSoftware);
     }
     // Update is called once per frame
     void Update()
