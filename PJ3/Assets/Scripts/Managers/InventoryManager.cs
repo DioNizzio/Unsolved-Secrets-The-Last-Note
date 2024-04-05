@@ -31,11 +31,13 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         interactionsManager = gameObject.GetComponent<InteractionsManager>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
     }
 
     public void AddItem(GameObject go){
@@ -53,21 +55,43 @@ public class InventoryManager : MonoBehaviour
         
         if (canAdd == false){
             DropCurrentObject();
-            holdCurrentObject(go);
             inventorySlots[currentItem] = go;
+            holdCurrentObject(go);
         }
         else{
             canAdd = false;
         }
-        // for(int i = 0; i < 9; i++){
-        //     if(inventorySlots[i] != null){
-        //         Debug.Log(i + ": " + inventorySlots[i]);
-        //     }
-        // }
     }
 
     public void ClearItem(){
         inventorySlots[currentItem] = null;
+        if (inventorySlots[0]== null){
+            slot0.sprite = null;
+        }
+        if (inventorySlots[1]== null){
+            slot1.sprite = null;
+        }
+        if (inventorySlots[2]== null){
+            slot2.sprite = null;
+        }
+        if (inventorySlots[3]== null){
+            slot3.sprite = null;
+        }
+        if (inventorySlots[4]== null){
+            slot4.sprite = null;
+        }
+        if (inventorySlots[5]== null){
+            slot5.sprite = null;
+        }
+        if (inventorySlots[6]== null){
+            slot6.sprite = null;
+        }
+        if (inventorySlots[7]== null){
+            slot7.sprite = null;
+        }
+        if (inventorySlots[8]== null){
+            slot8.sprite = null;
+        }
     }
 
     public void NextItem(){
@@ -92,6 +116,7 @@ public class InventoryManager : MonoBehaviour
 
     public void holdCurrentObject(GameObject go){
         CheckCurrentObject();
+        LoadObjectImages();
         interactionsManager.HoldObject(go);
     }
 
@@ -107,7 +132,7 @@ public class InventoryManager : MonoBehaviour
 
     public void CheckCurrentObject(){
         if(currentItem == 0){
-            slot0.color = new Color32(255,145,145,255);
+            slot0.color = new Color32(0, 0,255,255);
         }
         else{
             slot0.color = Color.white;
@@ -160,5 +185,67 @@ public class InventoryManager : MonoBehaviour
         else{
             slot8.color = Color.white;
         }
+    }
+    public void LoadObjectImages(){
+        if(inventorySlots[0] != null){
+            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[0]);
+            var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
+            slot0.sprite = mySprite;
+        }
+        if(inventorySlots[1] != null){
+            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[1]);
+            var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
+            slot1.sprite = mySprite;
+        }
+        if(inventorySlots[2] != null){
+            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[2]);
+            var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
+            slot2.sprite = mySprite;
+        }
+        if(inventorySlots[3] != null){
+            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[3]);
+            var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
+            slot3.sprite = mySprite;
+        }
+        if(inventorySlots[4] != null){
+            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[4]);
+            var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
+            slot4.sprite = mySprite;
+        }
+        if(inventorySlots[5] != null){
+            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[5]);
+            var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
+            slot5.sprite = mySprite;
+        }
+        if(inventorySlots[6] != null){
+            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[6]);
+            var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
+            slot6.sprite = mySprite;
+        }
+        if(inventorySlots[7] != null){
+            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[7]);
+            var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
+            slot7.sprite = mySprite;
+        }
+        if(inventorySlots[8] != null){
+            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[8]);
+            var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
+            slot8.sprite = mySprite;
+        }
+    }
+
+    public Texture2D GetNewTexture(Texture2D myTexture2D){
+        var grey = new Color32(82,82,82,255);
+        Texture2D newTexture = new(myTexture2D.width, myTexture2D.height, TextureFormat.RGBA32, true);
+        var aaa = myTexture2D.GetPixels32();
+        for(int i = 0; i < aaa.Length; i++){
+            if(aaa[i].Equals(grey)){
+                aaa[i].a = 0;
+            }
+        }
+        newTexture.SetPixels32(aaa);
+        newTexture.Apply(true);
+        return newTexture;
+
     }
 }
