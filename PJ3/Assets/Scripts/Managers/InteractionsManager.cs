@@ -129,4 +129,12 @@ public class InteractionsManager : MonoBehaviour
             inventoryManager.ClearItem();
         }
     }
+
+
+    public bool IsHolding(){
+        if(heldObj!=null){
+            return true;
+        }
+        return false;
+    }
 }

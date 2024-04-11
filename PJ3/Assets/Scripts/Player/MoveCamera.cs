@@ -12,7 +12,6 @@ public class MoveCamera : MonoBehaviour
 
     public Transform orientation;
 
-
     float rotateX = 0;
 
     float rotateY = 0;
@@ -20,13 +19,13 @@ public class MoveCamera : MonoBehaviour
     void Start(){
         Cursor.lockState = CursorLockMode.Locked;
         // Cursor.visible = true;
-        Cursor.SetCursor(Texture2D.blackTexture, new Vector2(100,100), CursorMode.ForceSoftware);
+        //Cursor.SetCursor(Texture2D.blackTexture, new Vector2(100,100), CursorMode.ForceSoftware);
     }
     // Update is called once per frame
-    void Update()
+    public void CameraRotation(float x, float y)
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+        float mouseX = x * Time.deltaTime * sensX;
+        float mouseY = y * Time.deltaTime * sensY;
 
         rotateX -= mouseY;
         rotateY += mouseX;
