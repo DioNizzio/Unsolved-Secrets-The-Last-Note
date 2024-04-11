@@ -95,22 +95,12 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void NextItem(){
-        if (currentItem == 8){
-            currentItem = 0;
-        }
-        else{
-            currentItem++;
-        }
+        SetCurrentItem(1);
         holdCurrentObject(GetCurrentItem());
     }
 
     public void LastItem(){
-        if (currentItem>0){
-            currentItem--;
-        }
-        else{
-            currentItem = 8;
-        }
+        SetCurrentItem(-1);
         holdCurrentObject(GetCurrentItem());
     }
 
@@ -128,6 +118,17 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject GetCurrentItem(){
         return inventorySlots[currentItem];
+    }
+
+    public void SetCurrentItem(int i){
+        if (currentItem == 8 && i == 1){
+            currentItem = 0;
+        }else if (currentItem==0 && i == -1){
+            currentItem = 8;
+        }
+        else{
+            currentItem += i;
+        }
     }
 
     public void CheckCurrentObject(){

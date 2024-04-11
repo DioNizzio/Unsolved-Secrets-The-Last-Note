@@ -81,11 +81,23 @@ public class InputManager : MonoBehaviour
         }
         // Move Up in the inventory
         if(Input.GetAxis("Mouse ScrollWheel")>0){
-            inventoryManager.NextItem();
+            if(inspectionManager.IsInspecting()==true){
+                inventoryManager.SetCurrentItem(1);
+                //inspectionManager.ExitInspection();
+                inspectionManager.InspectItem(inventoryManager.GetCurrentItem());
+            }else{
+                inventoryManager.NextItem();
+            }
         }
         // Move Down in the inventory
         if(Input.GetAxis("Mouse ScrollWheel")<0){
-            inventoryManager.LastItem();
+            if(inspectionManager.IsInspecting()==true){
+                inventoryManager.SetCurrentItem(-1);
+                //inspectionManager.ExitInspection();
+                inspectionManager.InspectItem(inventoryManager.GetCurrentItem());
+            }else{
+                inventoryManager.LastItem();
+            }
         }
         // Inspect Object
         if(Input.GetKeyDown(inspectKey) && interactionsManager.IsHolding() == true){

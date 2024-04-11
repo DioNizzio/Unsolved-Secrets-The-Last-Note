@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering.PostProcessing;
@@ -19,6 +20,8 @@ public class InspectionManager : MonoBehaviour
 
     public Transform inspectPos;
 
+    public Transform holdPos;
+
     private GameObject inspectObj;
 
     private Rigidbody inspectObjRb;
@@ -27,6 +30,8 @@ public class InspectionManager : MonoBehaviour
 
     private float rotationX;
     private float rotationY;
+
+    private bool barrier = false;
     
     // Start is called before the first frame update
     void Start()
@@ -65,13 +70,30 @@ public class InspectionManager : MonoBehaviour
         ppVolume.enabled = true;
         //go.GetComponent<Rigidbody>().isKinematic = false;
         Cursor.lockState = CursorLockMode.None;
-        inspectObj = go; //assign heldObj to the object that was hit by the raycast (no longer == null) 
-        //inspectObj.layer = 0;        
-        inspectObj.gameObject.SetActive(true);
-        //inspectObj.AddComponent<EventTrigger>();
-        inspectObjRb = go.GetComponent<Rigidbody>(); //assign Rigidbody
-        inspectObjRb.isKinematic = true;
-        inspectObjRb.transform.parent = inspectPos.transform; //parent object to holdposition
+        if(go!=null){
+            if(inspectObj!=null){
+                inspectObj.gameObject.SetActive(false);
+                inspectObjRb.isKinematic = false;
+                inspectObj.transform.parent = holdPos.transform;
+                inspectObj = null;
+            }
+            inspectObj = go; //assign heldObj to the object that was hit by the raycast (no longer == null) 
+            //inspectObj.layer = 0;        
+            inspectObj.gameObject.SetActive(true);
+            //inspectObj.AddComponent<EventTrigger>();
+            inspectObjRb = go.GetComponent<Rigidbody>(); //assign Rigidbody
+            inspectObjRb.isKinematic = true;
+            inspectObjRb.transform.parent = inspectPos.transform; //parent object to holdposition
+        }
+        else{
+            if(inspectObj!=null){
+                inspectObj.gameObject.SetActive(false);
+                inspectObjRb.isKinematic = false;
+                inspectObj.transform.parent = holdPos.transform;
+                inspectObj = null;
+            }
+            barrier = true;
+        }
     }
 
 
@@ -86,6 +108,7 @@ public class InspectionManager : MonoBehaviour
         inspectObjRb.isKinematic = false;
         inspectObj.transform.parent = null;
         inspectObj = null;
+        barrier = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.SetCursor(Texture2D.blackTexture, new Vector2(0,0), CursorMode.ForceSoftware);
     }
@@ -93,6 +116,9 @@ public class InspectionManager : MonoBehaviour
 
     public bool IsInspecting(){
         if(inspectObj!=null){
+            return true;
+        }
+        if(barrier!=false){
             return true;
         }
         return false;
