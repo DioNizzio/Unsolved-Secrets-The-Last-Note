@@ -9,7 +9,7 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class InspectionManager : MonoBehaviour
 {
-    
+    UIManager uIManager;
     public Camera cam;
 
     public GameObject player;
@@ -26,11 +26,12 @@ public class InspectionManager : MonoBehaviour
 
     private Rigidbody inspectObjRb;
 
-    private bool shouldRotate = false;
 
     private float rotationX;
     private float rotationY;
 
+    // Used to continue in inspection even if there is no item in a slot
+    // forces the player to exit inspection
     private bool barrier = false;
     
     // Start is called before the first frame update
@@ -38,6 +39,7 @@ public class InspectionManager : MonoBehaviour
     {
         playerRB = player.GetComponent<Rigidbody>();
         ppVolume = cam.GetComponent<PostProcessVolume>();
+        uIManager = gameObject.AddComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -45,9 +47,7 @@ public class InspectionManager : MonoBehaviour
     {
         if (inspectObj != null){
             inspectObj.transform.position = inspectPos.transform.position;
-            
-        } 
-        if(shouldRotate == true && inspectObj != null){
+
             var x = Input.GetAxis("Mouse X");
             var y = Input.GetAxis("Mouse Y");
 
@@ -96,18 +96,15 @@ public class InspectionManager : MonoBehaviour
         }
     }
 
-
-    public void RotateObject(){
-        shouldRotate = !shouldRotate;
-    }
-
     public void ExitInspection(){
         playerRB.isKinematic = false;
         ppVolume.enabled = false;
-        inspectObj.layer = 0;
-        inspectObjRb.isKinematic = false;
-        inspectObj.transform.parent = null;
-        inspectObj = null;
+        if(inspectObj!=null){
+            inspectObj.layer = 0;
+            inspectObjRb.isKinematic = false;
+            inspectObj.transform.parent = null;
+            inspectObj = null;
+        }
         barrier = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.SetCursor(Texture2D.blackTexture, new Vector2(0,0), CursorMode.ForceSoftware);

@@ -47,6 +47,7 @@
      <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
      <Compile Include="Assets\Scripts\Managers\InteractionsManager.cs" />
      <Compile Include="Assets\Scripts\Player\MoveCamera.cs" />
+     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
      <Compile Include="Assets\Scripts\Objects\Gun1.cs" />

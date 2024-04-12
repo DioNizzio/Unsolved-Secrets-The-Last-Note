@@ -1325,6 +1325,7 @@ GameObject:
   - component: {fileID: 815568164}
   - component: {fileID: 815568165}
   - component: {fileID: 815568166}
+  - component: {fileID: 815568167}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1398,15 +1399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9b551ebc1d9f44cbadc78e2f8bfa6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slot0: {fileID: 1323937402}
-  slot1: {fileID: 323074349}
-  slot2: {fileID: 2086546019}
-  slot3: {fileID: 1828731926}
-  slot4: {fileID: 1144207581}
-  slot5: {fileID: 1666286639}
-  slot6: {fileID: 1806650387}
-  slot7: {fileID: 1793621585}
-  slot8: {fileID: 1445866875}
 --- !u!114 &815568166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1423,6 +1415,27 @@ MonoBehaviour:
   player: {fileID: 2039167144}
   inspectPos: {fileID: 822348044}
   holdPos: {fileID: 1468348536}
+--- !u!114 &815568167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815568161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b525e4f81633849b93d4d23bf19b3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot0: {fileID: 1323937402}
+  slot1: {fileID: 323074349}
+  slot2: {fileID: 2086546019}
+  slot3: {fileID: 1828731926}
+  slot4: {fileID: 1144207581}
+  slot5: {fileID: 1666286639}
+  slot6: {fileID: 1806650387}
+  slot7: {fileID: 1793621585}
+  slot8: {fileID: 1445866875}
 --- !u!1 &822348043
 GameObject:
   m_ObjectHideFlags: 0
@@ -4146,5 +4159,5 @@ SceneRoots:
   - {fileID: 608199316}
   - {fileID: 226147027}
   - {fileID: 1377683223}
-  - {fileID: 2022873184}
   - {fileID: 18341598}
+  - {fileID: 2022873184}

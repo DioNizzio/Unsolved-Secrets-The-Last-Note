@@ -33,6 +33,8 @@ public class InputManager : MonoBehaviour
 
     InspectionManager inspectionManager;
 
+    UIManager uIManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,7 @@ public class InputManager : MonoBehaviour
         interactionsManager = gameObject.GetComponent<InteractionsManager>();
         inventoryManager = gameObject.GetComponent<InventoryManager>();
         inspectionManager = gameObject.GetComponent<InspectionManager>();
+        uIManager = gameObject.GetComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -85,6 +88,7 @@ public class InputManager : MonoBehaviour
                 inventoryManager.SetCurrentItem(1);
                 //inspectionManager.ExitInspection();
                 inspectionManager.InspectItem(inventoryManager.GetCurrentItem());
+                uIManager.CheckCurrentObject(inventoryManager.GetCurrentItemInt());
             }else{
                 inventoryManager.NextItem();
             }
@@ -95,6 +99,7 @@ public class InputManager : MonoBehaviour
                 inventoryManager.SetCurrentItem(-1);
                 //inspectionManager.ExitInspection();
                 inspectionManager.InspectItem(inventoryManager.GetCurrentItem());
+                uIManager.CheckCurrentObject(inventoryManager.GetCurrentItemInt());
             }else{
                 inventoryManager.LastItem();
             }
@@ -104,10 +109,6 @@ public class InputManager : MonoBehaviour
             inspectionManager.InspectItem(inventoryManager.GetCurrentItem());
         }
 
-        // Rotate Object when Inspecting
-        if(Input.GetButton("Fire1") && inspectionManager.IsInspecting() == true){
-            inspectionManager.RotateObject();
-        }
         // Exit Inspection
         if(Input.GetKeyDown(exitKey) && inspectionManager.IsInspecting() == true){
             inspectionManager.ExitInspection();

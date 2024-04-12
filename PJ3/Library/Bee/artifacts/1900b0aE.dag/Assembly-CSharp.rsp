@@ -361,6 +361,7 @@
 "Assets/Scripts/Managers/InspectionManager.cs"
 "Assets/Scripts/Managers/InteractionsManager.cs"
 "Assets/Scripts/Managers/InventoryManager.cs"
+"Assets/Scripts/Managers/UIManager.cs"
 "Assets/Scripts/Objects/Gun1.cs"
 "Assets/Scripts/Player/MoveCamera.cs"
 "Assets/Scripts/Player/PlayerCam.cs"
