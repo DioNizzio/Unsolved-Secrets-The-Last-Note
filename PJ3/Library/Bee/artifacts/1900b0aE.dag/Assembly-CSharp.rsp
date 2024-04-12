@@ -118,6 +118,7 @@
 -define:ENABLE_TIMELINE
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
+-define:UNITY_POST_PROCESSING_STACK_V2
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
@@ -330,6 +331,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.EditorCoroutines.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Postprocessing.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Postprocessing.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Rider.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.ref.dll"
@@ -352,30 +355,17 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
-"Assets/InventoryAsset/Inventory/InventoryItem/InventoryItemScript/AddItem.cs"
-"Assets/InventoryAsset/Inventory/InventoryItem/InventoryItemScript/DragItem.cs"
-"Assets/InventoryAsset/Inventory/InventoryItem/InventoryItemScript/InventoryItem.cs"
-"Assets/InventoryAsset/Inventory/InventoryItem/InventoryItemScript/ItemInitializer.cs"
-"Assets/InventoryAsset/Inventory/InventoryItem/InventoryItemScript/ItemInitializerUnityEvent.cs"
-"Assets/InventoryAsset/Inventory/InventoryScripts/Inventory.cs"
-"Assets/InventoryAsset/Inventory/InventoryScripts/InventoryInitializer.cs"
-"Assets/InventoryAsset/Inventory/SaveSystem/InventoryData.cs"
-"Assets/InventoryAsset/Inventory/SaveSystem/InventorySaveSystem.cs"
-"Assets/InventoryAsset/Inventory/SaveSystem/ItemData.cs"
-"Assets/InventoryAsset/InventoryController/InventoryControllerScript/InventoryController.cs"
-"Assets/InventoryAsset/InventoryUI/InventoryUIScripts/InventoryUIManager.cs"
-"Assets/InventoryAsset/InventoryUI/Slots/SlotScripts/Slot.cs"
-"Assets/InventoryAsset/Scenes/ExtraScene/InventoryExtraScene/Hats/Hat.cs"
-"Assets/InventoryAsset/Scenes/ExtraScene/InventoryExtraScene/Player/PlayerMovement.cs"
-"Assets/InventoryAsset/Scenes/ExtraScene/InventoryExtraScene/Scripts/Chest.cs"
-"Assets/InventoryAsset/Scenes/ExtraScene/InventoryExtraScene/Scripts/ControlHatDrop.cs"
-"Assets/InventoryAsset/Scenes/ExtraScene/InventoryExtraScene/Scripts/FashionApplicator.cs"
-"Assets/InventoryAsset/Scenes/SampleScene/AddItemFunctions.cs"
-"Assets/InventoryAsset/Tests/TestScripts/Test.cs"
+"Assets/Low Poly Guns/Scripts/GunsMenu.cs"
+"Assets/Low Poly Guns/Scripts/GunView.cs"
 "Assets/Scripts/Managers/InputManager.cs"
-"Assets/Scripts/MoveCamera.cs"
-"Assets/Scripts/PlayerCam.cs"
-"Assets/Scripts/PlayerMovement.cs"
+"Assets/Scripts/Managers/InspectionManager.cs"
+"Assets/Scripts/Managers/InteractionsManager.cs"
+"Assets/Scripts/Managers/InventoryManager.cs"
+"Assets/Scripts/Managers/UIManager.cs"
+"Assets/Scripts/Objects/Gun1.cs"
+"Assets/Scripts/Player/MoveCamera.cs"
+"Assets/Scripts/Player/PlayerCam.cs"
+"Assets/Scripts/Player/PlayerMovement.cs"
 -langversion:9.0
 
 /deterministic
