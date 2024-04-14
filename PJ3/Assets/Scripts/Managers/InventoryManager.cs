@@ -57,6 +57,7 @@ public class InventoryManager : MonoBehaviour
     public void ClearItem(){
         inventorySlots[currentItem] = null;
         uIManager.clearSlots(inventorySlots);
+        uIManager.CheckCurrentObject(currentItem);
         
     }
 
@@ -71,8 +72,8 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void holdCurrentObject(GameObject go){
-        uIManager.CheckCurrentObject(currentItem);
         uIManager.LoadObjectImages(inventorySlots);
+        uIManager.CheckCurrentObject(currentItem);
         interactionsManager.HoldObject(go);
     }
 

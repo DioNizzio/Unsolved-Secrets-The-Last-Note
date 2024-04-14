@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -16,10 +17,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] public UnityEngine.UI.Image slot7;
     [SerializeField] public UnityEngine.UI.Image slot8;
 
+    public GameObject inspectionMenu;
+    public TMP_Text gameObjectName;
+
+    Color32 current;
+
+    Color32 empty;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        current = new Color32(255,145,145,255);
+        empty = new Color32(255,145,145,0);
     }
 
     // Update is called once per frame
@@ -59,59 +68,104 @@ public class UIManager : MonoBehaviour
     }
 
     public void CheckCurrentObject(int currentItem){
-        if(currentItem == 0){
-            slot0.color = new Color32(255,145,145,255);
+        if (slot0.sprite != null){
+            if(currentItem == 0){
+                slot0.color = current;
+            }
+            else{ 
+                slot0.color = Color.white;
+            }
         }
         else{
-            slot0.color = Color.white;
+            slot0.color = empty;
         }
-        if(currentItem == 1){
-            slot1.color = new Color32(255,145,145,255);
-        }
-        else{
-            slot1.color = Color.white;
-        }
-        if(currentItem == 2){
-            slot2.color = new Color32(255,145,145,255);
-        }
-        else{
-            slot2.color = Color.white;
-        }
-        if(currentItem == 3){
-            slot3.color = new Color32(255,145,145,255);
+        if (slot1.sprite != null){
+            if(currentItem == 1){
+                slot1.color = current;
+            }
+            else{ 
+                slot1.color = Color.white;
+            }
         }
         else{
-            slot3.color = Color.white;
+            slot1.color = empty;
         }
-        if(currentItem == 4){
-            slot4.color = new Color32(255,145,145,255);
-        }
-        else{
-            slot4.color = Color.white;
-        }
-        if(currentItem == 5){
-            slot5.color = new Color32(255,145,145,255);
-        }
-        else{
-            slot5.color = Color.white;
-        }
-        if(currentItem == 6){
-            slot6.color = new Color32(255,145,145,255);
+        if (slot2.sprite != null){
+            if(currentItem == 2){
+                slot2.color = current;
+            }
+            else{ 
+                slot2.color = Color.white;
+            }
         }
         else{
-            slot6.color = Color.white;
+            slot2.color = empty;
         }
-        if(currentItem == 7){
-            slot7.color = new Color32(255,145,145,255);
+        if (slot3.sprite != null){
+            if(currentItem == 3){
+                slot3.color = current;
+            }
+            else{ 
+                slot3.color = Color.white;
+            }
         }
         else{
-            slot7.color = Color.white;
+            slot3.color = empty;
         }
-        if(currentItem == 8){
-            slot8.color = new Color32(255,145,145,255);
+        if (slot4.sprite != null){
+            if(currentItem == 4){
+                slot4.color = current;
+            }
+            else{ 
+                slot4.color = Color.white;
+            }
         }
         else{
-            slot8.color = Color.white;
+            slot4.color = empty;
+        }
+        if (slot5.sprite != null){
+            if(currentItem == 5){
+                slot5.color = current;
+            }
+            else{ 
+                slot5.color = Color.white;
+            }
+        }
+        else{
+            slot5.color = empty;
+        }
+        if (slot6.sprite != null){
+            if(currentItem == 6){
+                slot6.color = current;
+            }
+            else{ 
+                slot6.color = Color.white;
+            }
+        }
+        else{
+            slot6.color = empty;
+        }
+        if (slot7.sprite != null){
+            if(currentItem == 7){
+                slot7.color = current;
+            }
+            else{ 
+                slot7.color = Color.white;
+            }
+        }
+        else{
+            slot7.color = empty;
+        }
+        if (slot8.sprite != null){
+            if(currentItem == 8){
+                slot8.color = current;
+            }
+            else{ 
+                slot8.color = Color.white;
+            }
+        }
+        else{
+            slot8.color = empty;
         }
     }
 
@@ -164,7 +218,7 @@ public class UIManager : MonoBehaviour
     }
 
 
-     public Texture2D GetNewTexture(Texture2D myTexture2D){
+    public Texture2D GetNewTexture(Texture2D myTexture2D){
         var grey = new Color32(82,82,82,255);
         Texture2D newTexture = new(myTexture2D.width, myTexture2D.height, TextureFormat.RGBA32, true);
         var aaa = myTexture2D.GetPixels32();
@@ -178,4 +232,15 @@ public class UIManager : MonoBehaviour
         return newTexture;
 
     }
+
+    public void ActivateInspectionMenu(GameObject go){
+        inspectionMenu.SetActive(true);
+        gameObjectName.text = go.name;
+    }
+
+    public void DeactivateInspectionMenu(){
+        inspectionMenu.SetActive(false);
+    }
+
+
 }

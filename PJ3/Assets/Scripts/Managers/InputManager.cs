@@ -107,11 +107,13 @@ public class InputManager : MonoBehaviour
         // Inspect Object
         if(Input.GetKeyDown(inspectKey) && interactionsManager.IsHolding() == true){
             inspectionManager.InspectItem(inventoryManager.GetCurrentItem());
+            uIManager.ActivateInspectionMenu(inventoryManager.GetCurrentItem());
         }
 
         // Exit Inspection
         if(Input.GetKeyDown(exitKey) && inspectionManager.IsInspecting() == true){
             inspectionManager.ExitInspection();
+            uIManager.DeactivateInspectionMenu();
             interactionsManager.HoldObject(inventoryManager.GetCurrentItem());
         }
     }
