@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -6,7 +7,9 @@ using UnityEngine;
 
 // Every interactable object has to have this interface implemented
 interface IInteractable{
-    public void Interact();
+
+    
+    public bool Interact(GameObject currentObj);
 }
 
 public class InteractionsManager : MonoBehaviour
@@ -47,8 +50,19 @@ public class InteractionsManager : MonoBehaviour
         // If the ray catches anything in the range, it will try to interact with it
         if (Physics.Raycast(r, out RaycastHit hitInfo, interactRange)){
             if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)){
-                interactObj.Interact();
-            }
+                if(inventoryManager.GetCurrentItem()!=null){
+                    if(interactObj.Interact(inventoryManager.GetCurrentItem()) == true){
+                        heldObj = null;
+                        inventoryManager.ClearItem();
+                    }                    
+                }
+                else{
+                    if(interactObj.Interact(currentObj: null)==true){
+                        heldObj = null;
+                        inventoryManager.ClearItem();
+                    }
+                }
+            }            
         }
     }
 
@@ -63,7 +77,7 @@ public class InteractionsManager : MonoBehaviour
             // if (hitInfo.collider.gameObject.TryGetComponent(out GameObject interactObj))
             // {
             //pass in object hit into the PickUpObject function
-            if (interactObj.GetComponent<Rigidbody>()) //make sure the object has a RigidBody
+            if (interactObj.GetComponent<Rigidbody>() && !interactObj.name.Contains("pos")) //make sure the object has a RigidBody
             {
                 inventoryManager.AddItem(interactObj);
                 //HoldObject(interactObj);
@@ -136,5 +150,11 @@ public class InteractionsManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+
+
+    public void ClearHeldObj(){
+        heldObj = null;
     }
 }
