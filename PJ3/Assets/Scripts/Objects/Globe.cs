@@ -19,13 +19,15 @@ public class Globe : MonoBehaviour, IInteractable
     public bool Interact(GameObject currentObj)
     {
         if (mAnimator != null){
-            if(neverOpened && currentObj!=null){
-                if(currentObj.name.Contains("key")){
-                    neverOpened = false;
-                    mAnimator.SetTrigger("TrOpen");
-                    mAnimator.SetBool("isClosed", false);
-                    return true;
-                } 
+            if(neverOpened){
+                if(currentObj!=null){
+                    if(currentObj.name.Contains("key")){
+                        neverOpened = false;
+                        mAnimator.SetTrigger("TrOpen");
+                        mAnimator.SetBool("isClosed", false);
+                        return true;
+                    } 
+                }
             }
             else{
                 if(mAnimator.GetBool("isClosed")==true){

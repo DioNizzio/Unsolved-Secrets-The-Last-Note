@@ -15,9 +15,17 @@ public class PuzzlesManager : MonoBehaviour
     public GameObject Shelf2;
     public GameObject Shelf3;
     public GameObject Shelf4;
-    private bool paintingsUnsolved;
 
-    private bool bookshelvesUnsolved;
+    public Safe safe;
+
+
+    private bool paintingsSolved;
+
+    private bool bookshelvesSolved;
+
+    private bool safeSolved;
+
+    
 
     InventoryManager inventoryManager;
 
@@ -26,8 +34,9 @@ public class PuzzlesManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        paintingsUnsolved = false;
-        bookshelvesUnsolved = false;
+        paintingsSolved = false;
+        bookshelvesSolved = false;
+        safeSolved = false;
         interactionsManager = gameObject.AddComponent<InteractionsManager>();
         inventoryManager = gameObject.AddComponent<InventoryManager>();
     }
@@ -35,11 +44,14 @@ public class PuzzlesManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!paintingsUnsolved){
+        if(!paintingsSolved){
             CheckPaintings();
         }
-        if(!bookshelvesUnsolved){
+        if(!bookshelvesSolved){
             CheckBookshelfs();
+        }
+        if(!safeSolved){
+            CheckSafeCode();
         }
     }
 
@@ -49,7 +61,7 @@ public class PuzzlesManager : MonoBehaviour
         if(paintingMozart.transform.parent!=null && paintingBeethoven.transform.parent!=null && paintingRachmaninoff.transform.parent!=null && paintingBach.transform.parent!=null){
             if(paintingMozart.transform.parent.name == "posQuadro1" && paintingBeethoven.transform.parent.name == "posQuadro2" && paintingRachmaninoff.transform.parent.name == "posQuadro3" && paintingBach.transform.parent.name == "posQuadro4"){
                 Debug.Log("Solved Puzzle");
-                paintingsUnsolved = true;
+                paintingsSolved = true;
                 //play some animation after
             }
         }
@@ -63,8 +75,24 @@ public class PuzzlesManager : MonoBehaviour
         int[] shelf4 = Shelf4.GetComponent<Bookshelf>().CheckBookshelf();
         if(shelf1[0] == 0 && shelf1[1] == 16 && shelf2[0] == 4 && shelf2[1] == 12 && shelf3[0] == 7 && shelf3[1] == 9 && shelf4[0] == 11 && shelf4[1] == 5){
             Debug.Log("Puzzle Solved");
-            bookshelvesUnsolved = true;
+            bookshelvesSolved = true;
             //play some animation after
+        }
+    }
+
+
+    public void CheckSafeCode(){
+        if(safe.GetNeedsCheck()==true){
+            if(safe.GetCode()=="1712"){
+                Debug.Log("Puzzle Solved!");
+                safeSolved=true;
+                safe.PlayAnimations();
+                //play animations
+            }
+            else{
+                safe.ResetCode();
+                safe.SetNeedsCheck();
+            }
         }
     }
     

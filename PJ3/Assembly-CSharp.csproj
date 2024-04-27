@@ -41,14 +41,20 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Objects\Bookshelf.cs" />
+     <Compile Include="Assets\Scripts\Objects\SafeNumbers.cs" />
      <Compile Include="Assets\Scripts\Objects\Painting.cs" />
      <Compile Include="Assets\Scripts\Objects\Globe.cs" />
      <Compile Include="Assets\Scripts\Managers\InspectionManager.cs" />
      <Compile Include="Assets\Scripts\Managers\InventoryManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerCam.cs" />
      <Compile Include="Assets\Scripts\Objects\Book.cs" />
+     <Compile Include="Assets\Scripts\Objects\Safe.cs" />
+     <Compile Include="Assets\Scripts\Objects\AutoFlip.cs" />
+     <Compile Include="Assets\Scripts\Objects\NotePad.cs" />
      <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\CameraSwitcher.cs" />
      <Compile Include="Assets\Scripts\Managers\InteractionsManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\PlayerandCameraHolders.cs" />
      <Compile Include="Assets\Scripts\Player\MoveCamera.cs" />
      <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
      <Compile Include="Assets\Scripts\Objects\PaintingSpot.cs" />

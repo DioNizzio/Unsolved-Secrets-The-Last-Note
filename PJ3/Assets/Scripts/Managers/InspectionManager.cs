@@ -10,14 +10,6 @@ using UnityEngine.Rendering.PostProcessing;
 public class InspectionManager : MonoBehaviour
 {
     UIManager uIManager;
-    public Camera cam;
-
-    public GameObject player;
-
-    private  Rigidbody playerRB;
-
-    private PostProcessVolume ppVolume;
-
     public Transform inspectPos;
 
     public Transform holdPos;
@@ -37,8 +29,6 @@ public class InspectionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerRB = player.GetComponent<Rigidbody>();
-        ppVolume = cam.GetComponent<PostProcessVolume>();
         uIManager = gameObject.AddComponent<UIManager>();
     }
 
@@ -66,10 +56,7 @@ public class InspectionManager : MonoBehaviour
     }
 
     public void InspectItem(GameObject go){
-        playerRB.isKinematic = true;
-        ppVolume.enabled = true;
-        //go.GetComponent<Rigidbody>().isKinematic = false;
-        Cursor.lockState = CursorLockMode.None;
+        uIManager.ActivateBlur(true);
         if(go!=null){
             if(inspectObj!=null){
                 inspectObj.gameObject.SetActive(false);
@@ -97,8 +84,7 @@ public class InspectionManager : MonoBehaviour
     }
 
     public void ExitInspection(){
-        playerRB.isKinematic = false;
-        ppVolume.enabled = false;
+        uIManager.ActivateBlur(false);
         if(inspectObj!=null){
             inspectObj.layer = 0;
             inspectObjRb.isKinematic = false;
@@ -106,8 +92,6 @@ public class InspectionManager : MonoBehaviour
             inspectObj = null;
         }
         barrier = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.SetCursor(Texture2D.blackTexture, new Vector2(0,0), CursorMode.ForceSoftware);
     }
 
 
