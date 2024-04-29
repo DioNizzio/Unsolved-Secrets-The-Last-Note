@@ -2,10 +2,15 @@
 //As the rbarraza.com website is not live anymore you can get an archived version from web archive 
 //or check an archived version that I uploaded on my website: https://dandarawy.com/html5-canvas-pageflip/
 
+
+// Quando tiver imagens, substituir bookpages por imagens no inspector do unity e depois adicioná-las ao array no código!
+
+
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System.Linq;
 public enum FlipMode
 {
     RightToLeft,
@@ -17,6 +22,8 @@ public class NotePad : MonoBehaviour {
     [SerializeField]
     RectTransform BookPanel;
     public Sprite background;
+
+    public Sprite myImageK;
     public Sprite[] bookPages;
     public bool interactable=true;
     public bool enableShadowEffect=true;
@@ -93,6 +100,10 @@ public class NotePad : MonoBehaviour {
 
         ShadowLTR.rectTransform.sizeDelta = new Vector2(pageWidth, shadowPageHeight);
         ShadowLTR.rectTransform.pivot = new Vector2(0, (pageWidth / 2) / shadowPageHeight);
+        bookPages.Append(myImageK);
+        foreach (var page in bookPages){
+            Debug.Log(page.name);
+        }
 
     }
 
@@ -145,7 +156,7 @@ public class NotePad : MonoBehaviour {
     }
     public void UpdateBook()
     {
-        f = Vector3.Lerp(f, transformPoint(Input.mousePosition), Time.deltaTime * 10);
+        f = Vector3.Lerp(a: f, transformPoint(Input.mousePosition), Time.deltaTime * 10);
         if (mode == FlipMode.RightToLeft)
             UpdateBookRTLToPoint(f);
         else

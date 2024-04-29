@@ -121,4 +121,9 @@ public class InventoryManager : MonoBehaviour
             currentItem--;
         }
     }
+
+
+    public GameObject[] GetAllItems(){
+        return inventorySlots;
+    }
 }

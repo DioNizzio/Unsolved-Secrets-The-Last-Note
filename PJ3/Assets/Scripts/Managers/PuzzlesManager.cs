@@ -15,6 +15,7 @@ public class PuzzlesManager : MonoBehaviour
     public GameObject Shelf2;
     public GameObject Shelf3;
     public GameObject Shelf4;
+    public GameObject Shelf5;
 
     public Safe safe;
 
@@ -62,7 +63,10 @@ public class PuzzlesManager : MonoBehaviour
             if(paintingMozart.transform.parent.name == "posQuadro1" && paintingBeethoven.transform.parent.name == "posQuadro2" && paintingRachmaninoff.transform.parent.name == "posQuadro3" && paintingBach.transform.parent.name == "posQuadro4"){
                 Debug.Log("Solved Puzzle");
                 paintingsSolved = true;
-                //play some animation after
+                paintingMozart.transform.parent.parent.GetComponent<Animator>().SetTrigger("RightOrder");
+                paintingBeethoven.transform.parent.parent.GetComponent<Animator>().SetTrigger("RightOrder");
+                paintingRachmaninoff.transform.parent.parent.GetComponent<Animator>().SetTrigger("RightOrder");
+                paintingBach.transform.parent.parent.GetComponent<Animator>().SetTrigger("RightOrder");
             }
         }
         
@@ -73,7 +77,8 @@ public class PuzzlesManager : MonoBehaviour
         int[] shelf2 = Shelf2.GetComponent<Bookshelf>().CheckBookshelf();
         int[] shelf3 = Shelf3.GetComponent<Bookshelf>().CheckBookshelf();
         int[] shelf4 = Shelf4.GetComponent<Bookshelf>().CheckBookshelf();
-        if(shelf1[0] == 0 && shelf1[1] == 16 && shelf2[0] == 4 && shelf2[1] == 12 && shelf3[0] == 7 && shelf3[1] == 9 && shelf4[0] == 11 && shelf4[1] == 5){
+        int[] shelf5 = Shelf5.GetComponent<Bookshelf>().CheckBookshelf();
+        if(shelf1[0] == 0 && shelf1[1] == 16 && shelf2[0] == 4 && shelf2[1] == 12 && shelf3[0] == 7 && shelf3[1] == 9 && shelf4[0] == 11 && shelf4[1] == 5 && shelf5[0] == 13 && shelf5[1] == 3){
             Debug.Log("Puzzle Solved");
             bookshelvesSolved = true;
             //play some animation after

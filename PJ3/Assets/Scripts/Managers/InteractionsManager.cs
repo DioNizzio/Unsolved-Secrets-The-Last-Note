@@ -166,6 +166,7 @@ public class InteractionsManager : MonoBehaviour
     }
 
     public void ClearHeldObj(){
+        //heldObj.SetActive(false);
         heldObj = null;
     }
 }

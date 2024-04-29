@@ -28,6 +28,8 @@ public class InputManager : MonoBehaviour
 
     public KeyCode exitKey = KeyCode.Escape;
 
+    public KeyCode lanternKey = KeyCode.V;
+
 
     InteractionsManager interactionsManager;
 
@@ -38,6 +40,8 @@ public class InputManager : MonoBehaviour
     UIManager uIManager;
 
     CameraSwitcher cameraSwitcher;
+
+    LanternManager lanternManager;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +54,7 @@ public class InputManager : MonoBehaviour
         inspectionManager = gameObject.GetComponent<InspectionManager>();
         uIManager = gameObject.GetComponent<UIManager>();
         cameraSwitcher = gameObject.GetComponent<CameraSwitcher>();
+        lanternManager = gameObject.GetComponent<LanternManager>();
     }
 
     // Update is called once per frame
@@ -85,7 +90,7 @@ public class InputManager : MonoBehaviour
             playerMove.UncrouchPlayer();
         }
         //Interacting with objects
-        if(Input.GetKeyDown(interactKey)){
+        if(Input.GetKeyDown(interactKey) && !lanternManager.IsUsingLantern()){
             interactionsManager.Interaction();
         }
         if(Input.GetMouseButtonDown(0)){
@@ -97,7 +102,7 @@ public class InputManager : MonoBehaviour
             }
         }
         // Pick-Up Objects
-        if(Input.GetKeyDown(pickupKey)){
+        if(Input.GetKeyDown(pickupKey) && !lanternManager.IsUsingLantern()){
             interactionsManager.Picking_Up();
         }
         // Drop Object
@@ -151,8 +156,12 @@ public class InputManager : MonoBehaviour
             
         }
 
-        if(Input.GetKeyDown(KeyCode.Tab)){
+        if(Input.GetKeyDown(KeyCode.Tab) && !lanternManager.IsUsingLantern()){
             uIManager.ActivateNotePad(true);
+        }
+
+        if(Input.GetKeyDown(lanternKey)){
+            lanternManager.ActivateLantern();
         }
     }
 }

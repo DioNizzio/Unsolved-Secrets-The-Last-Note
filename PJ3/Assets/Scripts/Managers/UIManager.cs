@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] public UnityEngine.UI.Image image7;
     [SerializeField] public UnityEngine.UI.Image image8;
 
+    public GameObject fixedInventory;
+
     public GameObject slot0;
 
     public GameObject slot1;
@@ -44,6 +46,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject notePad;
 
+    public GameObject crosshair;
+
     public Texture2D cursorClose;
 
 
@@ -56,6 +60,8 @@ public class UIManager : MonoBehaviour
 
     Color32 empty;
 
+    InventoryManager inventoryManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +70,7 @@ public class UIManager : MonoBehaviour
         empty = new Color32(255,145,145,0);
         ppVolume = plandc.Camera.GetComponent<PostProcessVolume>();
         playerRB = plandc.Player.GetComponent<Rigidbody>();
+        inventoryManager = gameObject.GetComponent<InventoryManager>();
         
     }
 
@@ -313,12 +320,47 @@ public class UIManager : MonoBehaviour
     public void ActivateNotePad(bool activate){
         ActivateBlur(activate);
         notePad.SetActive(activate);
+        HideActiveSlotsandFixesSlots(activate);
+        HideCrossair();
         if(activate){
             ChangeCursor("close");
         }
         else{
             ChangeCursor("locked");
         }
+    }
+
+    public void HideActiveSlotsandFixesSlots(bool activate){
+        GameObject[] inventorySlots = inventoryManager.GetAllItems();
+        if(inventorySlots[0]!=null){
+            slot0.SetActive(!activate);
+            if(inventorySlots[1]!=null){
+                slot1.SetActive(!activate);
+                if(inventorySlots[2]!=null){
+                    slot2.SetActive(!activate);
+                    if(inventorySlots[3]!=null){
+                        slot3.SetActive(!activate);
+                        if(inventorySlots[4]!=null){
+                            slot4.SetActive(!activate);
+                            if(inventorySlots[5]!=null){
+                                slot5.SetActive(!activate);
+                                if(inventorySlots[6]!=null){
+                                    slot6.SetActive(!activate);
+                                    if(inventorySlots[7]!=null){
+                                        slot7.SetActive(!activate);
+                                        if(inventorySlots[8]!=null){
+                                            slot8.SetActive(!activate);
+                                        }
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+        fixedInventory.SetActive(!activate);
     }
 
 
@@ -340,6 +382,15 @@ public class UIManager : MonoBehaviour
     public void ActivateBlur(bool activate){
         playerRB.isKinematic = activate;
         ppVolume.enabled = activate;
+    }
+
+    public void HideCrossair(){
+        if(crosshair.activeSelf){
+            crosshair.SetActive(false);
+        }
+        else{
+            crosshair.SetActive(true);
+        }
     }
 
 
