@@ -2,33 +2,76 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class UIManager : MonoBehaviour
 {
 
+    PlayerandCameraHolders plandc;
+    
+    [SerializeField] public UnityEngine.UI.Image image0;
+    [SerializeField] public UnityEngine.UI.Image image1;
+    [SerializeField] public UnityEngine.UI.Image image2;
+    [SerializeField] public UnityEngine.UI.Image image3;
+    [SerializeField] public UnityEngine.UI.Image image4;
+    [SerializeField] public UnityEngine.UI.Image image5;
+    [SerializeField] public UnityEngine.UI.Image image6;
+    [SerializeField] public UnityEngine.UI.Image image7;
+    [SerializeField] public UnityEngine.UI.Image image8;
 
-    [SerializeField] public UnityEngine.UI.Image slot0;
-    [SerializeField] public UnityEngine.UI.Image slot1;
-    [SerializeField] public UnityEngine.UI.Image slot2;
-    [SerializeField] public UnityEngine.UI.Image slot3;
-    [SerializeField] public UnityEngine.UI.Image slot4;
-    [SerializeField] public UnityEngine.UI.Image slot5;
-    [SerializeField] public UnityEngine.UI.Image slot6;
-    [SerializeField] public UnityEngine.UI.Image slot7;
-    [SerializeField] public UnityEngine.UI.Image slot8;
+    public GameObject fixedInventory;
+
+    public GameObject slot0;
+
+    public GameObject slot1;
+
+    public GameObject slot2;
+
+    public GameObject slot3;
+
+    public GameObject slot4;
+
+    public GameObject slot5;
+
+    public GameObject slot6;
+
+    public GameObject slot7;
+
+    public GameObject slot8;
+
+    public GameObject hud;
 
     public GameObject inspectionMenu;
     public TMP_Text gameObjectName;
+
+    public GameObject notePad;
+
+    public GameObject crosshair;
+
+    public Texture2D cursorClose;
+
+
+
+    private PostProcessVolume ppVolume;
+
+    private  Rigidbody playerRB;
 
     Color32 current;
 
     Color32 empty;
 
+    InventoryManager inventoryManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        plandc = GetComponent<PlayerandCameraHolders>();
         current = new Color32(255,145,145,255);
         empty = new Color32(255,145,145,0);
+        ppVolume = plandc.Camera.GetComponent<PostProcessVolume>();
+        playerRB = plandc.Player.GetComponent<Rigidbody>();
+        inventoryManager = gameObject.GetComponent<InventoryManager>();
+        
     }
 
     // Update is called once per frame
@@ -37,183 +80,213 @@ public class UIManager : MonoBehaviour
         
     }
 
+    public void ChangeCursor(string cursor){
+        if(cursor=="close"){
+            Cursor.SetCursor(cursorClose, Vector2.zero, CursorMode.ForceSoftware);
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else if(cursor=="locked"){
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+    }
+
     public void clearSlots(GameObject[] inventorySlots){
         if (inventorySlots[0]== null){
-            slot0.sprite = null;
+            image0.sprite = null;
+            slot0.SetActive(false);
         }
         if (inventorySlots[1]== null){
-            slot1.sprite = null;
+            image1.sprite = null;
+            slot1.SetActive(false);
         }
         if (inventorySlots[2]== null){
-            slot2.sprite = null;
+            image2.sprite = null;
+            slot2.SetActive(false);
         }
         if (inventorySlots[3]== null){
-            slot3.sprite = null;
+            image3.sprite = null;
+            slot3.SetActive(false);
         }
         if (inventorySlots[4]== null){
-            slot4.sprite = null;
+            image4.sprite = null;
+            slot4.SetActive(false);
         }
         if (inventorySlots[5]== null){
-            slot5.sprite = null;
+            image5.sprite = null;
+            slot5.SetActive(false);
         }
         if (inventorySlots[6]== null){
-            slot6.sprite = null;
+            image6.sprite = null;
+            slot6.SetActive(false);
         }
         if (inventorySlots[7]== null){
-            slot7.sprite = null;
+            image7.sprite = null;
+            slot7.SetActive(false);
         }
         if (inventorySlots[8]== null){
-            slot8.sprite = null;
+            image8.sprite = null;
+            slot8.SetActive(false);
         }
     }
 
     public void CheckCurrentObject(int currentItem){
-        if (slot0.sprite != null){
+        if (image0.sprite != null){
             if(currentItem == 0){
-                slot0.color = current;
+                image0.color = current;
             }
             else{ 
-                slot0.color = Color.white;
+                image0.color = Color.white;
             }
         }
         else{
-            slot0.color = empty;
+            image0.color = empty;
         }
-        if (slot1.sprite != null){
+        if (image1.sprite != null){
             if(currentItem == 1){
-                slot1.color = current;
+                image1.color = current;
             }
             else{ 
-                slot1.color = Color.white;
+                image1.color = Color.white;
             }
         }
         else{
-            slot1.color = empty;
+            image1.color = empty;
         }
-        if (slot2.sprite != null){
+        if (image2.sprite != null){
             if(currentItem == 2){
-                slot2.color = current;
+                image2.color = current;
             }
             else{ 
-                slot2.color = Color.white;
+                image2.color = Color.white;
             }
         }
         else{
-            slot2.color = empty;
+            image2.color = empty;
         }
-        if (slot3.sprite != null){
+        if (image3.sprite != null){
             if(currentItem == 3){
-                slot3.color = current;
+                image3.color = current;
             }
             else{ 
-                slot3.color = Color.white;
+                image3.color = Color.white;
             }
         }
         else{
-            slot3.color = empty;
+            image3.color = empty;
         }
-        if (slot4.sprite != null){
+        if (image4.sprite != null){
             if(currentItem == 4){
-                slot4.color = current;
+                image4.color = current;
             }
             else{ 
-                slot4.color = Color.white;
+                image4.color = Color.white;
             }
         }
         else{
-            slot4.color = empty;
+            image4.color = empty;
         }
-        if (slot5.sprite != null){
+        if (image5.sprite != null){
             if(currentItem == 5){
-                slot5.color = current;
+                image5.color = current;
             }
             else{ 
-                slot5.color = Color.white;
+                image5.color = Color.white;
             }
         }
         else{
-            slot5.color = empty;
+            image5.color = empty;
         }
-        if (slot6.sprite != null){
+        if (image6.sprite != null){
             if(currentItem == 6){
-                slot6.color = current;
+                image6.color = current;
             }
             else{ 
-                slot6.color = Color.white;
+                image6.color = Color.white;
             }
         }
         else{
-            slot6.color = empty;
+            image6.color = empty;
         }
-        if (slot7.sprite != null){
+        if (image7.sprite != null){
             if(currentItem == 7){
-                slot7.color = current;
+                image7.color = current;
             }
             else{ 
-                slot7.color = Color.white;
+                image7.color = Color.white;
             }
         }
         else{
-            slot7.color = empty;
+            image7.color = empty;
         }
-        if (slot8.sprite != null){
+        if (image8.sprite != null){
             if(currentItem == 8){
-                slot8.color = current;
+                image8.color = current;
             }
             else{ 
-                slot8.color = Color.white;
+                image8.color = Color.white;
             }
         }
         else{
-            slot8.color = empty;
+            image8.color = empty;
         }
     }
 
     public void LoadObjectImages(GameObject[] inventorySlots){
         if(inventorySlots[0] != null){
+            slot0.SetActive(value: true);
             var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[0]);
             var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
-            slot0.sprite = mySprite;
+            image0.sprite = mySprite;
         }
         if(inventorySlots[1] != null){
+            slot1.SetActive(value: true);
             var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[1]);
             var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
-            slot1.sprite = mySprite;
+            image1.sprite = mySprite;
         }
         if(inventorySlots[2] != null){
+            slot2.SetActive(value: true);
             var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[2]);
             var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
-            slot2.sprite = mySprite;
+            image2.sprite = mySprite;
         }
         if(inventorySlots[3] != null){
+            slot3.SetActive(value: true);
             var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[3]);
             var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
-            slot3.sprite = mySprite;
+            image3.sprite = mySprite;
         }
         if(inventorySlots[4] != null){
+            slot4.SetActive(value: true);
             var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[4]);
             var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
-            slot4.sprite = mySprite;
+            image4.sprite = mySprite;
         }
         if(inventorySlots[5] != null){
+            slot5.SetActive(value: true);
             var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[5]);
             var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
-            slot5.sprite = mySprite;
+            image5.sprite = mySprite;
         }
         if(inventorySlots[6] != null){
+            slot6.SetActive(value: true);
             var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[6]);
             var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
-            slot6.sprite = mySprite;
+            image6.sprite = mySprite;
         }
         if(inventorySlots[7] != null){
+            slot7.SetActive(value: true);
             var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[7]);
             var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
-            slot7.sprite = mySprite;
+            image7.sprite = mySprite;
         }
         if(inventorySlots[8] != null){
+            slot8.SetActive(value: true);
             var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[8]);
             var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
-            slot8.sprite = mySprite;
+            image8.sprite = mySprite;
         }
     }
 
@@ -238,8 +311,86 @@ public class UIManager : MonoBehaviour
         gameObjectName.text = go.name;
     }
 
+    public void UpdateInspectionMenu(GameObject go){
+        if(go!=null){
+            gameObjectName.text = go.name;
+        }   
+    }
+
+    public void ActivateNotePad(bool activate){
+        ActivateBlur(activate);
+        notePad.SetActive(activate);
+        HideActiveSlotsandFixesSlots(activate);
+        HideCrossair();
+        if(activate){
+            ChangeCursor("close");
+        }
+        else{
+            ChangeCursor("locked");
+        }
+    }
+
+    public void HideActiveSlotsandFixesSlots(bool activate){
+        GameObject[] inventorySlots = inventoryManager.GetAllItems();
+        if(inventorySlots[0]!=null){
+            slot0.SetActive(!activate);
+            if(inventorySlots[1]!=null){
+                slot1.SetActive(!activate);
+                if(inventorySlots[2]!=null){
+                    slot2.SetActive(!activate);
+                    if(inventorySlots[3]!=null){
+                        slot3.SetActive(!activate);
+                        if(inventorySlots[4]!=null){
+                            slot4.SetActive(!activate);
+                            if(inventorySlots[5]!=null){
+                                slot5.SetActive(!activate);
+                                if(inventorySlots[6]!=null){
+                                    slot6.SetActive(!activate);
+                                    if(inventorySlots[7]!=null){
+                                        slot7.SetActive(!activate);
+                                        if(inventorySlots[8]!=null){
+                                            slot8.SetActive(!activate);
+                                        }
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+        fixedInventory.SetActive(!activate);
+    }
+
+
+
     public void DeactivateInspectionMenu(){
         inspectionMenu.SetActive(false);
+    }
+
+    public void HideUI(bool hide){
+        if(hide){
+            hud.SetActive(false);
+        }
+        else{
+            hud.SetActive(true);
+        }
+    }
+
+
+    public void ActivateBlur(bool activate){
+        playerRB.isKinematic = activate;
+        ppVolume.enabled = activate;
+    }
+
+    public void HideCrossair(){
+        if(crosshair.activeSelf){
+            crosshair.SetActive(false);
+        }
+        else{
+            crosshair.SetActive(true);
+        }
     }
 
 

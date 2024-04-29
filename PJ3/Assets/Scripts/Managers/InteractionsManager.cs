@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -6,7 +7,9 @@ using UnityEngine;
 
 // Every interactable object has to have this interface implemented
 interface IInteractable{
-    public void Interact();
+
+    
+    public bool Interact(GameObject currentObj);
 }
 
 public class InteractionsManager : MonoBehaviour
@@ -17,7 +20,7 @@ public class InteractionsManager : MonoBehaviour
     // distance to which he can interact
     public float interactRange;
 
-    public Camera cam;
+    private Camera cam;
 
     public Transform holdPos;
 
@@ -29,11 +32,15 @@ public class InteractionsManager : MonoBehaviour
 
     InventoryManager inventoryManager;
 
+    CameraSwitcher cameraSwitcher;
     void Start(){
         inventoryManager = gameObject.GetComponent<InventoryManager>();
+        cameraSwitcher = gameObject.GetComponent<CameraSwitcher>();
+        cam = cameraSwitcher.GetCurrentCamera().GetComponent<Camera>();
     }
 
     void Update(){
+        cam = cameraSwitcher.GetCurrentCamera().GetComponent<Camera>();
         //keep object position the same as the holdPosition position
         if (heldObj != null){
             heldObj.transform.position = holdPos.transform.position;
@@ -47,8 +54,19 @@ public class InteractionsManager : MonoBehaviour
         // If the ray catches anything in the range, it will try to interact with it
         if (Physics.Raycast(r, out RaycastHit hitInfo, interactRange)){
             if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)){
-                interactObj.Interact();
-            }
+                if(inventoryManager.GetCurrentItem()!=null){
+                    if(interactObj.Interact(inventoryManager.GetCurrentItem()) == true){
+                        ClearHeldObj();
+                        inventoryManager.ClearItem();
+                    }                    
+                }
+                else{
+                    if(interactObj.Interact(currentObj: null)==true){
+                        ClearHeldObj();
+                        inventoryManager.ClearItem();
+                    }
+                }
+            }            
         }
     }
 
@@ -63,7 +81,7 @@ public class InteractionsManager : MonoBehaviour
             // if (hitInfo.collider.gameObject.TryGetComponent(out GameObject interactObj))
             // {
             //pass in object hit into the PickUpObject function
-            if (interactObj.GetComponent<Rigidbody>()) //make sure the object has a RigidBody
+            if (interactObj.GetComponent<Rigidbody>() && interactObj.tag == "Pickable") //make sure the object has a RigidBody
             {
                 inventoryManager.AddItem(interactObj);
                 //HoldObject(interactObj);
@@ -106,6 +124,15 @@ public class InteractionsManager : MonoBehaviour
         }
     }
 
+    public void CloseUpInteraction(){
+        Ray r = cam.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(r, out RaycastHit hitInfo, interactRange)){
+            if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)){
+                interactObj.Interact(null);
+            }
+        }
+    }
+
     public void Droping(){
         if (heldObj != null){
             var clipRange = Vector3.Distance(heldObj.transform.position, transform.position); //distance from holdPos to the camera
@@ -136,5 +163,10 @@ public class InteractionsManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void ClearHeldObj(){
+        //heldObj.SetActive(false);
+        heldObj = null;
     }
 }

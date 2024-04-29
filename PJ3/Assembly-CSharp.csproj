@@ -40,17 +40,28 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.10f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Objects\Bookshelf.cs" />
+     <Compile Include="Assets\Scripts\Managers\HelpsManager.cs" />
+     <Compile Include="Assets\Scripts\Objects\SafeNumbers.cs" />
+     <Compile Include="Assets\Scripts\Objects\Painting.cs" />
+     <Compile Include="Assets\Scripts\Objects\Globe.cs" />
      <Compile Include="Assets\Scripts\Managers\InspectionManager.cs" />
      <Compile Include="Assets\Scripts\Managers\InventoryManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerCam.cs" />
-     <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
+     <Compile Include="Assets\Scripts\Objects\Book.cs" />
+     <Compile Include="Assets\Scripts\Objects\Safe.cs" />
+     <Compile Include="Assets\Scripts\Managers\LanternManager.cs" />
+     <Compile Include="Assets\Scripts\Objects\AutoFlip.cs" />
+     <Compile Include="Assets\Scripts\Objects\NotePad.cs" />
      <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\CameraSwitcher.cs" />
      <Compile Include="Assets\Scripts\Managers\InteractionsManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\PlayerandCameraHolders.cs" />
      <Compile Include="Assets\Scripts\Player\MoveCamera.cs" />
      <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
+     <Compile Include="Assets\Scripts\Objects\PaintingSpot.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
-     <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
-     <Compile Include="Assets\Scripts\Objects\Gun1.cs" />
+     <Compile Include="Assets\Scripts\Managers\PuzzlesManager.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

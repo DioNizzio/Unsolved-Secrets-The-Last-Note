@@ -56,8 +56,10 @@ public class InventoryManager : MonoBehaviour
 
     public void ClearItem(){
         inventorySlots[currentItem] = null;
+        ReSortItems();
         uIManager.clearSlots(inventorySlots);
         uIManager.CheckCurrentObject(currentItem);
+        holdCurrentObject(inventorySlots[currentItem]);
         
     }
 
@@ -102,4 +104,26 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+
+    public void ReSortItems(){
+        for(int i = 0; i < inventorySlots.Length;i++){
+            if (inventorySlots[i]==null){
+                for(int k = 0; k < inventorySlots.Length-1;k++){
+                    if(k>=i){
+                        inventorySlots[k] = inventorySlots[k+1];
+                    }
+                }
+                inventorySlots[^1] = null;
+                
+            }
+        }
+        if(inventorySlots[currentItem]==null && currentItem>0){
+            currentItem--;
+        }
+    }
+
+
+    public GameObject[] GetAllItems(){
+        return inventorySlots;
+    }
 }

@@ -34,5 +34,6 @@ public class MoveCamera : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(rotateX, rotateY, 0);
         orientation.rotation = Quaternion.Euler(0,rotateY,0);
+        
     }
 }

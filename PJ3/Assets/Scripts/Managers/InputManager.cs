@@ -8,9 +8,11 @@ public class InputManager : MonoBehaviour
     public GameObject player;
     PlayerMovement playerMove;
 
-    public Camera Cam;
+    public GameObject Cam;
+    public GameObject Cam2;
 
     MoveCamera moveCamera;
+    MoveCamera moveCamera2;
 
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode crouchKey = KeyCode.C;
@@ -26,6 +28,8 @@ public class InputManager : MonoBehaviour
 
     public KeyCode exitKey = KeyCode.Escape;
 
+    public KeyCode lanternKey = KeyCode.V;
+
 
     InteractionsManager interactionsManager;
 
@@ -35,15 +39,22 @@ public class InputManager : MonoBehaviour
 
     UIManager uIManager;
 
+    CameraSwitcher cameraSwitcher;
+
+    LanternManager lanternManager;
+
     // Start is called before the first frame update
     void Start()
     {
         playerMove = player.GetComponent<PlayerMovement>();
-        moveCamera = Cam.GetComponent<MoveCamera>();
+        moveCamera = Cam.GetComponent<Camera>().GetComponent<MoveCamera>();
+        moveCamera2 = Cam2.GetComponent<Camera>().GetComponent<MoveCamera>();
         interactionsManager = gameObject.GetComponent<InteractionsManager>();
         inventoryManager = gameObject.GetComponent<InventoryManager>();
         inspectionManager = gameObject.GetComponent<InspectionManager>();
         uIManager = gameObject.GetComponent<UIManager>();
+        cameraSwitcher = gameObject.GetComponent<CameraSwitcher>();
+        lanternManager = gameObject.GetComponent<LanternManager>();
     }
 
     // Update is called once per frame
@@ -56,7 +67,15 @@ public class InputManager : MonoBehaviour
         }
         //Cam Rotation
         if((Input.GetAxisRaw("Mouse X")!=0f||Input.GetAxisRaw("Mouse Y")!=0f) && inspectionManager.IsInspecting() == false){
-            moveCamera.CameraRotation(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+            if (Cam.activeSelf==true && uIManager.notePad.activeSelf == false){
+                Debug.Log("Cam1");
+                moveCamera.CameraRotation(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+            }
+            // else if(Cam2.activeSelf==true){
+            //     Debug.Log("Cam2");
+            //     moveCamera2.CameraRotation(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+            // }
+            
         }
         //Jumping
         if(Input.GetKey(jumpKey)){
@@ -71,11 +90,19 @@ public class InputManager : MonoBehaviour
             playerMove.UncrouchPlayer();
         }
         //Interacting with objects
-        if(Input.GetKeyDown(interactKey)){
+        if(Input.GetKeyDown(interactKey) && !lanternManager.IsUsingLantern()){
             interactionsManager.Interaction();
         }
+        if(Input.GetMouseButtonDown(0)){
+            if(Cursor.lockState == CursorLockMode.Locked){
+                interactionsManager.Interaction();
+            }
+            else{
+                interactionsManager.CloseUpInteraction();
+            }
+        }
         // Pick-Up Objects
-        if(Input.GetKeyDown(pickupKey)){
+        if(Input.GetKeyDown(pickupKey) && !lanternManager.IsUsingLantern()){
             interactionsManager.Picking_Up();
         }
         // Drop Object
@@ -89,6 +116,7 @@ public class InputManager : MonoBehaviour
                 //inspectionManager.ExitInspection();
                 inspectionManager.InspectItem(inventoryManager.GetCurrentItem());
                 uIManager.CheckCurrentObject(inventoryManager.GetCurrentItemInt());
+                uIManager.UpdateInspectionMenu(inventoryManager.GetCurrentItem());
             }else{
                 inventoryManager.NextItem();
             }
@@ -100,6 +128,7 @@ public class InputManager : MonoBehaviour
                 //inspectionManager.ExitInspection();
                 inspectionManager.InspectItem(inventoryManager.GetCurrentItem());
                 uIManager.CheckCurrentObject(inventoryManager.GetCurrentItemInt());
+                uIManager.UpdateInspectionMenu(inventoryManager.GetCurrentItem());
             }else{
                 inventoryManager.LastItem();
             }
@@ -111,10 +140,28 @@ public class InputManager : MonoBehaviour
         }
 
         // Exit Inspection
-        if(Input.GetKeyDown(exitKey) && inspectionManager.IsInspecting() == true){
-            inspectionManager.ExitInspection();
-            uIManager.DeactivateInspectionMenu();
-            interactionsManager.HoldObject(inventoryManager.GetCurrentItem());
+        if(Input.GetKeyDown(exitKey) ){
+            if(inspectionManager.IsInspecting() == true){
+                inspectionManager.ExitInspection();
+                uIManager.DeactivateInspectionMenu();
+                interactionsManager.HoldObject(inventoryManager.GetCurrentItem());
+            }
+            if(Cam2.activeSelf==true){
+                cameraSwitcher.safe.GetComponent<Safe>().cameraActive = false;
+                cameraSwitcher.safe.GetComponent<Safe>().GetComponent<BoxCollider>().enabled = true;
+            }
+            if(uIManager.notePad.activeSelf == true){
+                uIManager.ActivateNotePad(false);
+            }
+            
+        }
+
+        if(Input.GetKeyDown(KeyCode.Tab) && !lanternManager.IsUsingLantern()){
+            uIManager.ActivateNotePad(true);
+        }
+
+        if(Input.GetKeyDown(lanternKey)){
+            lanternManager.ActivateLantern();
         }
     }
 }
