@@ -42,6 +42,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Objects\Bookshelf.cs" />
      <Compile Include="Assets\Scripts\Managers\HelpsManager.cs" />
+     <Compile Include="Assets\Scripts\Objects\Clock.cs" />
      <Compile Include="Assets\Scripts\Objects\SafeNumbers.cs" />
      <Compile Include="Assets\Scripts\Objects\Painting.cs" />
      <Compile Include="Assets\Scripts\Objects\Globe.cs" />
@@ -49,7 +50,10 @@
      <Compile Include="Assets\Scripts\Managers\InventoryManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerCam.cs" />
      <Compile Include="Assets\Scripts\Objects\Book.cs" />
+     <Compile Include="Assets\Scripts\Objects\ClockDoor.cs" />
      <Compile Include="Assets\Scripts\Objects\Safe.cs" />
+     <Compile Include="Assets\Scripts\Objects\ClockBells.cs" />
+     <Compile Include="Assets\Scripts\Objects\MusicBox.cs" />
      <Compile Include="Assets\Scripts\Managers\LanternManager.cs" />
      <Compile Include="Assets\Scripts\Objects\AutoFlip.cs" />
      <Compile Include="Assets\Scripts\Objects\NotePad.cs" />

@@ -9,8 +9,12 @@ public class CameraSwitcher : MonoBehaviour
 
     public GameObject safeCamera;
 
+    public GameObject clockCamera;
+
     public GameObject safe;
-    private bool mainActivated;
+
+    public GameObject clock;
+    private string cameraActivated;
 
     UIManager uIManager;
 
@@ -27,10 +31,19 @@ public class CameraSwitcher : MonoBehaviour
     }
 
     public void SwitchCameras(){
-        mainActivated = !safe.GetComponent<Safe>().cameraActive;
-        if(mainActivated == true){
+        if(safe.GetComponent<Safe>().cameraActive){
+            cameraActivated = "safe";
+        }
+        else if(clock.GetComponent<Clock>().cameraActive){
+            cameraActivated = "clock";
+        }
+        else{
+            cameraActivated = "main";
+        }
+        if(cameraActivated.Contains("main")){
             mainCamera.SetActive(true);
             safeCamera.SetActive(false);
+            clockCamera.SetActive(false);
             uIManager.HideUI(false);
             if(uIManager.notePad.activeSelf==true){
                 uIManager.ChangeCursor("close");
@@ -39,11 +52,28 @@ public class CameraSwitcher : MonoBehaviour
                 uIManager.ChangeCursor("locked");
             }
         }
-        else if(mainActivated == false){    
+        else if(cameraActivated.Contains("safe")){    
             mainCamera.SetActive(false);
             safeCamera.SetActive(true);
+            clockCamera.SetActive(false);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
+        }
+        else if(cameraActivated.Contains("clock")){
+            mainCamera.SetActive(false);
+            safeCamera.SetActive(false);
+            clockCamera.SetActive(true);
+            uIManager.ChangeCursor("close");
+            uIManager.HideUI(true);
+        }
+    }
+
+    public void ExitCurrentCamera(){
+        if(safeCamera.activeSelf==true){
+            safe.GetComponent<Safe>().ExitCameraSafe();
+        }
+        else if(clockCamera.activeSelf==true){
+            clock.GetComponent<Clock>().ExitCameraClock();
         }
     }
 
@@ -53,6 +83,9 @@ public class CameraSwitcher : MonoBehaviour
         }
         else if(safeCamera.activeSelf==true){
             return safeCamera;
+        }
+        else if(clockCamera.activeSelf==true){
+            return clockCamera;
         }
         return null;
     }

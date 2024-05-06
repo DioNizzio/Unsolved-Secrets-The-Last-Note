@@ -30,6 +30,8 @@ public class InputManager : MonoBehaviour
 
     public KeyCode lanternKey = KeyCode.V;
 
+    public KeyCode helpKey = KeyCode.H;
+
 
     InteractionsManager interactionsManager;
 
@@ -43,6 +45,8 @@ public class InputManager : MonoBehaviour
 
     LanternManager lanternManager;
 
+    HelpsManager helpsManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +59,7 @@ public class InputManager : MonoBehaviour
         uIManager = gameObject.GetComponent<UIManager>();
         cameraSwitcher = gameObject.GetComponent<CameraSwitcher>();
         lanternManager = gameObject.GetComponent<LanternManager>();
+        helpsManager = gameObject.GetComponent<HelpsManager>();
     }
 
     // Update is called once per frame
@@ -146,9 +151,8 @@ public class InputManager : MonoBehaviour
                 uIManager.DeactivateInspectionMenu();
                 interactionsManager.HoldObject(inventoryManager.GetCurrentItem());
             }
-            if(Cam2.activeSelf==true){
-                cameraSwitcher.safe.GetComponent<Safe>().cameraActive = false;
-                cameraSwitcher.safe.GetComponent<Safe>().GetComponent<BoxCollider>().enabled = true;
+            if(Cam.activeSelf==false){
+                cameraSwitcher.ExitCurrentCamera();
             }
             if(uIManager.notePad.activeSelf == true){
                 uIManager.ActivateNotePad(false);
@@ -163,5 +167,10 @@ public class InputManager : MonoBehaviour
         if(Input.GetKeyDown(lanternKey)){
             lanternManager.ActivateLantern();
         }
+
+        if(Input.GetKeyDown(helpKey)){
+            helpsManager.AskForHelp();
+        }
+
     }
 }

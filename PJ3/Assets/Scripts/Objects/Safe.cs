@@ -41,11 +41,22 @@ public class Safe : MonoBehaviour, IInteractable
         return false;
     }
 
-    public void PlayAnimations(){
-        trincos.GetComponent<Animator>().SetTrigger("RightCode");
-        handle.GetComponent<Animator>().SetTrigger("RightCode");
-        door.GetComponent<Animator>().SetTrigger("RightCode");
-        hideNums = true;
+    public void PlayAnimations(bool right){
+        if (right){
+            trincos.GetComponent<Animator>().SetTrigger("RightCode");
+            handle.GetComponent<Animator>().SetTrigger("RightCode");
+            door.GetComponent<Animator>().SetTrigger("RightCode");
+            hideNums = true;
+        }
+        else{
+            handle.GetComponent<Animator>().SetTrigger("WrongCode");
+        }
+        
+    }
+
+    public void ExitCameraSafe(){
+        cameraActive = false;
+        GetComponent<BoxCollider>().enabled = true;
     }
 
 

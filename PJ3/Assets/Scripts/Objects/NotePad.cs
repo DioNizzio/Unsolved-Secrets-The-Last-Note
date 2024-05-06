@@ -11,6 +11,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Linq;
+using System.Collections.Generic;
 public enum FlipMode
 {
     RightToLeft,
@@ -23,7 +24,6 @@ public class NotePad : MonoBehaviour {
     RectTransform BookPanel;
     public Sprite background;
 
-    public Sprite myImageK;
     public Sprite[] bookPages;
     public bool interactable=true;
     public bool enableShadowEffect=true;
@@ -56,6 +56,14 @@ public class NotePad : MonoBehaviour {
     public Image LeftNext;
     public Image Right;
     public Image RightNext;
+
+    public Sprite books1;
+
+    public Sprite paintings;
+
+    private int currentNotepadPage = 0;
+
+    private Dictionary<string, Sprite> helps = new();
     public UnityEvent OnFlip;
     float radius1, radius2;
     //Spine Bottom
@@ -100,10 +108,9 @@ public class NotePad : MonoBehaviour {
 
         ShadowLTR.rectTransform.sizeDelta = new Vector2(pageWidth, shadowPageHeight);
         ShadowLTR.rectTransform.pivot = new Vector2(0, (pageWidth / 2) / shadowPageHeight);
-        bookPages.Append(myImageK);
-        foreach (var page in bookPages){
-            Debug.Log(page.name);
-        }
+
+        helps.Add("books1", books1);
+        helps.Add("paintings", paintings);
 
     }
 
@@ -440,6 +447,16 @@ public class NotePad : MonoBehaviour {
                 ));
         }
     }
+
+    public void AddNotepadWritings(string code){
+        Debug.Log(code + ":" + helps[code]);
+        if(helps[code]!=null){
+            bookPages[currentNotepadPage] = helps[code];
+            currentNotepadPage++;
+        }
+        UpdateSprites();
+    }
+
     public IEnumerator TweenTo(Vector3 to, float duration, System.Action onFinish)
     {
         int steps = (int)(duration / 0.025f);

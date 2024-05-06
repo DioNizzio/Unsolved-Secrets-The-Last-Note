@@ -19,12 +19,16 @@ public class PuzzlesManager : MonoBehaviour
 
     public Safe safe;
 
+    public Clock clock;
 
-    private bool paintingsSolved;
 
-    private bool bookshelvesSolved;
+    public bool paintingsSolved;
 
-    private bool safeSolved;
+    public bool bookshelvesSolved;
+
+    public bool safeSolved;
+
+    public bool clockBellsSolved;
 
     
 
@@ -38,6 +42,7 @@ public class PuzzlesManager : MonoBehaviour
         paintingsSolved = false;
         bookshelvesSolved = false;
         safeSolved = false;
+        clockBellsSolved = false;
         interactionsManager = gameObject.AddComponent<InteractionsManager>();
         inventoryManager = gameObject.AddComponent<InventoryManager>();
     }
@@ -53,6 +58,9 @@ public class PuzzlesManager : MonoBehaviour
         }
         if(!safeSolved){
             CheckSafeCode();
+        }
+        if(!clockBellsSolved){
+            CheckBellClockSequence();
         }
     }
 
@@ -91,13 +99,20 @@ public class PuzzlesManager : MonoBehaviour
             if(safe.GetCode()=="1712"){
                 Debug.Log("Puzzle Solved!");
                 safeSolved=true;
-                safe.PlayAnimations();
-                //play animations
+                safe.PlayAnimations(true);
             }
             else{
+                safe.PlayAnimations(false);
                 safe.ResetCode();
                 safe.SetNeedsCheck();
             }
+        }
+    }
+
+    public void CheckBellClockSequence(){
+        if(clock.GetBellSequence() == "123"){
+            clock.OpenDrawer();
+            clockBellsSolved = true;
         }
     }
     
