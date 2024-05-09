@@ -21,6 +21,8 @@ public class PuzzlesManager : MonoBehaviour
 
     public Clock clock;
 
+    public Piano piano;
+
 
     public bool paintingsSolved;
 
@@ -30,6 +32,15 @@ public class PuzzlesManager : MonoBehaviour
 
     public bool clockBellsSolved;
 
+    public bool hour1;
+
+    public bool hour2;
+
+    public bool hour3;
+
+    public bool pianoSolved;
+
+    private List<string> pianoSolution;
     
 
     InventoryManager inventoryManager;
@@ -43,6 +54,37 @@ public class PuzzlesManager : MonoBehaviour
         bookshelvesSolved = false;
         safeSolved = false;
         clockBellsSolved = false;
+        hour1 = false;
+        hour2 = false;
+        hour3 = false;
+        pianoSolved = false;
+        pianoSolution = new List<string>
+        {
+            "4g",
+            "4g",
+            "4g#",
+            "4g",
+            "5c",
+            "5b",
+            "4g",
+            "4g",
+            "4g#",
+            "5d",
+            "5c",
+            "4g",
+            "4g",
+            "5g",
+            "5e",
+            "5c",
+            "5b",
+            "4g#",
+            "5f",
+            "5f",
+            "5e",
+            "5c#",
+            "5d",
+            "5c"
+        };
         interactionsManager = gameObject.AddComponent<InteractionsManager>();
         inventoryManager = gameObject.AddComponent<InventoryManager>();
     }
@@ -61,6 +103,12 @@ public class PuzzlesManager : MonoBehaviour
         }
         if(!clockBellsSolved){
             CheckBellClockSequence();
+        }
+        if(!hour1 || !hour2 || !hour3){
+            CheckClockHours();
+        }
+        if(!pianoSolved){
+            CheckPianoKeys();
         }
     }
 
@@ -113,6 +161,42 @@ public class PuzzlesManager : MonoBehaviour
         if(clock.GetBellSequence() == "123"){
             clock.OpenDrawer();
             clockBellsSolved = true;
+        }
+    }
+
+    public void CheckClockHours(){
+        //3:15
+        if(clock.minutes.transform.rotation.z == 15 && clock.hours.transform.rotation.z == 97.5 && hour1 == false){
+            hour1 = true;
+            Debug.Log("Hour1");
+            //play animation
+        }
+        //7:30
+        if(clock.minutes.transform.rotation.z == -75 && clock.hours.transform.rotation.z == -165 && hour2 == false){
+            hour2 = true;
+            Debug.Log("Hour2");
+            // play animation
+        }
+        //23:45
+        if (clock.minutes.transform.rotation.z == -165 && clock.hours.transform.rotation.z == -7.5 && hour3 == false){
+            hour3 = true;
+            Debug.Log("Hour3");
+            //play animation
+        }
+    }
+
+    public void CheckPianoKeys(){
+        var pianoNotes = piano.GetPianoNotes();
+        for(int i = 0;i<pianoNotes.Count;i++){
+            //Debug.Log(pianoNotes[i].ToString());
+            if(pianoNotes[i]!=pianoSolution[i]){
+                piano.ResetPianoNotes();
+                break;
+            }
+        }
+        if(pianoNotes.SequenceEqual(pianoSolution)){
+            pianoSolved=true;
+            piano.OpenDrawer();
         }
     }
     

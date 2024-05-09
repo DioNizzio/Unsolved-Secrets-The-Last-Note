@@ -32,6 +32,12 @@ public class InputManager : MonoBehaviour
 
     public KeyCode helpKey = KeyCode.H;
 
+    public KeyCode rotateRightKey = KeyCode.RightArrow;
+
+    public KeyCode rotateLeftKey = KeyCode.LeftArrow;
+
+    public Clock clock;
+
 
     InteractionsManager interactionsManager;
 
@@ -171,6 +177,13 @@ public class InputManager : MonoBehaviour
         if(Input.GetKeyDown(helpKey)){
             helpsManager.AskForHelp();
         }
+        if (Input.GetKeyDown(rotateRightKey)){
+            clock.RotateHands(1);
+        }
+        if (Input.GetKeyDown(key: rotateLeftKey)){
+            clock.RotateHands(-1);
+        }
+
 
     }
 }

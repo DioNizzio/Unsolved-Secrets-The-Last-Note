@@ -9,6 +9,9 @@ public class Clock : MonoBehaviour, IInteractable
     private string bellSequence;
 
     public GameObject drawer;
+
+    public ClockHands hours;
+    public ClockHands minutes;
     
 
     // Start is called before the first frame update
@@ -45,5 +48,10 @@ public class Clock : MonoBehaviour, IInteractable
 
     public void OpenDrawer(){
         drawer.GetComponent<Animator>().SetTrigger("OpenGaveta");
+    }
+
+    public void RotateHands(int angle){
+        hours.Rotate(angle);
+        minutes.Rotate(angle);
     }
 }
