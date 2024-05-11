@@ -56,6 +56,7 @@ public class InteractionsManager : MonoBehaviour
             if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)){
                 if(inventoryManager.GetCurrentItem()!=null){
                     if(interactObj.Interact(inventoryManager.GetCurrentItem()) == true){
+                        heldObj.SetActive(false);
                         ClearHeldObj();
                         inventoryManager.ClearItem();
                     }                    

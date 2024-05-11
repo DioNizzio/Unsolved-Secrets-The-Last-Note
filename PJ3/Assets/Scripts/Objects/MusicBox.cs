@@ -18,7 +18,7 @@ public class MusicBox : MonoBehaviour, IInteractable
     // Update is called once per frame
     public bool Interact(GameObject currentObj)
     {
-        GetComponent<Animator>().SetTrigger("OpenBox");
+        transform.parent.GetComponent<Animator>().SetTrigger("OpenBox");
         door.GetComponent<Animator>().SetTrigger("OpenBox");
         drawer.GetComponent<Animator>().SetTrigger("OpenBox");
         return false;

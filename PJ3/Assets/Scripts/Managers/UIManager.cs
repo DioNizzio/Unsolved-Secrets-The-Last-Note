@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -46,9 +48,18 @@ public class UIManager : MonoBehaviour
 
     public GameObject notePad;
 
+    public TMP_Text dialogueText;
+
+    public GameObject dialogueMenu;
+
     public GameObject crosshair;
 
     public Texture2D cursorClose;
+
+
+    
+
+    private List<string> textToShow;
 
 
 
@@ -62,6 +73,10 @@ public class UIManager : MonoBehaviour
 
     InventoryManager inventoryManager;
 
+    private float time;
+
+    private bool firstDialogue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,12 +86,34 @@ public class UIManager : MonoBehaviour
         ppVolume = plandc.Camera.GetComponent<PostProcessVolume>();
         playerRB = plandc.Player.GetComponent<Rigidbody>();
         inventoryManager = gameObject.GetComponent<InventoryManager>();
-        
+        textToShow = new List<string>();
+        time = Time.deltaTime;
+        firstDialogue = true;      
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(textToShow.Count>0){
+            time+=Time.deltaTime;
+            if(time>10){
+                time=0;
+                ChangeCurrentDialogue();
+            }
+        }
+        else{
+            if(dialogueMenu==null){
+                time=0;
+            }else{
+                time+=Time.deltaTime;
+                if(time>10 && dialogueMenu!=null){
+                    time=0;
+                    ResetDialogue();    
+                }
+            }
+            
+
+        }
         
     }
 
@@ -390,6 +427,36 @@ public class UIManager : MonoBehaviour
         }
         else{
             crosshair.SetActive(true);
+        }
+    }
+
+    public void ShowDialogue(string s){
+        if(s.Length/120>1){
+            textToShow.Add(s[..120]);
+            s.Remove(0,120);
+            ShowDialogue(s);
+        }
+        else{
+            textToShow.Add(s);
+        }
+        if(firstDialogue){
+            ChangeCurrentDialogue();
+        }
+
+    }
+
+    public void ChangeCurrentDialogue(){
+        if(textToShow.Count>0){
+            dialogueMenu.SetActive(true);
+            dialogueText.text = textToShow[0];
+            textToShow.RemoveAt(0);
+        }
+    }
+
+    public void ResetDialogue(){
+        if(dialogueMenu.activeSelf==true){
+            dialogueText.text = "";
+            dialogueMenu.SetActive(false);
         }
     }
 

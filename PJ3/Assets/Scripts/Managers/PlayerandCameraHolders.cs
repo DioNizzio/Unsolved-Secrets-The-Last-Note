@@ -8,15 +8,7 @@ public class PlayerandCameraHolders : MonoBehaviour
     public GameObject Player;
     public GameObject Camera;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void PlayerCanMove(bool move){
+        Player.GetComponent<Rigidbody>().isKinematic = !move;
     }
 }

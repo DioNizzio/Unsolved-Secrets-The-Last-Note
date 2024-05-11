@@ -22,10 +22,13 @@ public class CameraSwitcher : MonoBehaviour
 
     UIManager uIManager;
 
+    PlayerandCameraHolders playerandCameraHolders;
+
     // Start is called before the first frame update
     void Start()
     {
         uIManager = GetComponent<UIManager>();
+        playerandCameraHolders = gameObject.GetComponent<PlayerandCameraHolders>();
     }
 
     // Update is called once per frame
@@ -67,6 +70,7 @@ public class CameraSwitcher : MonoBehaviour
             pianoCamera.SetActive(false);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
+            playerandCameraHolders.PlayerCanMove(false);
         }
         else if(cameraActivated.Contains("clock")){
             mainCamera.SetActive(false);
@@ -75,6 +79,7 @@ public class CameraSwitcher : MonoBehaviour
             pianoCamera.SetActive(false);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
+            playerandCameraHolders.PlayerCanMove(false);
         }
         else if(cameraActivated.Contains(value: "piano")){
             mainCamera.SetActive(false);
@@ -83,10 +88,12 @@ public class CameraSwitcher : MonoBehaviour
             pianoCamera.SetActive(true);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
+            playerandCameraHolders.PlayerCanMove(false);
         }
     }
 
     public void ExitCurrentCamera(){
+        playerandCameraHolders.PlayerCanMove(move: true);
         if(safeCamera.activeSelf==true){
             safe.GetComponent<Safe>().ExitCameraSafe();
         }

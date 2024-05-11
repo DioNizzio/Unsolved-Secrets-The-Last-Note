@@ -46,6 +46,12 @@ public class PuzzlesManager : MonoBehaviour
     InventoryManager inventoryManager;
 
     InteractionsManager interactionsManager;
+
+    VisionsManager visionsManager;
+
+    UIManager uIManager;
+
+    CameraSwitcher cameraSwitcher;
     
     // Start is called before the first frame update
     void Start()
@@ -85,8 +91,11 @@ public class PuzzlesManager : MonoBehaviour
             "5d",
             "5c"
         };
-        interactionsManager = gameObject.AddComponent<InteractionsManager>();
-        inventoryManager = gameObject.AddComponent<InventoryManager>();
+        interactionsManager = gameObject.GetComponent<InteractionsManager>();
+        inventoryManager = gameObject.GetComponent<InventoryManager>();
+        visionsManager = gameObject.GetComponent<VisionsManager>();
+        uIManager = gameObject.GetComponent<UIManager>();
+        cameraSwitcher = gameObject.GetComponent<CameraSwitcher>();
     }
 
     // Update is called once per frame
@@ -148,6 +157,9 @@ public class PuzzlesManager : MonoBehaviour
                 Debug.Log("Puzzle Solved!");
                 safeSolved=true;
                 safe.PlayAnimations(true);
+                cameraSwitcher.ExitCurrentCamera();
+                uIManager.ShowDialogue("Wow, I managed to crack the code, that's crazy let's goooooooo");
+                
             }
             else{
                 safe.PlayAnimations(false);
@@ -166,29 +178,25 @@ public class PuzzlesManager : MonoBehaviour
 
     public void CheckClockHours(){
         //3:15
-        if(clock.minutes.transform.rotation.z == 15 && clock.hours.transform.rotation.z == 97.5 && hour1 == false){
+        if(clock.minutes.transform.parent.eulerAngles.z > 14 && clock.minutes.transform.parent.eulerAngles.z < 16 && clock.hours.transform.parent.eulerAngles.z > 96 && clock.hours.transform.parent.eulerAngles.z < 98 && hour1 == false){
             hour1 = true;
-            Debug.Log("Hour1");
-            //play animation
+            visionsManager.ShowImage("hour1");
         }
         //7:30
-        if(clock.minutes.transform.rotation.z == -75 && clock.hours.transform.rotation.z == -165 && hour2 == false){
+        if(clock.minutes.transform.parent.eulerAngles.z == -75 && clock.hours.transform.parent.eulerAngles.z < -164 && clock.hours.transform.parent.eulerAngles.z > -166 && hour2 == false){
             hour2 = true;
-            Debug.Log("Hour2");
-            // play animation
+            visionsManager.ShowImage("hour2");
         }
         //23:45
-        if (clock.minutes.transform.rotation.z == -165 && clock.hours.transform.rotation.z == -7.5 && hour3 == false){
+        if (clock.minutes.transform.parent.eulerAngles.z == -165 && clock.hours.transform.parent.eulerAngles.z < -7 && clock.hours.transform.parent.eulerAngles.z > -8 && hour3 == false){
             hour3 = true;
-            Debug.Log("Hour3");
-            //play animation
+            visionsManager.ShowImage("hour3");
         }
     }
 
     public void CheckPianoKeys(){
         var pianoNotes = piano.GetPianoNotes();
         for(int i = 0;i<pianoNotes.Count;i++){
-            //Debug.Log(pianoNotes[i].ToString());
             if(pianoNotes[i]!=pianoSolution[i]){
                 piano.ResetPianoNotes();
                 break;
