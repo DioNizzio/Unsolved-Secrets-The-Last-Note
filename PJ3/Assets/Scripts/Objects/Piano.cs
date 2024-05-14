@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class Piano : MonoBehaviour, IInteractable
@@ -9,12 +10,15 @@ public class Piano : MonoBehaviour, IInteractable
     private List<string> pianoNotes;
 
     public GameObject drawer;
+
+    private AudioSource audioPlayer;
    
     // Start is called before the first frame update
     void Start()
     {
         cameraActive = false;
         pianoNotes = new List<string>();
+        audioPlayer = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -51,6 +55,11 @@ public class Piano : MonoBehaviour, IInteractable
 
     public void OpenDrawer(){
         drawer.GetComponent<Animator>().SetTrigger("OpenDrawer");
+    }
+
+    public void PlayNote(AudioClip note){
+        audioPlayer.clip = note;
+        audioPlayer.Play();
     }
 
 }
