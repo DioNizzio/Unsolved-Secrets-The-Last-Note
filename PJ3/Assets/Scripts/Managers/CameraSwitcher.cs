@@ -9,15 +9,26 @@ public class CameraSwitcher : MonoBehaviour
 
     public GameObject safeCamera;
 
+    public GameObject clockCamera;
+
+    public GameObject pianoCamera;
+
     public GameObject safe;
-    private bool mainActivated;
+
+    public GameObject clock;
+
+    public GameObject piano;
+    private string cameraActivated;
 
     UIManager uIManager;
+
+    PlayerandCameraHolders playerandCameraHolders;
 
     // Start is called before the first frame update
     void Start()
     {
         uIManager = GetComponent<UIManager>();
+        playerandCameraHolders = gameObject.GetComponent<PlayerandCameraHolders>();
     }
 
     // Update is called once per frame
@@ -27,10 +38,23 @@ public class CameraSwitcher : MonoBehaviour
     }
 
     public void SwitchCameras(){
-        mainActivated = !safe.GetComponent<Safe>().cameraActive;
-        if(mainActivated == true){
+        if(safe.GetComponent<Safe>().cameraActive){
+            cameraActivated = "safe";
+        }
+        else if(clock.GetComponent<Clock>().cameraActive){
+            cameraActivated = "clock";
+        }
+         else if(piano.GetComponent<Piano>().cameraActive){
+            cameraActivated = "piano";
+        }
+        else{
+            cameraActivated = "main";
+        }
+        if(cameraActivated.Contains("main")){
             mainCamera.SetActive(true);
             safeCamera.SetActive(false);
+            clockCamera.SetActive(false);
+            pianoCamera.SetActive(false);
             uIManager.HideUI(false);
             if(uIManager.notePad.activeSelf==true){
                 uIManager.ChangeCursor("close");
@@ -39,11 +63,46 @@ public class CameraSwitcher : MonoBehaviour
                 uIManager.ChangeCursor("locked");
             }
         }
-        else if(mainActivated == false){    
+        else if(cameraActivated.Contains("safe")){    
             mainCamera.SetActive(false);
             safeCamera.SetActive(true);
+            clockCamera.SetActive(false);
+            pianoCamera.SetActive(false);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
+            playerandCameraHolders.PlayerCanMove(false);
+        }
+        else if(cameraActivated.Contains("clock")){
+            mainCamera.SetActive(false);
+            safeCamera.SetActive(false);
+            clockCamera.SetActive(true);
+            pianoCamera.SetActive(false);
+            uIManager.ChangeCursor("close");
+            uIManager.HideUI(true);
+            playerandCameraHolders.PlayerCanMove(false);
+        }
+        else if(cameraActivated.Contains(value: "piano")){
+            mainCamera.SetActive(false);
+            safeCamera.SetActive(false);
+            clockCamera.SetActive(false);
+            pianoCamera.SetActive(true);
+            uIManager.ChangeCursor("close");
+            uIManager.HideUI(true);
+            playerandCameraHolders.PlayerCanMove(false);
+        }
+    }
+
+    public void ExitCurrentCamera(){
+        playerandCameraHolders.PlayerCanMove(move: true);
+        if(safeCamera.activeSelf==true){
+            safe.GetComponent<Safe>().ExitCameraSafe();
+        }
+        else if(clockCamera.activeSelf==true){
+            clock.GetComponent<Clock>().ExitCameraClock();
+        }
+
+        else if(pianoCamera.activeSelf==true){
+            piano.GetComponent<Piano>().ExitCameraPiano();
         }
     }
 
@@ -53,6 +112,12 @@ public class CameraSwitcher : MonoBehaviour
         }
         else if(safeCamera.activeSelf==true){
             return safeCamera;
+        }
+        else if(clockCamera.activeSelf==true){
+            return clockCamera;
+        }
+        else if(pianoCamera.activeSelf==true){
+            return pianoCamera;
         }
         return null;
     }

@@ -19,18 +19,39 @@ public class PuzzlesManager : MonoBehaviour
 
     public Safe safe;
 
+    public Clock clock;
 
-    private bool paintingsSolved;
+    public Piano piano;
 
-    private bool bookshelvesSolved;
 
-    private bool safeSolved;
+    public bool paintingsSolved;
 
+    public bool bookshelvesSolved;
+
+    public bool safeSolved;
+
+    public bool clockBellsSolved;
+
+    public bool hour1;
+
+    public bool hour2;
+
+    public bool hour3;
+
+    public bool pianoSolved;
+
+    private List<string> pianoSolution;
     
 
     InventoryManager inventoryManager;
 
     InteractionsManager interactionsManager;
+
+    VisionsManager visionsManager;
+
+    UIManager uIManager;
+
+    CameraSwitcher cameraSwitcher;
     
     // Start is called before the first frame update
     void Start()
@@ -38,8 +59,43 @@ public class PuzzlesManager : MonoBehaviour
         paintingsSolved = false;
         bookshelvesSolved = false;
         safeSolved = false;
-        interactionsManager = gameObject.AddComponent<InteractionsManager>();
-        inventoryManager = gameObject.AddComponent<InventoryManager>();
+        clockBellsSolved = false;
+        hour1 = false;
+        hour2 = false;
+        hour3 = false;
+        pianoSolved = false;
+        pianoSolution = new List<string>
+        {
+            "4g",
+            "4g",
+            "4g#",
+            "4g",
+            "5c",
+            "5b",
+            "4g",
+            "4g",
+            "4g#",
+            "5d",
+            "5c",
+            "4g",
+            "4g",
+            "5g",
+            "5e",
+            "5c",
+            "5b",
+            "4g#",
+            "5f",
+            "5f",
+            "5e",
+            "5c#",
+            "5d",
+            "5c"
+        };
+        interactionsManager = gameObject.GetComponent<InteractionsManager>();
+        inventoryManager = gameObject.GetComponent<InventoryManager>();
+        visionsManager = gameObject.GetComponent<VisionsManager>();
+        uIManager = gameObject.GetComponent<UIManager>();
+        cameraSwitcher = gameObject.GetComponent<CameraSwitcher>();
     }
 
     // Update is called once per frame
@@ -53,6 +109,15 @@ public class PuzzlesManager : MonoBehaviour
         }
         if(!safeSolved){
             CheckSafeCode();
+        }
+        if(!clockBellsSolved){
+            CheckBellClockSequence();
+        }
+        if(!hour1 || !hour2 || !hour3){
+            CheckClockHours();
+        }
+        if(!pianoSolved){
+            CheckPianoKeys();
         }
     }
 
@@ -91,13 +156,55 @@ public class PuzzlesManager : MonoBehaviour
             if(safe.GetCode()=="1712"){
                 Debug.Log("Puzzle Solved!");
                 safeSolved=true;
-                safe.PlayAnimations();
-                //play animations
+                safe.PlayAnimations(true);
+                cameraSwitcher.ExitCurrentCamera();
+                uIManager.ShowDialogue("Wow, I managed to crack the code, that's crazy let's goooooooo");
+                
             }
             else{
+                safe.PlayAnimations(false);
                 safe.ResetCode();
                 safe.SetNeedsCheck();
             }
+        }
+    }
+
+    public void CheckBellClockSequence(){
+        if(clock.GetBellSequence() == "123"){
+            clock.OpenDrawer();
+            clockBellsSolved = true;
+        }
+    }
+
+    public void CheckClockHours(){
+        //3:15
+        if(clock.minutes.transform.parent.eulerAngles.z > 14 && clock.minutes.transform.parent.eulerAngles.z < 16 && clock.hours.transform.parent.eulerAngles.z > 96 && clock.hours.transform.parent.eulerAngles.z < 98 && hour1 == false){
+            hour1 = true;
+            visionsManager.ShowImage("hour1");
+        }
+        //7:30
+        if(clock.minutes.transform.parent.eulerAngles.z == -75 && clock.hours.transform.parent.eulerAngles.z < -164 && clock.hours.transform.parent.eulerAngles.z > -166 && hour2 == false){
+            hour2 = true;
+            visionsManager.ShowImage("hour2");
+        }
+        //23:45
+        if (clock.minutes.transform.parent.eulerAngles.z == -165 && clock.hours.transform.parent.eulerAngles.z < -7 && clock.hours.transform.parent.eulerAngles.z > -8 && hour3 == false){
+            hour3 = true;
+            visionsManager.ShowImage("hour3");
+        }
+    }
+
+    public void CheckPianoKeys(){
+        var pianoNotes = piano.GetPianoNotes();
+        for(int i = 0;i<pianoNotes.Count;i++){
+            if(pianoNotes[i]!=pianoSolution[i]){
+                piano.ResetPianoNotes();
+                break;
+            }
+        }
+        if(pianoNotes.SequenceEqual(pianoSolution)){
+            pianoSolved=true;
+            piano.OpenDrawer();
         }
     }
     
