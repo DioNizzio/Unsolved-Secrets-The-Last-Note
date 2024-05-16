@@ -15,7 +15,7 @@ C:/Users/leand/PJ3/PJ3
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-52005
+60226
 Successfully changed project path to: C:/Users/leand/PJ3/PJ3
 C:/Users/leand/PJ3/PJ3
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/leand/PJ3/PJ3
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [19644] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 3369030596 [EditorId] 3369030596 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-28D9HTE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [18392] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 1383440686 [EditorId] 1383440686 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-28D9HTE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [19644] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 3369030596 [EditorId] 3369030596 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-28D9HTE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [18392] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 1383440686 [EditorId] 1383440686 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-28D9HTE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
-Refreshing native plugins compatible for Editor in 17.46 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 15.70 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.10f1 (ff3792e53c62)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Resources/UnitySubsystems
@@ -70,46 +70,46 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56836
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56280
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.010221 seconds.
-- Loaded All Assemblies, in  0.576 seconds
+Registered in 0.014279 seconds.
+- Loaded All Assemblies, in  0.936 seconds
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.415 seconds
-Domain Reload Profiling: 984ms
-	BeginReloadAssembly (174ms)
+- Finished resetting the current domain, in  0.427 seconds
+Domain Reload Profiling: 1357ms
+	BeginReloadAssembly (342ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (61ms)
-	RebuildNativeTypeToScriptingClass (17ms)
-	initialDomainReloadingComplete (89ms)
-	LoadAllAssembliesAndSetupDomain (228ms)
-		LoadAssemblies (168ms)
+	RebuildCommonClasses (97ms)
+	RebuildNativeTypeToScriptingClass (19ms)
+	initialDomainReloadingComplete (131ms)
+	LoadAllAssembliesAndSetupDomain (340ms)
+		LoadAssemblies (340ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (225ms)
-			TypeCache.Refresh (220ms)
-				TypeCache.ScanAssembly (194ms)
+		AnalyzeDomain (332ms)
+			TypeCache.Refresh (330ms)
+				TypeCache.ScanAssembly (301ms)
 			ScanForSourceGeneratedMonoScriptInfo (1ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (415ms)
+	FinalizeReload (427ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (302ms)
+		SetupLoadedEditorAssemblies (321ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (14ms)
-			SetLoadedEditorAssemblies (10ms)
+			SetLoadedEditorAssemblies (8ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (200ms)
-			ProcessInitializeOnLoadMethodAttributes (75ms)
+			ProcessInitializeOnLoadAttributes (213ms)
+			ProcessInitializeOnLoadMethodAttributes (84ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -117,8 +117,8 @@ Domain Reload Profiling: 984ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.802 seconds
-Refreshing native plugins compatible for Editor in 5.11 ms, found 3 plugins.
+- Loaded All Assemblies, in  0.987 seconds
+Refreshing native plugins compatible for Editor in 7.75 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Package Manager log level set to [2]
@@ -126,47 +126,47 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.683 seconds
-Domain Reload Profiling: 1478ms
-	BeginReloadAssembly (179ms)
+- Finished resetting the current domain, in  0.901 seconds
+Domain Reload Profiling: 1878ms
+	BeginReloadAssembly (246ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
+		DisableScriptedObjects (8ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (24ms)
+		CreateAndSetChildDomain (36ms)
 	RebuildCommonClasses (51ms)
-	RebuildNativeTypeToScriptingClass (14ms)
-	initialDomainReloadingComplete (59ms)
-	LoadAllAssembliesAndSetupDomain (491ms)
-		LoadAssemblies (355ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (69ms)
+	LoadAllAssembliesAndSetupDomain (595ms)
+		LoadAssemblies (463ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (241ms)
-			TypeCache.Refresh (217ms)
-				TypeCache.ScanAssembly (202ms)
-			ScanForSourceGeneratedMonoScriptInfo (16ms)
-			ResolveRequiredComponents (5ms)
-	FinalizeReload (684ms)
+		AnalyzeDomain (278ms)
+			TypeCache.Refresh (246ms)
+				TypeCache.ScanAssembly (221ms)
+			ScanForSourceGeneratedMonoScriptInfo (24ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (902ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (500ms)
+		SetupLoadedEditorAssemblies (621ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (7ms)
-			SetLoadedEditorAssemblies (3ms)
+			InitializePlatformSupportModulesInManaged (9ms)
+			SetLoadedEditorAssemblies (4ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (66ms)
-			ProcessInitializeOnLoadAttributes (389ms)
-			ProcessInitializeOnLoadMethodAttributes (21ms)
-			AfterProcessingInitializeOnLoad (13ms)
+			BeforeProcessingInitializeOnLoad (91ms)
+			ProcessInitializeOnLoadAttributes (471ms)
+			ProcessInitializeOnLoadMethodAttributes (30ms)
+			AfterProcessingInitializeOnLoad (15ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (13ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 7.42 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (16ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 8.54 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3261 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 43 unused Assets / (1.3 MB). Loaded Objects now: 3716.
 Memory consumption went from 134.0 MB to 132.7 MB.
-Total: 3.605700 ms (FindLiveObjects: 0.259800 ms CreateObjectMapping: 0.271600 ms MarkObjects: 2.799300 ms  DeleteObjects: 0.274200 ms)
+Total: 4.639100 ms (FindLiveObjects: 0.361300 ms CreateObjectMapping: 0.258600 ms MarkObjects: 3.673300 ms  DeleteObjects: 0.344500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -184,9 +184,33 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 20642.101026 seconds.
-  path: Assets/Sound
-  artifactKey: Guid(05d59a1e4c9ae314aa8778ef5304df22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound using Guid(05d59a1e4c9ae314aa8778ef5304df22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '207f2cd251fab13cad49b24a3fadfc47') in 0.003024 seconds
+  Time since last request: 25718.620406 seconds.
+  path: Assets/Objects/Puzzles/relogio/relogio_totext_bells_BaseColor 1.png
+  artifactKey: Guid(a6681fa32dc90bd4eb6f66055c011820) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/relogio/relogio_totext_bells_BaseColor 1.png using Guid(a6681fa32dc90bd4eb6f66055c011820) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b14abaee05c70ba55c5443c3d202ac96') in 0.090097 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Objects/Puzzles/relogio/relogio_totext_bells_Normal 1.png
+  artifactKey: Guid(116e2fdb2bb2e884e8360e73e4b998b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/relogio/relogio_totext_bells_Normal 1.png using Guid(116e2fdb2bb2e884e8360e73e4b998b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dfe0e9a661a3b1affd1c12c46123b8d') in 0.027141 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 72.882571 seconds.
+  path: Assets/Objects/Puzzles/relogio/relogio.fbx
+  artifactKey: Guid(1a0d7cdc32079214c92d6610b614a60f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/relogio/relogio.fbx using Guid(1a0d7cdc32079214c92d6610b614a60f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9bd94765c9cf276083d7171a5923694') in 0.443673 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 133
+========================================================================
+Received Import Request.
+  Time since last request: 11.178042 seconds.
+  path: Assets/Objects/Puzzles/relogio/relogio.fbx
+  artifactKey: Guid(1a0d7cdc32079214c92d6610b614a60f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/relogio/relogio.fbx using Guid(1a0d7cdc32079214c92d6610b614a60f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '920c81f3f6d2f668f230f637562efef9') in 0.284265 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 132
