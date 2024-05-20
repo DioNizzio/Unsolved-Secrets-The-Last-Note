@@ -1,0 +1,352 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.10f1 (ff3792e53c62) revision 16725906'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22631) 64bit Core' Language: 'pt' Physical Memory: 16230 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.10f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker4
+-projectPath
+C:/Users/leand/PJ3/PJ3
+-logFile
+Logs/AssetImportWorker4.log
+-srvPort
+52578
+Successfully changed project path to: C:/Users/leand/PJ3/PJ3
+C:/Users/leand/PJ3/PJ3
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [22472] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 4087225735 [EditorId] 4087225735 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-28D9HTE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [22472] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 4087225735 [EditorId] 4087225735 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-28D9HTE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
+Refreshing native plugins compatible for Editor in 11.46 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.10f1 (ff3792e53c62)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/leand/PJ3/PJ3/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1050 Ti (ID=0x1c21)
+    Vendor:   NVIDIA
+    VRAM:     3989 MB
+    Driver:   31.0.15.5212
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56724
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.009162 seconds.
+- Loaded All Assemblies, in  0.407 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.277 seconds
+Domain Reload Profiling: 681ms
+	BeginReloadAssembly (123ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (43ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (67ms)
+	LoadAllAssembliesAndSetupDomain (158ms)
+		LoadAssemblies (119ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (156ms)
+			TypeCache.Refresh (154ms)
+				TypeCache.ScanAssembly (139ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (277ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (211ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (10ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (139ms)
+			ProcessInitializeOnLoadMethodAttributes (54ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.716 seconds
+Refreshing native plugins compatible for Editor in 8.24 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.715 seconds
+Domain Reload Profiling: 1425ms
+	BeginReloadAssembly (163ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (22ms)
+	RebuildCommonClasses (38ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (50ms)
+	LoadAllAssembliesAndSetupDomain (446ms)
+		LoadAssemblies (317ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (222ms)
+			TypeCache.Refresh (194ms)
+				TypeCache.ScanAssembly (176ms)
+			ScanForSourceGeneratedMonoScriptInfo (19ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (716ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (518ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (10ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (80ms)
+			ProcessInitializeOnLoadAttributes (393ms)
+			ProcessInitializeOnLoadMethodAttributes (19ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (12ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 5.90 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3265 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 43 unused Assets / (1.3 MB). Loaded Objects now: 3720.
+Memory consumption went from 134.1 MB to 132.8 MB.
+Total: 3.680300 ms (FindLiveObjects: 0.266000 ms CreateObjectMapping: 0.181900 ms MarkObjects: 2.954600 ms  DeleteObjects: 0.276900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: e54d7ab0439102e2317fc1e4b246158d -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 20012.081654 seconds.
+  path: Assets/Objects/World/coat_rack/coat_rack.mat
+  artifactKey: Guid(b50570bfb0b69a0409ba7c5bd30ac9a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/coat_rack/coat_rack.mat using Guid(b50570bfb0b69a0409ba7c5bd30ac9a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '603ac3e40e1d4e35e26703293582a8a9') in 0.143255 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 16.438040 seconds.
+  path: Assets/Objects/World/coat_rack/CoatRack_MetalMaterial_Normal.png
+  artifactKey: Guid(6c622ddc077131b4d9396534003fce41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/coat_rack/CoatRack_MetalMaterial_Normal.png using Guid(6c622ddc077131b4d9396534003fce41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b39590e773ce1c42028e2ce24e10e485') in 0.033950 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 5.871048 seconds.
+  path: Assets/Objects/World/coat_rack/CoatRack.fbx
+  artifactKey: Guid(5b82e89cf479b9e43a4c80dfe08915da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/coat_rack/CoatRack.fbx using Guid(5b82e89cf479b9e43a4c80dfe08915da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '137395d4da1fcf213472fdc2cbd90aaa') in 0.049450 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 57.916400 seconds.
+  path: Assets/Objects/World/coat_rack/coat_rack.mat
+  artifactKey: Guid(b50570bfb0b69a0409ba7c5bd30ac9a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/coat_rack/coat_rack.mat using Guid(b50570bfb0b69a0409ba7c5bd30ac9a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3f1b46e612775bf4be8efd4ddeb5d65') in 0.077497 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 23.034666 seconds.
+  path: Assets/Objects/World/velas/textures/red_candles
+  artifactKey: Guid(a5014d27a67ed034d9bc77960bf1a907) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/velas/textures/red_candles using Guid(a5014d27a67ed034d9bc77960bf1a907) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c16abbdf9ee3a433e84c92a64bfb00f') in 0.002021 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.055023 seconds.
+  path: Assets/Objects/World/velas/textures/red_candles/velas_candle_BaseColor.png
+  artifactKey: Guid(1ea14314f40ad154594a7ce4f02b1a45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/velas/textures/red_candles/velas_candle_BaseColor.png using Guid(1ea14314f40ad154594a7ce4f02b1a45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38076b0c0ace89ca46aeb0d745625885') in 0.021373 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Objects/World/velas/textures/red_candles/velas_candle_Normal.png
+  artifactKey: Guid(5c04ab7a4a6663a4db623a2b521c88f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/velas/textures/red_candles/velas_candle_Normal.png using Guid(5c04ab7a4a6663a4db623a2b521c88f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61c032b6963d72d2574157e1a4a346b8') in 0.022360 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 73.288999 seconds.
+  path: Assets/Objects/World/velas/textures/New Material.mat
+  artifactKey: Guid(74ee0c49b9716d944895ff70b488afd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/velas/textures/New Material.mat using Guid(74ee0c49b9716d944895ff70b488afd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9eb056b407a220904231f8ec7c8ceb7') in 0.018428 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 12.086331 seconds.
+  path: Assets/Objects/World/velas/textures/velas_candle_Normal.png
+  artifactKey: Guid(2b840abc9c5f4b24f98097d6c2bb4b30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/velas/textures/velas_candle_Normal.png using Guid(2b840abc9c5f4b24f98097d6c2bb4b30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9141687f2541fd29826d55a796838c9') in 0.032610 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 2.826465 seconds.
+  path: Assets/Objects/World/velas/textures/New Material.mat
+  artifactKey: Guid(74ee0c49b9716d944895ff70b488afd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/velas/textures/New Material.mat using Guid(74ee0c49b9716d944895ff70b488afd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38bc53ee6a02f323014eda1699472148') in 0.023958 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 6.803857 seconds.
+  path: Assets/Objects/World/velas/textures/velas.mat
+  artifactKey: Guid(74ee0c49b9716d944895ff70b488afd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/velas/textures/velas.mat using Guid(74ee0c49b9716d944895ff70b488afd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36288c3af371e0b50ea5a7a68cd7a468') in 0.024942 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 6.879147 seconds.
+  path: Assets/Objects/World/velas/textures/velas.fbx
+  artifactKey: Guid(e88ee00b8aad2984997aeb2d10fe1e7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/velas/textures/velas.fbx using Guid(e88ee00b8aad2984997aeb2d10fe1e7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ded342b839f1da259f0244f4fc64aee3') in 0.068247 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 40
+========================================================================
+Received Import Request.
+  Time since last request: 32.296669 seconds.
+  path: Assets/Objects/World/velas/textures/velas_candle_BaseColor - Copy.png
+  artifactKey: Guid(1ea14314f40ad154594a7ce4f02b1a45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/velas/textures/velas_candle_BaseColor - Copy.png using Guid(1ea14314f40ad154594a7ce4f02b1a45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '512509df845259582306a165cb35db23') in 0.018991 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 14.453870 seconds.
+  path: Assets/Objects/World/velas/textures/velas_candle_BaseColor2.png
+  artifactKey: Guid(1ea14314f40ad154594a7ce4f02b1a45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/velas/textures/velas_candle_BaseColor2.png using Guid(1ea14314f40ad154594a7ce4f02b1a45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '558b03312586dedfbf5ad60cd2e7e7bd') in 0.016719 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 21.023351 seconds.
+  path: Assets/Objects/World/velas/textures/velas2.mat
+  artifactKey: Guid(6471dd844e59ac849b3395996c7f7504) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/velas/textures/velas2.mat using Guid(6471dd844e59ac849b3395996c7f7504) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88a284f7bd83ba8c04f716591aab5d29') in 0.014226 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 22.707641 seconds.
+  path: Assets/Objects/World/velas/textures/velas2.mat
+  artifactKey: Guid(6471dd844e59ac849b3395996c7f7504) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/velas/textures/velas2.mat using Guid(6471dd844e59ac849b3395996c7f7504) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15a990e72525814a5273ecda9be6d23f') in 0.021540 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 2.299593 seconds.
+  path: Assets/Objects/World/velas/textures/velas 1.fbx
+  artifactKey: Guid(a63f8d4107fb0e0448b66e9bb1634b07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/velas/textures/velas 1.fbx using Guid(a63f8d4107fb0e0448b66e9bb1634b07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd67b81237537df018de8805a8496ba6c') in 0.063892 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 40
+========================================================================
+Received Import Request.
+  Time since last request: 9.704714 seconds.
+  path: Assets/Objects/World/velas/textures/velasVermelhas.fbx
+  artifactKey: Guid(a63f8d4107fb0e0448b66e9bb1634b07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/velas/textures/velasVermelhas.fbx using Guid(a63f8d4107fb0e0448b66e9bb1634b07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17cb0545be847b68e654e48d85c527a7') in 0.067434 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 40
+========================================================================
+Received Import Request.
+  Time since last request: 6.065532 seconds.
+  path: Assets/Objects/World/velas/textures/velasVermelhas.fbx
+  artifactKey: Guid(a63f8d4107fb0e0448b66e9bb1634b07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/velas/textures/velasVermelhas.fbx using Guid(a63f8d4107fb0e0448b66e9bb1634b07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1c2c2a5b9e3df7c83aa7c3587417d8a') in 0.064088 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 40
+========================================================================
+Received Import Request.
+  Time since last request: 107.164883 seconds.
+  path: Assets/UIElements/NotePad Images/First Page.png
+  artifactKey: Guid(d56988cc6009ded4998fb5abdfbf94c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIElements/NotePad Images/First Page.png using Guid(d56988cc6009ded4998fb5abdfbf94c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f71eb519fc2b754d6b9a01f900c71c6d') in 0.020745 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/UIElements/NotePad Images/SecondPage.png
+  artifactKey: Guid(1392d7ec69377064082572197f4efae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UIElements/NotePad Images/SecondPage.png using Guid(1392d7ec69377064082572197f4efae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e74126d9ac635367286839f0ee9ff0fd') in 0.028577 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2

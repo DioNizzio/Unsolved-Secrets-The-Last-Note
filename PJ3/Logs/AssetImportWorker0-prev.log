@@ -15,7 +15,7 @@ C:/Users/leand/PJ3/PJ3
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-60226
+54091
 Successfully changed project path to: C:/Users/leand/PJ3/PJ3
 C:/Users/leand/PJ3/PJ3
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/leand/PJ3/PJ3
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [16512] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 3632340341 [EditorId] 3632340341 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-28D9HTE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [24492] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 52316433 [EditorId] 52316433 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-28D9HTE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [16512] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 3632340341 [EditorId] 3632340341 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-28D9HTE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [24492] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 52316433 [EditorId] 52316433 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-28D9HTE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
-Refreshing native plugins compatible for Editor in 15.66 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 21.23 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.10f1 (ff3792e53c62)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Resources/UnitySubsystems
@@ -70,46 +70,46 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56308
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56996
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.014472 seconds.
-- Loaded All Assemblies, in  0.925 seconds
+Registered in 0.019543 seconds.
+- Loaded All Assemblies, in  0.667 seconds
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.416 seconds
-Domain Reload Profiling: 1334ms
-	BeginReloadAssembly (346ms)
+- Finished resetting the current domain, in  0.513 seconds
+Domain Reload Profiling: 1173ms
+	BeginReloadAssembly (217ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (91ms)
-	RebuildNativeTypeToScriptingClass (17ms)
-	initialDomainReloadingComplete (125ms)
-	LoadAllAssembliesAndSetupDomain (337ms)
-		LoadAssemblies (341ms)
+	RebuildCommonClasses (58ms)
+	RebuildNativeTypeToScriptingClass (19ms)
+	initialDomainReloadingComplete (112ms)
+	LoadAllAssembliesAndSetupDomain (253ms)
+		LoadAssemblies (209ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (333ms)
-			TypeCache.Refresh (330ms)
-				TypeCache.ScanAssembly (294ms)
+		AnalyzeDomain (250ms)
+			TypeCache.Refresh (247ms)
+				TypeCache.ScanAssembly (223ms)
 			ScanForSourceGeneratedMonoScriptInfo (1ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (416ms)
+	FinalizeReload (513ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (319ms)
+		SetupLoadedEditorAssemblies (384ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (14ms)
-			SetLoadedEditorAssemblies (8ms)
+			InitializePlatformSupportModulesInManaged (20ms)
+			SetLoadedEditorAssemblies (10ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (212ms)
-			ProcessInitializeOnLoadMethodAttributes (82ms)
+			BeforeProcessingInitializeOnLoad (4ms)
+			ProcessInitializeOnLoadAttributes (261ms)
+			ProcessInitializeOnLoadMethodAttributes (89ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -117,8 +117,8 @@ Domain Reload Profiling: 1334ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.993 seconds
-Refreshing native plugins compatible for Editor in 7.37 ms, found 3 plugins.
+- Loaded All Assemblies, in  1.359 seconds
+Refreshing native plugins compatible for Editor in 8.17 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Package Manager log level set to [2]
@@ -126,47 +126,47 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.848 seconds
-Domain Reload Profiling: 1831ms
-	BeginReloadAssembly (250ms)
+- Finished resetting the current domain, in  1.431 seconds
+Domain Reload Profiling: 2777ms
+	BeginReloadAssembly (306ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (8ms)
+		DisableScriptedObjects (10ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (33ms)
-	RebuildCommonClasses (50ms)
-	RebuildNativeTypeToScriptingClass (16ms)
-	initialDomainReloadingComplete (66ms)
-	LoadAllAssembliesAndSetupDomain (600ms)
-		LoadAssemblies (468ms)
+		CreateAndSetChildDomain (45ms)
+	RebuildCommonClasses (63ms)
+	RebuildNativeTypeToScriptingClass (19ms)
+	initialDomainReloadingComplete (85ms)
+	LoadAllAssembliesAndSetupDomain (872ms)
+		LoadAssemblies (621ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (284ms)
-			TypeCache.Refresh (249ms)
-				TypeCache.ScanAssembly (224ms)
-			ScanForSourceGeneratedMonoScriptInfo (24ms)
+		AnalyzeDomain (426ms)
+			TypeCache.Refresh (388ms)
+				TypeCache.ScanAssembly (356ms)
+			ScanForSourceGeneratedMonoScriptInfo (27ms)
 			ResolveRequiredComponents (8ms)
-	FinalizeReload (848ms)
+	FinalizeReload (1432ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (620ms)
+		SetupLoadedEditorAssemblies (1126ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (12ms)
-			SetLoadedEditorAssemblies (4ms)
+			InitializePlatformSupportModulesInManaged (10ms)
+			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (87ms)
-			ProcessInitializeOnLoadAttributes (476ms)
-			ProcessInitializeOnLoadMethodAttributes (26ms)
-			AfterProcessingInitializeOnLoad (14ms)
+			BeforeProcessingInitializeOnLoad (101ms)
+			ProcessInitializeOnLoadAttributes (908ms)
+			ProcessInitializeOnLoadMethodAttributes (66ms)
+			AfterProcessingInitializeOnLoad (35ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (13ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
-Refreshing native plugins compatible for Editor in 6.35 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (29ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
+Refreshing native plugins compatible for Editor in 15.76 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3261 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 43 unused Assets / (1.3 MB). Loaded Objects now: 3716.
-Memory consumption went from 134.0 MB to 132.7 MB.
-Total: 5.500600 ms (FindLiveObjects: 0.496100 ms CreateObjectMapping: 0.399100 ms MarkObjects: 4.212300 ms  DeleteObjects: 0.391600 ms)
+Memory consumption went from 134.0 MB to 132.8 MB.
+Total: 8.697600 ms (FindLiveObjects: 0.474100 ms CreateObjectMapping: 0.635900 ms MarkObjects: 6.708800 ms  DeleteObjects: 0.876000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -184,41 +184,126 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 25718.634020 seconds.
-  path: Assets/Objects/Puzzles/relogio/relogio_totext_bells_Metallic 1.png
-  artifactKey: Guid(3dad50f95973e9e4788df354a63ce2ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Objects/Puzzles/relogio/relogio_totext_bells_Metallic 1.png using Guid(3dad50f95973e9e4788df354a63ce2ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22bf1c69b55d20d175c1dcc53c95836a') in 0.088718 seconds
+  Time since last request: 69562.018328 seconds.
+  path: Assets/Objects/scene.gltf
+  artifactKey: Guid(c92d02f4b4a89624fb133183a4085434) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/scene.gltf using Guid(c92d02f4b4a89624fb133183a4085434) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d6ebab607f478f0e768e524c2b3af39') in 0.023040 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 14.580178 seconds.
+  path: Assets/Objects/textures
+  artifactKey: Guid(2adba06ddc88c624d88cdd04e8a5aa9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/textures using Guid(2adba06ddc88c624d88cdd04e8a5aa9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9da84b9b7070d967743b5872dcc275c') in 0.000611 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.082102 seconds.
+  path: Assets/Objects/textures/Bass_Moon_Dial_baseColor.jpeg
+  artifactKey: Guid(d7015755543068f4f9da6bda089f15f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/textures/Bass_Moon_Dial_baseColor.jpeg using Guid(d7015755543068f4f9da6bda089f15f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2d8c68eade6297ee2665b6a216a507a') in 0.171341 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Objects/textures/Brass_Patterned_baseColor.jpeg
+  artifactKey: Guid(99d654eb7d427624e990a54708767fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/textures/Brass_Patterned_baseColor.jpeg using Guid(99d654eb7d427624e990a54708767fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9efb8b8464c8e95b6c7523c7a3d86f5e') in 0.046599 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000084 seconds.
+  path: Assets/Objects/textures/Copper_Mid_Verdigris_baseColor.jpeg
+  artifactKey: Guid(9e99b969cb4decf4a9d070767e092096) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/textures/Copper_Mid_Verdigris_baseColor.jpeg using Guid(9e99b969cb4decf4a9d070767e092096) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f95b001bed41cf2a5a862c178a4d2e3b') in 0.044181 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000138 seconds.
+  path: Assets/Objects/textures/Brass_Metal_Beaten_baseColor.jpeg
+  artifactKey: Guid(716a8ab8299b5de4088e7f33c3d69f73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/textures/Brass_Metal_Beaten_baseColor.jpeg using Guid(716a8ab8299b5de4088e7f33c3d69f73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f80f2080aa27bb69eb1cb76d58331c1a') in 0.038398 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/Objects/textures/Wood_Mahogany_Ext_baseColor.jpeg
+  artifactKey: Guid(4450fc44df27ad6468a193a039e17744) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/textures/Wood_Mahogany_Ext_baseColor.jpeg using Guid(4450fc44df27ad6468a193a039e17744) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '089f781ace26aea71b49e06ad17379d2') in 0.039376 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
 ========================================================================
 Received Import Request.
   Time since last request: 0.000029 seconds.
-  path: Assets/Objects/Puzzles/relogio/relogio_totext_bells_Roughness 1.png
-  artifactKey: Guid(8a619882fcd9dd943b536130f0c8dc54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Objects/Puzzles/relogio/relogio_totext_bells_Roughness 1.png using Guid(8a619882fcd9dd943b536130f0c8dc54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '112dc735e7b7c09a26044da3e424146c') in 0.022757 seconds
+  path: Assets/Objects/textures/Copper_Old_0_baseColor.jpeg
+  artifactKey: Guid(24bddbf7e76a16d4c84981fc2d667135) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/textures/Copper_Old_0_baseColor.jpeg using Guid(24bddbf7e76a16d4c84981fc2d667135) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2800cc1fa399817dba069b3db6aecf1') in 0.039730 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
 ========================================================================
 Received Import Request.
-  Time since last request: 25.069975 seconds.
-  path: Assets/Objects/Puzzles/relogio/relogio_totext_bells_Normal 1.png
-  artifactKey: Guid(116e2fdb2bb2e884e8360e73e4b998b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Objects/Puzzles/relogio/relogio_totext_bells_Normal 1.png using Guid(116e2fdb2bb2e884e8360e73e4b998b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9acb4769d66b54d40659d9b2f97a2df') in 0.050755 seconds
+  Time since last request: 0.000030 seconds.
+  path: Assets/Objects/textures/Iron_Dark_Corrosion_baseColor.jpeg
+  artifactKey: Guid(bd5aec29b98fdcf4e86b620ad9e01cda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/textures/Iron_Dark_Corrosion_baseColor.jpeg using Guid(bd5aec29b98fdcf4e86b620ad9e01cda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1819dd7fbd78f3bbb558ef81d90904ab') in 0.031703 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
 ========================================================================
 Received Import Request.
-  Time since last request: 47.748203 seconds.
-  path: Assets/Objects/Puzzles/relogio/bells.mat
-  artifactKey: Guid(256c63ddf811ead4bb3b0040d2ee4a82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Objects/Puzzles/relogio/bells.mat using Guid(256c63ddf811ead4bb3b0040d2ee4a82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '394daebb63b1ecfcefea898add9c0afd') in 0.100324 seconds
+  Time since last request: 282.739806 seconds.
+  path: Assets/Objects/Puzzles/relogio/relogio.fbx
+  artifactKey: Guid(1a0d7cdc32079214c92d6610b614a60f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/relogio/relogio.fbx using Guid(1a0d7cdc32079214c92d6610b614a60f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78d0af81e87215f715330019a47e90b7') in 1.412830 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 5
+Number of asset objects unloaded after import = 130
 ========================================================================
 Received Import Request.
-  Time since last request: 11.525746 seconds.
-  path: Assets/Objects/Puzzles/relogio/bells.mat
-  artifactKey: Guid(256c63ddf811ead4bb3b0040d2ee4a82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Objects/Puzzles/relogio/bells.mat using Guid(256c63ddf811ead4bb3b0040d2ee4a82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29b39eb512be1e68ee0a4076caf7ef21') in 0.025802 seconds
+  Time since last request: 10.984749 seconds.
+  path: Assets/Objects/Puzzles/relogio/relogio.fbx
+  artifactKey: Guid(1a0d7cdc32079214c92d6610b614a60f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/relogio/relogio.fbx using Guid(1a0d7cdc32079214c92d6610b614a60f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c244aa573e13679bcc8fd8dbe5bd0273') in 0.764099 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 4
+Number of asset objects unloaded after import = 130
+========================================================================
+Received Import Request.
+  Time since last request: 25.246676 seconds.
+  path: Assets/Objects/Puzzles/relogio/relogio.fbx
+  artifactKey: Guid(1a0d7cdc32079214c92d6610b614a60f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/relogio/relogio.fbx using Guid(1a0d7cdc32079214c92d6610b614a60f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a6fb96bea7da7b8377ca56a8fa039a2') in 0.370922 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 129
+========================================================================
+Received Import Request.
+  Time since last request: 9.774598 seconds.
+  path: Assets/Objects/Puzzles/relogio/relogio.fbx
+  artifactKey: Guid(1a0d7cdc32079214c92d6610b614a60f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/relogio/relogio.fbx using Guid(1a0d7cdc32079214c92d6610b614a60f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '013cdcda0e76b3faec3992293eaffaa4') in 0.332890 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 129
+========================================================================
+Received Import Request.
+  Time since last request: 8717.457208 seconds.
+  path: Assets/Objects/World/sofa/sofa.fbx
+  artifactKey: Guid(bb06e04fe126d394ab6f64bf530887b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/sofa/sofa.fbx using Guid(bb06e04fe126d394ab6f64bf530887b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48761f8617fcdd0132ac85af28020f82') in 0.335440 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/Objects/World/sofa/sofa_Sofa_BaseColor.png
+  artifactKey: Guid(5bb05c2dfbb4d9d4d9352ded76b68a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/World/sofa/sofa_Sofa_BaseColor.png using Guid(5bb05c2dfbb4d9d4d9352ded76b68a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb377007aac5457434175c197f4f47fa') in 0.101156 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: A operação de E/S foi cancelada devido a uma saída do módulo ou a um pedido da aplicação.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

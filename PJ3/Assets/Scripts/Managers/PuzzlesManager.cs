@@ -23,6 +23,10 @@ public class PuzzlesManager : MonoBehaviour
 
     public Piano piano;
 
+    public Lock locky;
+
+    public GameObject locky2;
+
 
     public bool paintingsSolved;
 
@@ -39,6 +43,8 @@ public class PuzzlesManager : MonoBehaviour
     public bool hour3;
 
     public bool pianoSolved;
+
+    public bool closetLockSolved;
 
     private List<string> pianoSolution;
     
@@ -64,6 +70,7 @@ public class PuzzlesManager : MonoBehaviour
         hour2 = false;
         hour3 = false;
         pianoSolved = false;
+        closetLockSolved = false;
         pianoSolution = new List<string>
         {
             "4g",
@@ -119,6 +126,10 @@ public class PuzzlesManager : MonoBehaviour
         if(!pianoSolved){
             CheckPianoKeys();
         }
+        if(!closetLockSolved){
+            CheckClosetLock();
+        }
+
     }
 
 
@@ -205,6 +216,16 @@ public class PuzzlesManager : MonoBehaviour
         if(pianoNotes.SequenceEqual(pianoSolution)){
             pianoSolved=true;
             piano.OpenDrawer();
+        }
+    }
+
+    public void CheckClosetLock(){
+        if((locky.lock1.transform.eulerAngles.y > -1 &&  locky.lock1.transform.eulerAngles.y < 1 ) && (locky.lock2.transform.eulerAngles.y > 215 && locky.lock2.transform.eulerAngles.y < 217) && (locky.lock3.transform.eulerAngles.y > 323 && locky.lock3.transform.eulerAngles.y < 325) && (locky.lock4.transform.eulerAngles.y > 251 && locky.lock4.transform.eulerAngles.y < 253)){
+            closetLockSolved=true;
+            cameraSwitcher.ExitCurrentCamera();
+            locky.isUnlocked=true;
+            locky.gameObject.SetActive(false);
+            locky2.SetActive(true);
         }
     }
     

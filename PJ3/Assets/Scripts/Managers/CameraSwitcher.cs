@@ -13,11 +13,15 @@ public class CameraSwitcher : MonoBehaviour
 
     public GameObject pianoCamera;
 
+    public GameObject lockCamera;
+
     public GameObject safe;
 
     public GameObject clock;
 
     public GameObject piano;
+
+    public GameObject locky;
     private string cameraActivated;
 
     UIManager uIManager;
@@ -44,8 +48,11 @@ public class CameraSwitcher : MonoBehaviour
         else if(clock.GetComponent<Clock>().cameraActive){
             cameraActivated = "clock";
         }
-         else if(piano.GetComponent<Piano>().cameraActive){
+        else if(piano.GetComponent<Piano>().cameraActive){
             cameraActivated = "piano";
+        }
+        else if(locky.GetComponent<Lock>().cameraActive){
+            cameraActivated = "lock";
         }
         else{
             cameraActivated = "main";
@@ -55,6 +62,7 @@ public class CameraSwitcher : MonoBehaviour
             safeCamera.SetActive(false);
             clockCamera.SetActive(false);
             pianoCamera.SetActive(false);
+            lockCamera.SetActive(false);
             uIManager.HideUI(false);
             if(uIManager.notePad.activeSelf==true){
                 uIManager.ChangeCursor("close");
@@ -68,6 +76,7 @@ public class CameraSwitcher : MonoBehaviour
             safeCamera.SetActive(true);
             clockCamera.SetActive(false);
             pianoCamera.SetActive(false);
+            lockCamera.SetActive(false);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
             playerandCameraHolders.PlayerCanMove(false);
@@ -77,6 +86,7 @@ public class CameraSwitcher : MonoBehaviour
             safeCamera.SetActive(false);
             clockCamera.SetActive(true);
             pianoCamera.SetActive(false);
+            lockCamera.SetActive(false);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
             playerandCameraHolders.PlayerCanMove(false);
@@ -86,6 +96,17 @@ public class CameraSwitcher : MonoBehaviour
             safeCamera.SetActive(false);
             clockCamera.SetActive(false);
             pianoCamera.SetActive(true);
+            lockCamera.SetActive(false);
+            uIManager.ChangeCursor("close");
+            uIManager.HideUI(true);
+            playerandCameraHolders.PlayerCanMove(false);
+        }
+        else if(cameraActivated.Contains(value: "lock")){
+            mainCamera.SetActive(false);
+            safeCamera.SetActive(false);
+            clockCamera.SetActive(false);
+            pianoCamera.SetActive(false);
+            lockCamera.SetActive(true);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
             playerandCameraHolders.PlayerCanMove(false);
@@ -104,6 +125,10 @@ public class CameraSwitcher : MonoBehaviour
         else if(pianoCamera.activeSelf==true){
             piano.GetComponent<Piano>().ExitCameraPiano();
         }
+
+        else if(lockCamera.activeSelf==true){
+            locky.GetComponent<Lock>().ExitCameraLock();
+        }
     }
 
     public GameObject GetCurrentCamera(){
@@ -118,6 +143,9 @@ public class CameraSwitcher : MonoBehaviour
         }
         else if(pianoCamera.activeSelf==true){
             return pianoCamera;
+        }
+        else if(lockCamera.activeSelf==true){
+            return lockCamera;
         }
         return null;
     }
