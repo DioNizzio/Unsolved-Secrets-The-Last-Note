@@ -137,7 +137,6 @@ public class PuzzlesManager : MonoBehaviour
         //Debug.Log(paintingMozart.transform.parent.name);
         if(paintingMozart.transform.parent!=null && paintingBeethoven.transform.parent!=null && paintingRachmaninoff.transform.parent!=null && paintingBach.transform.parent!=null){
             if(paintingMozart.transform.parent.name == "posQuadro1" && paintingBeethoven.transform.parent.name == "posQuadro2" && paintingRachmaninoff.transform.parent.name == "posQuadro3" && paintingBach.transform.parent.name == "posQuadro4"){
-                Debug.Log("Solved Puzzle");
                 paintingsSolved = true;
                 paintingMozart.transform.parent.parent.GetComponent<Animator>().SetTrigger("RightOrder");
                 paintingBeethoven.transform.parent.parent.GetComponent<Animator>().SetTrigger("RightOrder");
@@ -220,7 +219,7 @@ public class PuzzlesManager : MonoBehaviour
     }
 
     public void CheckClosetLock(){
-        if((locky.lock1.transform.eulerAngles.y > -1 &&  locky.lock1.transform.eulerAngles.y < 1 ) && (locky.lock2.transform.eulerAngles.y > 215 && locky.lock2.transform.eulerAngles.y < 217) && (locky.lock3.transform.eulerAngles.y > 323 && locky.lock3.transform.eulerAngles.y < 325) && (locky.lock4.transform.eulerAngles.y > 251 && locky.lock4.transform.eulerAngles.y < 253)){
+        if(locky.lock1.transform.eulerAngles.y > -1 &&  locky.lock1.transform.eulerAngles.y < 1  && locky.lock2.transform.eulerAngles.y > 215 && locky.lock2.transform.eulerAngles.y < 217 && locky.lock3.transform.eulerAngles.y > 323 && locky.lock3.transform.eulerAngles.y < 325 && locky.lock4.transform.eulerAngles.y > 251 && locky.lock4.transform.eulerAngles.y < 253){
             closetLockSolved=true;
             cameraSwitcher.ExitCurrentCamera();
             locky.isUnlocked=true;

@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class PaintingSpot : MonoBehaviour, IInteractable
 {
-
-    public Camera cam;
-
-
     void Start()
     {
         
@@ -17,6 +13,7 @@ public class PaintingSpot : MonoBehaviour, IInteractable
     // Update is called once per frame
     void Update()
     {
+        transform.position = new Vector3(0,0.01064183f,0);
 
     }
     public bool Interact(GameObject currentObj)
