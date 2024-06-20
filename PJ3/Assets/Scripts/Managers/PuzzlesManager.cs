@@ -25,6 +25,8 @@ public class PuzzlesManager : MonoBehaviour
 
     public Lock locky;
 
+    public Fireplace fireplace;
+
     public GameObject locky2;
 
 
@@ -45,6 +47,8 @@ public class PuzzlesManager : MonoBehaviour
     public bool pianoSolved;
 
     public bool closetLockSolved;
+
+    public bool fireplaceSolved;
 
     private List<string> pianoSolution;
     
@@ -71,6 +75,7 @@ public class PuzzlesManager : MonoBehaviour
         hour3 = false;
         pianoSolved = false;
         closetLockSolved = false;
+        fireplaceSolved = false;
         pianoSolution = new List<string>
         {
             "4g",
@@ -128,6 +133,9 @@ public class PuzzlesManager : MonoBehaviour
         }
         if(!closetLockSolved){
             CheckClosetLock();
+        }
+        if(!fireplaceSolved){
+            CheckFireplace();
         }
 
     }
@@ -225,6 +233,13 @@ public class PuzzlesManager : MonoBehaviour
             locky.isUnlocked=true;
             locky.gameObject.SetActive(false);
             locky2.SetActive(true);
+        }
+    }
+
+    public void CheckFireplace(){
+        if(!fireplace.ornamentLeft.GetComponent<MeshRenderer>().material.name.Contains("invisible") && !fireplace.ornamentRight.GetComponent<MeshRenderer>().material.name.Contains("invisible")){
+            fireplace.PlayAnimation();
+            fireplaceSolved=true;
         }
     }
     

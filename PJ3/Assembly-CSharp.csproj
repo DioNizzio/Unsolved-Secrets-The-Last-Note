@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerCam.cs" />
      <Compile Include="Assets\Scripts\Objects\Book.cs" />
      <Compile Include="Assets\Scripts\Objects\ClockDoor.cs" />
+     <Compile Include="Assets\Scripts\Objects\Fireplace.cs" />
      <Compile Include="Assets\Scripts\Objects\PianoKey.cs" />
      <Compile Include="Assets\Scripts\Objects\Safe.cs" />
      <Compile Include="Assets\Scripts\Objects\ClockBells.cs" />
@@ -73,6 +74,7 @@
      <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Closet.cs" />
      <Compile Include="Assets\Scripts\Objects\PaintingSpot.cs" />
+     <Compile Include="Assets\Scripts\Objects\FireplaceOrnaments.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Managers\PuzzlesManager.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
