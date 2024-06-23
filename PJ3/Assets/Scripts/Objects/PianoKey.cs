@@ -20,6 +20,7 @@ public class PianoKey : MonoBehaviour, IInteractable
     public bool Interact(GameObject currentObj)
     {
         if(currentObj!=null){
+            Debug.Log(currentObj.name);
             if(GetComponent<MeshRenderer>().material.name.Contains("invisible") && currentObj.name.Contains("Piano Key")){
                 GetComponent<MeshRenderer>().material = correctMaterial;
                 Destroy(currentObj);

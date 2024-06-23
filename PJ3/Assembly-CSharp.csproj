@@ -67,6 +67,7 @@
      <Compile Include="Assets\Scripts\Managers\CameraSwitcher.cs" />
      <Compile Include="Assets\Scripts\Managers\InteractionsManager.cs" />
      <Compile Include="Assets\Scripts\Objects\ClockHands.cs" />
+     <Compile Include="Assets\Scripts\Objects\CoatofArmsParts.cs" />
      <Compile Include="Assets\Scripts\Objects\PianoCompartiments.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerandCameraHolders.cs" />
      <Compile Include="Assets\Scripts\Player\MoveCamera.cs" />
@@ -74,6 +75,7 @@
      <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Closet.cs" />
      <Compile Include="Assets\Scripts\Objects\PaintingSpot.cs" />
+     <Compile Include="Assets\Scripts\Objects\CoatofArms.cs" />
      <Compile Include="Assets\Scripts\Objects\FireplaceOrnaments.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Managers\PuzzlesManager.cs" />

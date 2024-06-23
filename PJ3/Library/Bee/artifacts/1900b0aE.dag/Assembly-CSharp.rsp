@@ -374,6 +374,8 @@
 "Assets/Scripts/Objects/ClockDoor.cs"
 "Assets/Scripts/Objects/ClockHands.cs"
 "Assets/Scripts/Objects/Closet.cs"
+"Assets/Scripts/Objects/CoatofArms.cs"
+"Assets/Scripts/Objects/CoatofArmsParts.cs"
 "Assets/Scripts/Objects/Fireplace.cs"
 "Assets/Scripts/Objects/FireplaceOrnaments.cs"
 "Assets/Scripts/Objects/Globe.cs"

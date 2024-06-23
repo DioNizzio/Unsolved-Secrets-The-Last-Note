@@ -18,7 +18,7 @@ public class Book : MonoBehaviour, IInteractable
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.44f);
             left = true;
         }
-        return true;
+        return false;
     }
 
     void Start()

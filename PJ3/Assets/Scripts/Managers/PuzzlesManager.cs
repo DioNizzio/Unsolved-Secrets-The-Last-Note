@@ -29,6 +29,11 @@ public class PuzzlesManager : MonoBehaviour
 
     public GameObject locky2;
 
+    public GameObject bookshelfCompartment1;
+
+    public GameObject bookshelfCompartment2;
+
+    public CoatofArms coatofArms;
 
     public bool paintingsSolved;
 
@@ -49,6 +54,8 @@ public class PuzzlesManager : MonoBehaviour
     public bool closetLockSolved;
 
     public bool fireplaceSolved;
+
+    public bool coatofArmsSolved;
 
     private List<string> pianoSolution;
     
@@ -76,6 +83,7 @@ public class PuzzlesManager : MonoBehaviour
         pianoSolved = false;
         closetLockSolved = false;
         fireplaceSolved = false;
+        coatofArmsSolved = false;
         pianoSolution = new List<string>
         {
             "4g",
@@ -137,6 +145,9 @@ public class PuzzlesManager : MonoBehaviour
         if(!fireplaceSolved){
             CheckFireplace();
         }
+        if(!coatofArmsSolved){
+            CheckCoatofArms();
+        }
 
     }
 
@@ -164,7 +175,8 @@ public class PuzzlesManager : MonoBehaviour
         if(shelf1[0] == 0 && shelf1[1] == 16 && shelf2[0] == 4 && shelf2[1] == 12 && shelf3[0] == 7 && shelf3[1] == 9 && shelf4[0] == 11 && shelf4[1] == 5 && shelf5[0] == 13 && shelf5[1] == 3){
             Debug.Log("Puzzle Solved");
             bookshelvesSolved = true;
-            //play some animation after
+            bookshelfCompartment1.GetComponent<Animator>().SetTrigger("Open");
+            bookshelfCompartment2.GetComponent<Animator>().SetTrigger("Open");
         }
     }
 
@@ -240,6 +252,13 @@ public class PuzzlesManager : MonoBehaviour
         if(!fireplace.ornamentLeft.GetComponent<MeshRenderer>().material.name.Contains("invisible") && !fireplace.ornamentRight.GetComponent<MeshRenderer>().material.name.Contains("invisible")){
             fireplace.PlayAnimation();
             fireplaceSolved=true;
+        }
+    }
+
+    public void CheckCoatofArms(){
+        if(!coatofArms.bottomPart.GetComponent<MeshRenderer>().material.name.Contains("invisible")&&!coatofArms.topPart.GetComponent<MeshRenderer>().material.name.Contains("invisible")&&!coatofArms.pearl.GetComponent<MeshRenderer>().material.name.Contains("invisible")){
+            coatofArms.PlayAnimation();
+            coatofArmsSolved = true;
         }
     }
     
