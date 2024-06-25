@@ -61,6 +61,8 @@ public class NotePad : MonoBehaviour {
 
     public Sprite paintings;
 
+    public Sprite clockBells;
+
     private int currentNotepadPage = 0;
 
     private Dictionary<string, Sprite> helps = new();
@@ -111,6 +113,8 @@ public class NotePad : MonoBehaviour {
 
         helps.Add("books1", books1);
         helps.Add("paintings", paintings);
+        helps.Add("clockBells", clockBells);
+
 
     }
 

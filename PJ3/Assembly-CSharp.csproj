@@ -43,6 +43,7 @@
      <Compile Include="Assets\Scripts\Objects\Bookshelf.cs" />
      <Compile Include="Assets\Scripts\Managers\HelpsManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Clock.cs" />
+     <Compile Include="Assets\Scripts\Objects\DeskComponents.cs" />
      <Compile Include="Assets\Scripts\Objects\SafeNumbers.cs" />
      <Compile Include="Assets\Scripts\Objects\Painting.cs" />
      <Compile Include="Assets\Scripts\Objects\Globe.cs" />

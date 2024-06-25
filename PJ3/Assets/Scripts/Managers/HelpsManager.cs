@@ -28,6 +28,16 @@ public class HelpsManager : MonoBehaviour
         helpedList.Add("safe", false);
         timeList.Add("books1", 0);
         helpedList.Add("books1", false);
+        timeList.Add(key: "piano", 0);
+        helpedList.Add("piano", false);
+        timeList.Add("clockBells", 0);
+        helpedList.Add("clockBells", false);
+        timeList.Add("fireplace", 0);
+        helpedList.Add("fireplace", false);
+        timeList.Add("globe", 0);
+        helpedList.Add("globe", false);
+        timeList.Add(key: "brasao", 0);
+        helpedList.Add("brasao", false);
         globalTime = Time.deltaTime;
     }
 
