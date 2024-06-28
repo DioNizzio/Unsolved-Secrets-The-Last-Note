@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Objects\PianoKey.cs" />
      <Compile Include="Assets\Scripts\Objects\Safe.cs" />
      <Compile Include="Assets\Scripts\Objects\ClockBells.cs" />
+     <Compile Include="Assets\Scripts\Objects\PedestalBook.cs" />
      <Compile Include="Assets\Scripts\Objects\MusicBox.cs" />
      <Compile Include="Assets\Scripts\Managers\LanternManager.cs" />
      <Compile Include="Assets\Scripts\Objects\AutoFlip.cs" />
@@ -69,6 +70,7 @@
      <Compile Include="Assets\Scripts\Managers\InteractionsManager.cs" />
      <Compile Include="Assets\Scripts\Objects\ClockHands.cs" />
      <Compile Include="Assets\Scripts\Objects\CoatofArmsParts.cs" />
+     <Compile Include="Assets\Scripts\Objects\Pedestal.cs" />
      <Compile Include="Assets\Scripts\Objects\PianoCompartiments.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerandCameraHolders.cs" />
      <Compile Include="Assets\Scripts\Player\MoveCamera.cs" />

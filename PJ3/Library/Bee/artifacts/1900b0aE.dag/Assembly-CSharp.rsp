@@ -387,6 +387,8 @@
 "Assets/Scripts/Objects/NotePad.cs"
 "Assets/Scripts/Objects/Painting.cs"
 "Assets/Scripts/Objects/PaintingSpot.cs"
+"Assets/Scripts/Objects/Pedestal.cs"
+"Assets/Scripts/Objects/PedestalBook.cs"
 "Assets/Scripts/Objects/Piano.cs"
 "Assets/Scripts/Objects/PianoCompartiments.cs"
 "Assets/Scripts/Objects/PianoKey.cs"
