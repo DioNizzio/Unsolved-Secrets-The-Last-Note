@@ -35,6 +35,8 @@ public class PuzzlesManager : MonoBehaviour
 
     public CoatofArms coatofArms;
 
+    public Pedestal pedestal;
+
     public bool paintingsSolved;
 
     public bool bookshelvesSolved;
@@ -56,6 +58,10 @@ public class PuzzlesManager : MonoBehaviour
     public bool fireplaceSolved;
 
     public bool coatofArmsSolved;
+
+    public bool pedestalSolved;
+
+    public bool notstarted;
 
     private List<string> pianoSolution;
     
@@ -84,6 +90,8 @@ public class PuzzlesManager : MonoBehaviour
         closetLockSolved = false;
         fireplaceSolved = false;
         coatofArmsSolved = false;
+        pedestalSolved = false;
+        notstarted = false;
         pianoSolution = new List<string>
         {
             "4g",
@@ -147,6 +155,9 @@ public class PuzzlesManager : MonoBehaviour
         }
         if(!coatofArmsSolved){
             CheckCoatofArms();
+        }
+        if(!pedestalSolved && !notstarted){
+            CheckPedestalBooks();
         }
 
     }
@@ -262,5 +273,12 @@ public class PuzzlesManager : MonoBehaviour
         }
     }
     
+    public void CheckPedestalBooks(){
+        if(pedestal.posbook7==3 && pedestal.posbook6==7 && pedestal.posbook5==1 && pedestal.posbook4==5 && pedestal.posbook3==2 && pedestal.posbook2==6 && pedestal.posbook1==4){
+            pedestal.OpenCompartment();
+            pedestalSolved = true;
+            //cameraSwitcher.ExitCurrentCamera();
+        }
+    }
 
 }

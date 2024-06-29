@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Pedestal : MonoBehaviour
+public class Pedestal : MonoBehaviour, IInteractable
 {
     int first = 0;
     int second = 0;
-
+    public bool cameraActive;
     public GameObject book1;
     public GameObject book2;
     public GameObject book3;
@@ -16,14 +16,15 @@ public class Pedestal : MonoBehaviour
     public GameObject book5;
     public GameObject book6;
     public GameObject book7;
+    public GameObject compartment;
 
-    private int posbook1=1;
-    private int posbook2=2;
-    private int posbook3=3;
-    private int posbook4=4;
-    private int posbook5=5;
-    private int posbook6=6;
-    private int posbook7=7;
+    public int posbook1=1;
+    public int posbook2=2;
+    public int posbook3=3;
+    public int posbook4=4;
+    public int posbook5=5;
+    public int posbook6=6;
+    public int posbook7=7;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,18 @@ public class Pedestal : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public bool Interact(GameObject currentObj)
+    {
+        cameraActive = true;
+        GetComponent<BoxCollider>().enabled = false;
+        return false;
+    }
+
+    public void ExitCameraPedestal(){
+        cameraActive = false;
+        GetComponent<BoxCollider>().enabled = true;
     }
 
     public void UpNumber(string number){
@@ -178,4 +191,9 @@ public class Pedestal : MonoBehaviour
         second = 0;
         first = 0;
     }
+
+    public void OpenCompartment(){
+        compartment.GetComponent<Animator>().SetTrigger("Open");
+    }
+
 }

@@ -482,6 +482,19 @@ MonoBehaviour:
       layout: 4
       size: {x: 0, y: 0}
       sizeOverriden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: 48, y: 10.399994}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: UnityEditor.SceneViewCameraOverlay
+      index: 8
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverriden: 0
     m_OverlaysVisible: 1
   m_WindowGUID: cf8a03fcfc7091446a3de8757c36d21e
   m_Gizmos: 1
@@ -493,9 +506,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 15.380829, y: 0.09528466, z: 0.82770187}
+    m_Target: {x: 12.201121, y: 1.1872585, z: 32.111504}
     speed: 2
-    m_Value: {x: 15.380829, y: 0.09528466, z: 0.82770187}
+    m_Value: {x: 12.201121, y: 1.1872585, z: 32.111504}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -541,13 +554,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.0024553346, y: 1.0003765, z: 0.0056967363, w: 0.0035581964}
+    m_Target: {x: 0.1803242, y: -0.25116962, z: 0.046487715, w: 0.9504847}
     speed: 2
-    m_Value: {x: -0.0024543481, y: 0.9999745, z: 0.005694447, w: 0.0035567665}
+    m_Value: {x: 0.18021743, y: -0.2510209, z: 0.04646019, w: 0.9499219}
   m_Size:
-    m_Target: 0.09294493
+    m_Target: 0.17805476
     speed: 2
-    m_Value: 0.09294493
+    m_Value: 0.17805476
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -634,7 +647,7 @@ MonoBehaviour:
   - {fileID: 9}
   - {fileID: 10}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -680,7 +693,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Animations/booksRoom2/Book7
+    - Assets/Animations/booksRoom2/Book1
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -688,16 +701,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Animations/booksRoom2/Book7
+  - Assets/Animations/booksRoom2/Book1
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\leand\PJ3\PJ3
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ccd80000
-    m_LastClickedID: 55500
-    m_ExpandedIDs: 00000000f2910000f4910000f6910000f8910000fa910000fc910000fe91000000920000029200000492000006920000089200000a9200000c92000010920000aad80000b8d80000c2d80000
+    m_SelectedIDs: 3e260100
+    m_LastClickedID: 75326
+    m_ExpandedIDs: 00000000789200007a9200007c9200007e92000080920000829200008492000086920000889200008a9200008c9200008e92000090920000929200009492000060930000669300009c94000026260100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -725,7 +738,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f2910000f4910000f6910000f8910000fa910000fc910000fe91000000920000029200000492000006920000089200000a9200000c92000010920000aad80000b8d80000c2d80000
+    m_ExpandedIDs: 00000000789200007a9200007c9200007e92000080920000829200008492000086920000889200008a9200008c9200008e92000090920000929200009492000060930000669300009c940000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -750,8 +763,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: ca760000
-    m_LastClickedInstanceID: 30410
+    m_SelectedInstanceIDs: 02610000
+    m_LastClickedInstanceID: 24834
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 34800000d68e00005e9100006a90000026900000
     m_RenameOverlay:
@@ -777,7 +790,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 475.80002}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 156
@@ -817,7 +830,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 27654
+  m_LastSelectedObjectID: 24834
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -867,8 +880,8 @@ MonoBehaviour:
     - {fileID: 834075980271946914, guid: 1d7ae44ee601f33449e81101fa274b65, type: 2}
     - {fileID: -673037500658081361, guid: e0e9e19b0ace3954b94b412b03f1b6d5, type: 2}
     - {fileID: -8783077862437441464, guid: adaf1f62cad82b446abde1c8d2893cc8, type: 2}
-    - {fileID: -1577175118129002221, guid: 5ce757a7e1173324cbe6b2b021e1dc33, type: 2}
     - {fileID: 8109787083960272974, guid: 46e654176e21f8f408fdf91157e396c9, type: 2}
+    - {fileID: 3148974460461884039, guid: 19d0e668f30edce4fa2e4b1687c697ff, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.6596369
       e01: 0
@@ -1078,14 +1091,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.54021055
+    - e00: 0.1108501
       e01: 0
       e02: 0
-      e03: -12.010529
+      e03: 48.8655
       e10: 0
-      e11: 0.54021055
+      e11: 0.1108501
       e12: 0
-      e13: 119.088425
+      e13: 115.53464
       e20: 0
       e21: 0
       e22: 1
@@ -1094,14 +1107,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.29979813
+    - e00: 0.54021055
       e01: 0
       e02: 0
-      e03: -614.87305
+      e03: -12.010529
       e10: 0
-      e11: 0.29979813
+      e11: 0.54021055
       e12: 0
-      e13: -12.06018
+      e13: 102.88211
       e20: 0
       e21: 0
       e22: 1
@@ -1188,10 +1201,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 066c0000
-      m_LastClickedID: 27654
-      m_ExpandedIDs: f0ddffff88e3ffffd8ecffff90f5ffff06fbffffbe5c00008a5e00009e5f00008c6000006e6900000a720000a4780000507a00009a7d0000be7f0000
+      scrollPos: {x: 0, y: 4215.2}
+      m_SelectedIDs: 02610000
+      m_LastClickedID: 24834
+      m_ExpandedIDs: 92c4ffff60e5ffffecedffff06fbffff6e60000072710000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
