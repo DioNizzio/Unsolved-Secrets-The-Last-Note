@@ -12,6 +12,8 @@ public class InspectionManager : MonoBehaviour
     UIManager uIManager;
     public Transform inspectPos;
 
+    public Transform readPos;
+
     public Transform holdPos;
 
     private GameObject inspectObj;
@@ -29,14 +31,19 @@ public class InspectionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        uIManager = gameObject.AddComponent<UIManager>();
+        uIManager = gameObject.GetComponent<UIManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (inspectObj != null){
-            inspectObj.transform.position = inspectPos.transform.position;
+            if(inspectObj.tag.Contains("Readable")){
+                inspectObj.transform.position = readPos.transform.position;
+            }
+            else{
+                inspectObj.transform.position = inspectPos.transform.position;
+            }
 
             var x = Input.GetAxis("Mouse X");
             var y = Input.GetAxis("Mouse Y");
@@ -57,6 +64,7 @@ public class InspectionManager : MonoBehaviour
 
     public void InspectItem(GameObject go){
         uIManager.ActivateBlur(true);
+        uIManager.HideCrossair();
         if(go!=null){
             if(inspectObj!=null){
                 inspectObj.gameObject.SetActive(false);
@@ -68,9 +76,17 @@ public class InspectionManager : MonoBehaviour
             //inspectObj.layer = 0;        
             inspectObj.gameObject.SetActive(true);
             //inspectObj.AddComponent<EventTrigger>();
-            inspectObjRb = go.GetComponent<Rigidbody>(); //assign Rigidbody
-            inspectObjRb.isKinematic = true;
-            inspectObjRb.transform.parent = inspectPos.transform; //parent object to holdposition
+            if(inspectObj.tag.Contains("Readable")){
+                inspectObjRb = go.GetComponentInChildren<Rigidbody>(); //assign Rigidbody
+                inspectObjRb.isKinematic = true;
+                inspectObjRb.transform.parent = readPos.transform;
+            }
+            else{
+                inspectObjRb = go.GetComponent<Rigidbody>(); //assign Rigidbody
+                inspectObjRb.isKinematic = true;
+                inspectObjRb.transform.parent = inspectPos.transform;
+            }
+            
         }
         else{
             if(inspectObj!=null){
@@ -85,6 +101,7 @@ public class InspectionManager : MonoBehaviour
 
     public void ExitInspection(){
         uIManager.ActivateBlur(false);
+        uIManager.HideCrossair();
         if(inspectObj!=null){
             inspectObj.layer = 0;
             inspectObjRb.isKinematic = false;

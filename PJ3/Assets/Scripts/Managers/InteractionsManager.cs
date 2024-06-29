@@ -22,7 +22,11 @@ public class InteractionsManager : MonoBehaviour
 
     private Camera cam;
 
-    public Transform holdPos;
+    public Transform holdPosPainting;
+
+    public Transform holdPosNormal;
+
+    private Transform holdPos = null;
 
     public float throwForce = 200f; 
     
@@ -37,14 +41,16 @@ public class InteractionsManager : MonoBehaviour
         inventoryManager = gameObject.GetComponent<InventoryManager>();
         cameraSwitcher = gameObject.GetComponent<CameraSwitcher>();
         cam = cameraSwitcher.GetCurrentCamera().GetComponent<Camera>();
+        holdPos = holdPosNormal;
     }
 
     void Update(){
         cam = cameraSwitcher.GetCurrentCamera().GetComponent<Camera>();
         //keep object position the same as the holdPosition position
         if (heldObj != null){
+            
             heldObj.transform.position = holdPos.transform.position;
-            heldObj.transform.eulerAngles = holdPos.transform.eulerAngles;
+            heldObj.transform.eulerAngles = holdPos.transform.eulerAngles;            
         } 
     }
 
@@ -56,7 +62,8 @@ public class InteractionsManager : MonoBehaviour
             if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)){
                 if(inventoryManager.GetCurrentItem()!=null){
                     if(interactObj.Interact(inventoryManager.GetCurrentItem()) == true){
-                        heldObj.SetActive(false);
+                        //heldObj.SetActive(false);
+                        heldObj.layer = 0;
                         ClearHeldObj();
                         inventoryManager.ClearItem();
                     }                    
@@ -82,7 +89,7 @@ public class InteractionsManager : MonoBehaviour
             // if (hitInfo.collider.gameObject.TryGetComponent(out GameObject interactObj))
             // {
             //pass in object hit into the PickUpObject function
-            if (interactObj.GetComponent<Rigidbody>() && interactObj.tag == "Pickable") //make sure the object has a RigidBody
+            if (interactObj.GetComponent<Rigidbody>() && (interactObj.tag == "Pickable" || interactObj.tag == "Readable")) //make sure the object has a RigidBody
             {
                 inventoryManager.AddItem(interactObj);
                 //HoldObject(interactObj);
@@ -95,25 +102,42 @@ public class InteractionsManager : MonoBehaviour
     public void HoldObject(GameObject holdObj){
         if(holdObj != null){
             if(heldObj != null){
-                heldObj.gameObject.SetActive(false);
-                heldObj = holdObj; //assign heldObj to the object that was hit by the raycast (no longer == null)         
-                heldObj.gameObject.SetActive(true);
-                heldObjRb = holdObj.GetComponent<Rigidbody>(); //assign Rigidbody
-                heldObjRb.isKinematic = true;
-                heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
-                heldObj.layer = 7; //change the object layer to the holdLayer
-                //make sure object doesnt collide with player, it can cause weird bugs
-                Physics.IgnoreCollision(collider1: heldObj.GetComponent<Collider>(), interactorSource.gameObject.GetComponent<Collider>(), true);
+                
+                    if(holdObj.name.Contains("Painting")){
+                        holdPos = holdPosPainting;
+                    }
+                    else{
+                        holdPos = holdPosNormal;
+                    }
+                    heldObj.gameObject.SetActive(false);
+                    heldObj = holdObj; //assign heldObj to the object that was hit by the raycast (no longer == null)         
+                    heldObj.gameObject.SetActive(true);
+                    heldObjRb = holdObj.GetComponent<Rigidbody>(); //assign Rigidbody
+                    heldObjRb.isKinematic = true;
+                    heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
+                    heldObj.layer = 7; //change the object layer to the holdLayer
+                    //make sure object doesnt collide with player, it can cause weird bugs
+                    Physics.IgnoreCollision(collider1: heldObj.GetComponent<Collider>(), interactorSource.gameObject.GetComponent<Collider>(), true);
+                
+                
             }
             else{
-                heldObj = holdObj; //assign heldObj to the object that was hit by the raycast (no longer == null)         
-                heldObj.gameObject.SetActive(true);
-                heldObjRb = holdObj.GetComponent<Rigidbody>(); //assign Rigidbody
-                heldObjRb.isKinematic = true;
-                heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
-                heldObj.layer = 7; //change the object layer to the holdLayer
-                //make sure object doesnt collide with player, it can cause weird bugs
-                Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), interactorSource.gameObject.GetComponent<Collider>(), true);
+                 
+                    if(holdObj.name.Contains("Painting")){
+                        holdPos = holdPosPainting;
+                    }
+                    else{
+                        holdPos = holdPosNormal;
+                    }
+                    heldObj = holdObj; //assign heldObj to the object that was hit by the raycast (no longer == null)         
+                    heldObj.gameObject.SetActive(true);
+                    heldObjRb = holdObj.GetComponent<Rigidbody>(); //assign Rigidbody
+                    heldObjRb.isKinematic = true;
+                    heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
+                    heldObj.layer = 7; //change the object layer to the holdLayer
+                    //make sure object doesnt collide with player, it can cause weird bugs
+                    Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), interactorSource.gameObject.GetComponent<Collider>(), true);
+                
             }
         }
         else{
@@ -124,6 +148,8 @@ public class InteractionsManager : MonoBehaviour
             }
         }
     }
+
+    
 
     public void CloseUpInteraction(){
         Ray r = cam.ScreenPointToRay(Input.mousePosition);

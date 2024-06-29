@@ -15,7 +15,7 @@ C:/Users/leand/PJ3/PJ3
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-54784
+55015
 Successfully changed project path to: C:/Users/leand/PJ3/PJ3
 C:/Users/leand/PJ3/PJ3
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/leand/PJ3/PJ3
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [6948] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 2621056491 [EditorId] 2621056491 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-28D9HTE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [26572] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 133107322 [EditorId] 133107322 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-28D9HTE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [6948] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 2621056491 [EditorId] 2621056491 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-28D9HTE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [26572] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 133107322 [EditorId] 133107322 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-28D9HTE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
-Refreshing native plugins compatible for Editor in 14.16 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 15.29 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.10f1 (ff3792e53c62)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Resources/UnitySubsystems
@@ -70,46 +70,46 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56332
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56244
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.011112 seconds.
-- Loaded All Assemblies, in  0.522 seconds
+Registered in 0.012133 seconds.
+- Loaded All Assemblies, in  0.808 seconds
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.363 seconds
-Domain Reload Profiling: 880ms
-	BeginReloadAssembly (165ms)
+- Finished resetting the current domain, in  0.332 seconds
+Domain Reload Profiling: 1133ms
+	BeginReloadAssembly (300ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (49ms)
-	RebuildNativeTypeToScriptingClass (15ms)
-	initialDomainReloadingComplete (88ms)
-	LoadAllAssembliesAndSetupDomain (198ms)
-		LoadAssemblies (160ms)
+	RebuildCommonClasses (66ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (99ms)
+	LoadAllAssembliesAndSetupDomain (318ms)
+		LoadAssemblies (294ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (195ms)
-			TypeCache.Refresh (193ms)
-				TypeCache.ScanAssembly (174ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
+		AnalyzeDomain (314ms)
+			TypeCache.Refresh (312ms)
+				TypeCache.ScanAssembly (275ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (364ms)
+	FinalizeReload (332ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (279ms)
+		SetupLoadedEditorAssemblies (241ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (13ms)
+			InitializePlatformSupportModulesInManaged (15ms)
 			SetLoadedEditorAssemblies (8ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (185ms)
-			ProcessInitializeOnLoadMethodAttributes (71ms)
+			ProcessInitializeOnLoadAttributes (156ms)
+			ProcessInitializeOnLoadMethodAttributes (57ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -117,8 +117,8 @@ Domain Reload Profiling: 880ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.817 seconds
-Refreshing native plugins compatible for Editor in 6.25 ms, found 3 plugins.
+- Loaded All Assemblies, in  0.965 seconds
+Refreshing native plugins compatible for Editor in 4.88 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Package Manager log level set to [2]
@@ -126,70 +126,48 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.615 seconds
-Domain Reload Profiling: 1424ms
-	BeginReloadAssembly (208ms)
+- Finished resetting the current domain, in  0.655 seconds
+Domain Reload Profiling: 1610ms
+	BeginReloadAssembly (212ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (7ms)
+		DisableScriptedObjects (9ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (23ms)
-	RebuildCommonClasses (52ms)
-	RebuildNativeTypeToScriptingClass (14ms)
-	initialDomainReloadingComplete (51ms)
-	LoadAllAssembliesAndSetupDomain (483ms)
-		LoadAssemblies (397ms)
+	RebuildCommonClasses (43ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (57ms)
+	LoadAllAssembliesAndSetupDomain (624ms)
+		LoadAssemblies (540ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (218ms)
-			TypeCache.Refresh (195ms)
-				TypeCache.ScanAssembly (178ms)
-			ScanForSourceGeneratedMonoScriptInfo (17ms)
-			ResolveRequiredComponents (5ms)
-	FinalizeReload (616ms)
+		AnalyzeDomain (213ms)
+			TypeCache.Refresh (176ms)
+				TypeCache.ScanAssembly (159ms)
+			ScanForSourceGeneratedMonoScriptInfo (16ms)
+			ResolveRequiredComponents (19ms)
+	FinalizeReload (656ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (451ms)
+		SetupLoadedEditorAssemblies (465ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (7ms)
 			SetLoadedEditorAssemblies (3ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (66ms)
-			ProcessInitializeOnLoadAttributes (343ms)
-			ProcessInitializeOnLoadMethodAttributes (20ms)
+			BeforeProcessingInitializeOnLoad (67ms)
+			ProcessInitializeOnLoadAttributes (356ms)
+			ProcessInitializeOnLoadMethodAttributes (19ms)
 			AfterProcessingInitializeOnLoad (11ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (10ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 6.57 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 15.46 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3261 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 43 unused Assets / (1.3 MB). Loaded Objects now: 3716.
-Memory consumption went from 134.0 MB to 132.7 MB.
-Total: 3.979600 ms (FindLiveObjects: 0.293700 ms CreateObjectMapping: 0.275900 ms MarkObjects: 3.072800 ms  DeleteObjects: 0.336100 ms)
+Unloading 3272 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 43 unused Assets / (1.3 MB). Loaded Objects now: 3740.
+Memory consumption went from 138.6 MB to 137.3 MB.
+Total: 8.645900 ms (FindLiveObjects: 0.567700 ms CreateObjectMapping: 0.593100 ms MarkObjects: 6.977800 ms  DeleteObjects: 0.504700 ms)
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-codec-MediaFoundation-h265: e54d7ab0439102e2317fc1e4b246158d -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 5.53 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 13 unused Assets / (1.2 MB). Loaded Objects now: 3716.
-Memory consumption went from 74.2 MB to 73.0 MB.
-Total: 3.531600 ms (FindLiveObjects: 0.299900 ms CreateObjectMapping: 0.270800 ms MarkObjects: 2.767500 ms  DeleteObjects: 0.192300 ms)
-
-Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-codec-MediaFoundation-h265: e54d7ab0439102e2317fc1e4b246158d -> 
@@ -206,138 +184,122 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 5612.654429 seconds.
-  path: Assets/Sound/Piano/A (quinta oitava).mp3
-  artifactKey: Guid(fad2d9f103c12e0458d557285f0e7319) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/A (quinta oitava).mp3 using Guid(fad2d9f103c12e0458d557285f0e7319) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '602cb30ed8e2294f2c6e002d87987b0a') in 0.196404 seconds
+  Time since last request: 149352.266024 seconds.
+  path: Assets/Objects/Puzzles/livros_pedestal
+  artifactKey: Guid(95c29ef257b090e4d97f058522486cdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/livros_pedestal using Guid(95c29ef257b090e4d97f058522486cdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '308b1b599edb63630751eadf82f7d0bd') in 0.004590 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000049 seconds.
-  path: Assets/Sound/Piano/C (quarta oitava).mp3
-  artifactKey: Guid(69c852a820adf4946bddfa79924ef1e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/C (quarta oitava).mp3 using Guid(69c852a820adf4946bddfa79924ef1e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df7a043ed5fbc7143e3db24dee39f0c4') in 0.021616 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000153 seconds.
-  path: Assets/Sound/Piano/D sustenido (quarta oitava).mp3
-  artifactKey: Guid(9341797ae1e7fda4d95de5b7bc8baa15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/D sustenido (quarta oitava).mp3 using Guid(9341797ae1e7fda4d95de5b7bc8baa15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ead410902ff9d95c42476c986bf34a36') in 0.026804 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Sound/Piano/C sustenido (quinta oitava).mp3
-  artifactKey: Guid(cbdf18741c6143c488e8a9159d075f12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/C sustenido (quinta oitava).mp3 using Guid(cbdf18741c6143c488e8a9159d075f12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d796d1daa97536d4222ed07451d7e6d') in 0.023840 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000056 seconds.
-  path: Assets/Sound/Piano/G (quarta oitava).mp3
-  artifactKey: Guid(7177659f1e344834d885eccba89606bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/G (quarta oitava).mp3 using Guid(7177659f1e344834d885eccba89606bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fec5d6b87cacb6b766a2e0e36a9f668') in 0.020269 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000150 seconds.
-  path: Assets/Sound/Piano/B (quinta oitava).mp3
-  artifactKey: Guid(d344d491d81097f4183d2003fe16bee0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/B (quinta oitava).mp3 using Guid(d344d491d81097f4183d2003fe16bee0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3fc686b4870b8ac78b622cf7e9f6fe9') in 0.023310 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Sound/Piano/D (terceira oitava).mp3
-  artifactKey: Guid(6898a673ed8adc142b2916d32616fee6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/D (terceira oitava).mp3 using Guid(6898a673ed8adc142b2916d32616fee6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b2722bbfc3f3423970e3d673b566a40') in 0.020253 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Sound/Piano/C (quinta oitava).mp3
-  artifactKey: Guid(856d2cede263be24f83542e9003b17b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/C (quinta oitava).mp3 using Guid(856d2cede263be24f83542e9003b17b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6dd234f5c15cf114ffec0cd8297bbbc8') in 0.018405 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Sound/Piano/B (quarta oitava).mp3
-  artifactKey: Guid(06992cf7febd272459705795cd5d08b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/B (quarta oitava).mp3 using Guid(06992cf7febd272459705795cd5d08b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '872aca8741444ce6bfadbfd669b818c0') in 0.017226 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Sound/Piano/C sustenido (terceira oitava).mp3
-  artifactKey: Guid(8f81cbd8bc0f0764c8eec6f2d1044789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/C sustenido (terceira oitava).mp3 using Guid(8f81cbd8bc0f0764c8eec6f2d1044789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ceaf61cfb56473b17a79f7670ef9806') in 0.029929 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000075 seconds.
-  path: Assets/Sound/Piano/G sustenido (quinta oitava).mp3
-  artifactKey: Guid(9debae0295f3dd74e8325cd5197fbe3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/G sustenido (quinta oitava).mp3 using Guid(9debae0295f3dd74e8325cd5197fbe3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '196db00c819797fcc0d901e8b844d4b4') in 0.017140 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Sound/Piano/E (quarta oitava).mp3
-  artifactKey: Guid(bca9aa2a49212c2498e652ffa7b9de91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/E (quarta oitava).mp3 using Guid(bca9aa2a49212c2498e652ffa7b9de91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc33610232e81d2bc300c31f9bd29fbb') in 0.021508 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000037 seconds.
-  path: Assets/Sound/Piano/A sustenido (quinta oitava).mp3
-  artifactKey: Guid(543decc0c3e1b0b4c82d2c58db653196) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/A sustenido (quinta oitava).mp3 using Guid(543decc0c3e1b0b4c82d2c58db653196) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '664caf87e40eb2975e84a74e6a187a10') in 0.020544 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000044 seconds.
-  path: Assets/Sound/Piano/D sustenido (quinta oitava).mp3
-  artifactKey: Guid(e077282ca4ae9044dba3bd6e0d2880e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/D sustenido (quinta oitava).mp3 using Guid(e077282ca4ae9044dba3bd6e0d2880e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78c7cd1064919fdaa95762d8f34df043') in 0.018115 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000092 seconds.
-  path: Assets/Sound/Piano/F (quarta oitava).mp3
-  artifactKey: Guid(c2c3b3165e6784d468b2312d3170202e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/F (quarta oitava).mp3 using Guid(c2c3b3165e6784d468b2312d3170202e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1898267a3cfd445c0c752f8058aea291') in 0.018006 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000050 seconds.
-  path: Assets/Sound/Piano/E (quinta oitava).mp3
-  artifactKey: Guid(c5b02903387cf0a4cacb6461fa1f598d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/E (quinta oitava).mp3 using Guid(c5b02903387cf0a4cacb6461fa1f598d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de8b8efd4aaea53f9cfb1864c0dc8b02') in 0.008933 seconds
+  Time since last request: 27.929475 seconds.
+  path: Assets/Objects/Puzzles/livros_pedestal/livross_Book_1_Height.png
+  artifactKey: Guid(c14bcca90ee02fd4393d70406b589ad3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/livros_pedestal/livross_Book_1_Height.png using Guid(c14bcca90ee02fd4393d70406b589ad3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73e109277b851ff6c4539f6dbf20268b') in 0.115546 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
 ========================================================================
 Received Import Request.
   Time since last request: 0.000031 seconds.
-  path: Assets/Sound/Piano/D (quarta oitava).mp3
-  artifactKey: Guid(600e8f273375e4948a3b0fc1d24da206) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sound/Piano/D (quarta oitava).mp3 using Guid(600e8f273375e4948a3b0fc1d24da206) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '207a025e09bf1305ed4e5afdc92895ac') in 0.019919 seconds
+  path: Assets/Objects/Puzzles/livros_pedestal/livross_Book_2_Normal.png
+  artifactKey: Guid(6261e1d7a3ccee240bdc4b7732c63991) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/livros_pedestal/livross_Book_2_Normal.png using Guid(6261e1d7a3ccee240bdc4b7732c63991) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48f952c2bb0334cc6d5a9d820aefb873') in 0.033888 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Objects/Puzzles/livros_pedestal/livross_Book_5_Roughness.png
+  artifactKey: Guid(2cccfa216073b0642aeaa94e966d005e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/livros_pedestal/livross_Book_5_Roughness.png using Guid(2cccfa216073b0642aeaa94e966d005e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '448e4c51ba4a271beee21798faf73774') in 0.035628 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Objects/Puzzles/livros_pedestal/livross_Book_6_BaseColor.png
+  artifactKey: Guid(70e0a16cc8a0ac74f9e1fd875c380f3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/livros_pedestal/livross_Book_6_BaseColor.png using Guid(70e0a16cc8a0ac74f9e1fd875c380f3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3c5638a39e98bdb8af4675e94975cf4') in 0.038556 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000077 seconds.
+  path: Assets/Objects/Puzzles/livros_pedestal/livross_Book_6_Height.png
+  artifactKey: Guid(3182309996ce6e04dadc9666fc04bbd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/livros_pedestal/livross_Book_6_Height.png using Guid(3182309996ce6e04dadc9666fc04bbd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6aeb6c9a16c33ce16098f45fda12e130') in 0.031758 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Objects/Puzzles/livros_pedestal/livross_Book_3_Height.png
+  artifactKey: Guid(5916a8a03a2d2d54d8aa0f6c2f102746) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/livros_pedestal/livross_Book_3_Height.png using Guid(5916a8a03a2d2d54d8aa0f6c2f102746) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6a2ae33d4deec21019586f9c0a85083') in 0.034259 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000132 seconds.
+  path: Assets/Objects/Puzzles/livros_pedestal/livross_Book_5_Height.png
+  artifactKey: Guid(89abcdbae025b184eaa4176889b8f169) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/livros_pedestal/livross_Book_5_Height.png using Guid(89abcdbae025b184eaa4176889b8f169) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d0f561bca66b3fa1428e0225ad06125') in 0.031327 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Objects/Puzzles/livros_pedestal/livross_Book_2_Roughness.png
+  artifactKey: Guid(90d493894906196458ccac9c22b91372) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/livros_pedestal/livross_Book_2_Roughness.png using Guid(90d493894906196458ccac9c22b91372) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb8bcb39856fb27283d3032849ee3c10') in 0.031273 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Objects/Puzzles/livros_pedestal/livross_Book_1_Normal.png
+  artifactKey: Guid(1b01871d903fbb54186b43987385d226) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/livros_pedestal/livross_Book_1_Normal.png using Guid(1b01871d903fbb54186b43987385d226) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6d73d6a6817e9f8a322b074f2ce9c8e') in 0.030382 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Objects/Puzzles/livros_pedestal/livross_Book_4_BaseColor.png
+  artifactKey: Guid(c7c76d0d7229f434eaf10d5e281530e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/livros_pedestal/livross_Book_4_BaseColor.png using Guid(c7c76d0d7229f434eaf10d5e281530e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ad5e940eaf2849391288da9a91d06a7') in 0.029099 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Objects/Puzzles/livros_pedestal/livross_Book_7_Height.png
+  artifactKey: Guid(a61bb14de064b92408acf31778904819) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/livros_pedestal/livross_Book_7_Height.png using Guid(a61bb14de064b92408acf31778904819) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e111f2785515539ceceb2ee1e9e3585') in 0.032596 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Objects/Puzzles/livros_pedestal/livross_Book_4_Roughness.png
+  artifactKey: Guid(5993d0a4adafb7d45afab91bbecc5f5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/livros_pedestal/livross_Book_4_Roughness.png using Guid(5993d0a4adafb7d45afab91bbecc5f5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1779c6b13c5693d1bb5476942f790da2') in 0.033703 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Objects/Puzzles/livros_pedestal/livross_Book_7_Normal.png
+  artifactKey: Guid(87e6f0af6f7f30b47bd28f7d63e3a8d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/livros_pedestal/livross_Book_7_Normal.png using Guid(87e6f0af6f7f30b47bd28f7d63e3a8d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '348406bfc9a371db4085c01cf10a3074') in 0.031707 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000060 seconds.
+  path: Assets/Objects/Puzzles/livros_pedestal/livross_Book_2_Height.png
+  artifactKey: Guid(1384d67b80b3e634f9b57f76379cd659) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Objects/Puzzles/livros_pedestal/livross_Book_2_Height.png using Guid(1384d67b80b3e634f9b57f76379cd659) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d1af4f5368c393c0a7363f6093db2b1') in 0.031718 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout

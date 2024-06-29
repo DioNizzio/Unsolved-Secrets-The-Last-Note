@@ -23,6 +23,19 @@ public class PuzzlesManager : MonoBehaviour
 
     public Piano piano;
 
+    public Lock locky;
+
+    public Fireplace fireplace;
+
+    public GameObject locky2;
+
+    public GameObject bookshelfCompartment1;
+
+    public GameObject bookshelfCompartment2;
+
+    public CoatofArms coatofArms;
+
+    public Pedestal pedestal;
 
     public bool paintingsSolved;
 
@@ -39,6 +52,16 @@ public class PuzzlesManager : MonoBehaviour
     public bool hour3;
 
     public bool pianoSolved;
+
+    public bool closetLockSolved;
+
+    public bool fireplaceSolved;
+
+    public bool coatofArmsSolved;
+
+    public bool pedestalSolved;
+
+    public bool notstarted;
 
     private List<string> pianoSolution;
     
@@ -64,6 +87,11 @@ public class PuzzlesManager : MonoBehaviour
         hour2 = false;
         hour3 = false;
         pianoSolved = false;
+        closetLockSolved = false;
+        fireplaceSolved = false;
+        coatofArmsSolved = false;
+        pedestalSolved = false;
+        notstarted = false;
         pianoSolution = new List<string>
         {
             "4g",
@@ -119,6 +147,19 @@ public class PuzzlesManager : MonoBehaviour
         if(!pianoSolved){
             CheckPianoKeys();
         }
+        if(!closetLockSolved){
+            CheckClosetLock();
+        }
+        if(!fireplaceSolved){
+            CheckFireplace();
+        }
+        if(!coatofArmsSolved){
+            CheckCoatofArms();
+        }
+        if(!pedestalSolved && !notstarted){
+            CheckPedestalBooks();
+        }
+
     }
 
 
@@ -126,7 +167,6 @@ public class PuzzlesManager : MonoBehaviour
         //Debug.Log(paintingMozart.transform.parent.name);
         if(paintingMozart.transform.parent!=null && paintingBeethoven.transform.parent!=null && paintingRachmaninoff.transform.parent!=null && paintingBach.transform.parent!=null){
             if(paintingMozart.transform.parent.name == "posQuadro1" && paintingBeethoven.transform.parent.name == "posQuadro2" && paintingRachmaninoff.transform.parent.name == "posQuadro3" && paintingBach.transform.parent.name == "posQuadro4"){
-                Debug.Log("Solved Puzzle");
                 paintingsSolved = true;
                 paintingMozart.transform.parent.parent.GetComponent<Animator>().SetTrigger("RightOrder");
                 paintingBeethoven.transform.parent.parent.GetComponent<Animator>().SetTrigger("RightOrder");
@@ -146,7 +186,8 @@ public class PuzzlesManager : MonoBehaviour
         if(shelf1[0] == 0 && shelf1[1] == 16 && shelf2[0] == 4 && shelf2[1] == 12 && shelf3[0] == 7 && shelf3[1] == 9 && shelf4[0] == 11 && shelf4[1] == 5 && shelf5[0] == 13 && shelf5[1] == 3){
             Debug.Log("Puzzle Solved");
             bookshelvesSolved = true;
-            //play some animation after
+            bookshelfCompartment1.GetComponent<Animator>().SetTrigger("Open");
+            bookshelfCompartment2.GetComponent<Animator>().SetTrigger("Open");
         }
     }
 
@@ -207,6 +248,37 @@ public class PuzzlesManager : MonoBehaviour
             piano.OpenDrawer();
         }
     }
+
+    public void CheckClosetLock(){
+        if(locky.lock1.transform.eulerAngles.y > -1 &&  locky.lock1.transform.eulerAngles.y < 1  && locky.lock2.transform.eulerAngles.y > 215 && locky.lock2.transform.eulerAngles.y < 217 && locky.lock3.transform.eulerAngles.y > 323 && locky.lock3.transform.eulerAngles.y < 325 && locky.lock4.transform.eulerAngles.y > 251 && locky.lock4.transform.eulerAngles.y < 253){
+            closetLockSolved=true;
+            cameraSwitcher.ExitCurrentCamera();
+            locky.isUnlocked=true;
+            locky.gameObject.SetActive(false);
+            locky2.SetActive(true);
+        }
+    }
+
+    public void CheckFireplace(){
+        if(!fireplace.ornamentLeft.GetComponent<MeshRenderer>().material.name.Contains("invisible") && !fireplace.ornamentRight.GetComponent<MeshRenderer>().material.name.Contains("invisible")){
+            fireplace.PlayAnimation();
+            fireplaceSolved=true;
+        }
+    }
+
+    public void CheckCoatofArms(){
+        if(!coatofArms.bottomPart.GetComponent<MeshRenderer>().material.name.Contains("invisible")&&!coatofArms.topPart.GetComponent<MeshRenderer>().material.name.Contains("invisible")&&!coatofArms.pearl.GetComponent<MeshRenderer>().material.name.Contains("invisible")){
+            coatofArms.PlayAnimation();
+            coatofArmsSolved = true;
+        }
+    }
     
+    public void CheckPedestalBooks(){
+        if(pedestal.posbook7==3 && pedestal.posbook6==7 && pedestal.posbook5==1 && pedestal.posbook4==5 && pedestal.posbook3==2 && pedestal.posbook2==6 && pedestal.posbook1==4){
+            pedestal.OpenCompartment();
+            pedestalSolved = true;
+            //cameraSwitcher.ExitCurrentCamera();
+        }
+    }
 
 }

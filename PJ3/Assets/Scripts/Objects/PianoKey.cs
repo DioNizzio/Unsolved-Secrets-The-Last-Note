@@ -9,6 +9,8 @@ public class PianoKey : MonoBehaviour, IInteractable
 
     public AudioClip note;
 
+    public Material correctMaterial;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +19,29 @@ public class PianoKey : MonoBehaviour, IInteractable
 
     public bool Interact(GameObject currentObj)
     {
-        if(note!=null){
-            piano.PlayNote(note);
+        if(currentObj!=null){
+            Debug.Log(currentObj.name);
+            if(GetComponent<MeshRenderer>().material.name.Contains("invisible") && currentObj.name.Contains("Piano Key")){
+                GetComponent<MeshRenderer>().material = correctMaterial;
+                Destroy(currentObj);
+                return true;
+            }
         }
-        transform.parent.GetComponent<Animator>().SetTrigger("Interact");
-        piano.AddtoPianoNotes(transform.parent.name);
+        else{
+            if(name.Contains("Piano Key") || GetComponent<MeshRenderer>().material.name.Contains("invisible")){
+                return false;
+            }
+            else{
+                if(note!=null){
+                    piano.PlayNote(note);
+                }
+                transform.parent.GetComponent<Animator>().SetTrigger("Interact");
+                piano.AddtoPianoNotes(transform.parent.name);   
+            }   
+            
+        }
         return false;
+        
     }
 
 }

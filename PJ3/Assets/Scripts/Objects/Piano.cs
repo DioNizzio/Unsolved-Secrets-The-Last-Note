@@ -31,13 +31,13 @@ public class Piano : MonoBehaviour, IInteractable
     public bool Interact(GameObject currentObj)
     {
         cameraActive = true;
-        GetComponent<BoxCollider>().enabled = false;
+        //GetComponent<BoxCollider>().enabled = false;
         return false;
     }
 
     public void ExitCameraPiano(){
         cameraActive = false;
-        GetComponent<BoxCollider>().enabled = true;
+        //GetComponent<BoxCollider>().enabled = true;
         ResetPianoNotes();
     }
 
