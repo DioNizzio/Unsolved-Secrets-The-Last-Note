@@ -6,7 +6,7 @@ public class PianoCompartiments : MonoBehaviour, IInteractable
 {
     public bool Interact(GameObject currentObj)
     {
-        transform.parent.GetComponent<IInteractable>().Interact(currentObj);
+        transform.parent.GetComponent<Piano>().Interact(currentObj);
         return false;
     }
 }

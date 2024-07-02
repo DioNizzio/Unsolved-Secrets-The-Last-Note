@@ -25,9 +25,13 @@ public class PuzzlesManager : MonoBehaviour
 
     public Lock locky;
 
+    public Lock deskLock;
+
     public Fireplace fireplace;
 
     public GameObject locky2;
+
+    public GameObject deskLock2;
 
     public GameObject bookshelfCompartment1;
 
@@ -63,6 +67,8 @@ public class PuzzlesManager : MonoBehaviour
 
     public bool notstarted;
 
+    public bool deskLockSolved;
+
     private List<string> pianoSolution;
     
 
@@ -92,6 +98,7 @@ public class PuzzlesManager : MonoBehaviour
         coatofArmsSolved = false;
         pedestalSolved = false;
         notstarted = false;
+        deskLockSolved = false;
         pianoSolution = new List<string>
         {
             "4g",
@@ -158,6 +165,9 @@ public class PuzzlesManager : MonoBehaviour
         }
         if(!pedestalSolved && !notstarted){
             CheckPedestalBooks();
+        }
+        if(!deskLockSolved){
+            CheckDeskLock();
         }
 
     }
@@ -256,6 +266,21 @@ public class PuzzlesManager : MonoBehaviour
             locky.isUnlocked=true;
             locky.gameObject.SetActive(false);
             locky2.SetActive(true);
+        }
+    }
+
+    public void CheckDeskLock(){
+        //3830
+        Debug.Log("Lock1: " + deskLock.lock1.transform.eulerAngles.z);
+        Debug.Log("Lock2: " +deskLock.lock2.transform.eulerAngles.z);
+        Debug.Log("Lock3: " +deskLock.lock3.transform.eulerAngles.z);
+        Debug.Log("Lock4: " +deskLock.lock4.transform.eulerAngles.z);
+        if(deskLock.lock1.transform.eulerAngles.z > 143 &&  deskLock.lock1.transform.eulerAngles.z < 145  && deskLock.lock2.transform.eulerAngles.z > 143 && deskLock.lock2.transform.eulerAngles.z < 145 && deskLock.lock3.transform.eulerAngles.z > 143 && deskLock.lock3.transform.eulerAngles.z < 145 && deskLock.lock4.transform.eulerAngles.z > 71 && deskLock.lock4.transform.eulerAngles.z < 73){
+            deskLockSolved=true;
+            cameraSwitcher.ExitCurrentCamera();
+            deskLock.isUnlocked=true;
+            deskLock.gameObject.SetActive(false);
+            deskLock2.SetActive(true);
         }
     }
 

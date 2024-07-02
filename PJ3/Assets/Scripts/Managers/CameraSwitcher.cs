@@ -17,6 +17,8 @@ public class CameraSwitcher : MonoBehaviour
 
     public GameObject pedestalCamera;
 
+    public GameObject deskLockCamera;
+
     public GameObject safe;
 
     public GameObject clock;
@@ -24,6 +26,8 @@ public class CameraSwitcher : MonoBehaviour
     public GameObject piano;
 
     public GameObject locky;
+
+    public GameObject deskLock;
 
     public GameObject pedestal;
 
@@ -62,6 +66,9 @@ public class CameraSwitcher : MonoBehaviour
         else if(pedestal.GetComponent<Pedestal>().cameraActive){
             cameraActivated = "pedestal";
         }
+        else if(deskLock.GetComponent<Lock>().cameraActive){
+            cameraActivated = "deskLock";
+        }
         else{
             cameraActivated = "main";
         }
@@ -72,6 +79,7 @@ public class CameraSwitcher : MonoBehaviour
             pianoCamera.SetActive(false);
             lockCamera.SetActive(false);
             pedestalCamera.SetActive(false);
+            deskLockCamera.SetActive(false);
             uIManager.HideUI(false);
             if(uIManager.notePad.activeSelf==true){
                 uIManager.ChangeCursor("close");
@@ -87,6 +95,7 @@ public class CameraSwitcher : MonoBehaviour
             pianoCamera.SetActive(false);
             lockCamera.SetActive(false);
             pedestalCamera.SetActive(false);
+            deskLockCamera.SetActive(false);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
             playerandCameraHolders.PlayerCanMove(false);
@@ -98,6 +107,7 @@ public class CameraSwitcher : MonoBehaviour
             pianoCamera.SetActive(false);
             lockCamera.SetActive(false);
             pedestalCamera.SetActive(false);
+            deskLockCamera.SetActive(false);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
             playerandCameraHolders.PlayerCanMove(false);
@@ -109,6 +119,7 @@ public class CameraSwitcher : MonoBehaviour
             pianoCamera.SetActive(true);
             lockCamera.SetActive(false);
             pedestalCamera.SetActive(false);
+            deskLockCamera.SetActive(false);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
             playerandCameraHolders.PlayerCanMove(false);
@@ -120,6 +131,7 @@ public class CameraSwitcher : MonoBehaviour
             pianoCamera.SetActive(false);
             lockCamera.SetActive(true);
             pedestalCamera.SetActive(false);
+            deskLockCamera.SetActive(false);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
             playerandCameraHolders.PlayerCanMove(false);
@@ -131,6 +143,19 @@ public class CameraSwitcher : MonoBehaviour
             pianoCamera.SetActive(false);
             lockCamera.SetActive(false);
             pedestalCamera.SetActive(true);
+            deskLockCamera.SetActive(false);
+            uIManager.ChangeCursor("close");
+            uIManager.HideUI(true);
+            playerandCameraHolders.PlayerCanMove(false);
+        }
+        else if(cameraActivated.Contains(value: "deskLock")){
+            mainCamera.SetActive(false);
+            safeCamera.SetActive(false);
+            clockCamera.SetActive(false);
+            pianoCamera.SetActive(false);
+            lockCamera.SetActive(false);
+            pedestalCamera.SetActive(false);
+            deskLockCamera.SetActive(true);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
             playerandCameraHolders.PlayerCanMove(false);
@@ -156,6 +181,9 @@ public class CameraSwitcher : MonoBehaviour
         else if(pedestalCamera.activeSelf==true){
             pedestal.GetComponent<Pedestal>().ExitCameraPedestal();
         }
+        else if(deskLockCamera.activeSelf==true){
+            deskLock.GetComponent<Lock>().ExitCameraLock();
+        }
     }
 
     public GameObject GetCurrentCamera(){
@@ -176,6 +204,9 @@ public class CameraSwitcher : MonoBehaviour
         }
         else if(pedestalCamera.activeSelf==true){
             return pedestalCamera;
+        }
+        else if(deskLockCamera.activeSelf==true){
+            return deskLockCamera;
         }
         return null;
     }

@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Objects\ClockBells.cs" />
      <Compile Include="Assets\Scripts\Objects\PedestalBook.cs" />
      <Compile Include="Assets\Scripts\Objects\MusicBox.cs" />
+     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Managers\LanternManager.cs" />
      <Compile Include="Assets\Scripts\Objects\AutoFlip.cs" />
      <Compile Include="Assets\Scripts\Objects\Lock.cs" />
@@ -75,10 +76,13 @@
      <Compile Include="Assets\Scripts\Managers\PlayerandCameraHolders.cs" />
      <Compile Include="Assets\Scripts\Player\MoveCamera.cs" />
      <Compile Include="Assets\Scripts\Managers\VisionsManager.cs" />
+     <Compile Include="Assets\Scripts\Objects\CypherWheelParts.cs" />
      <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Closet.cs" />
      <Compile Include="Assets\Scripts\Objects\PaintingSpot.cs" />
      <Compile Include="Assets\Scripts\Objects\CoatofArms.cs" />
+     <Compile Include="Assets\Scripts\Objects\CypherWheel.cs" />
+     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Objects\FireplaceOrnaments.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Managers\PuzzlesManager.cs" />

@@ -5,7 +5,7 @@ using UnityEngine;
 public class DeskComponents : MonoBehaviour, IInteractable
 {
        private Animator animator;
-
+       public Lock deskLock;
     
 
     // Start is called before the first frame update
@@ -21,7 +21,14 @@ public class DeskComponents : MonoBehaviour, IInteractable
 
     public bool Interact(GameObject currentObj)
     {
-        animator.SetTrigger("Open");
+        if(name.Contains("Cube")){
+            if(deskLock.IsUnlocked()==true){
+                animator.SetTrigger("Open");
+            }
+        }
+        else{
+            animator.SetTrigger("Open");
+        }
         return false;
     }
 
