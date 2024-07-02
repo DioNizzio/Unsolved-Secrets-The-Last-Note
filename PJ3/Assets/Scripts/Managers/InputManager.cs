@@ -53,6 +53,8 @@ public class InputManager : MonoBehaviour
 
     HelpsManager helpsManager;
 
+    PlayerandCameraHolders playerandCameraHolders;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +68,7 @@ public class InputManager : MonoBehaviour
         cameraSwitcher = gameObject.GetComponent<CameraSwitcher>();
         lanternManager = gameObject.GetComponent<LanternManager>();
         helpsManager = gameObject.GetComponent<HelpsManager>();
+        playerandCameraHolders = gameObject.GetComponent<PlayerandCameraHolders>();
     }
 
     // Update is called once per frame
@@ -156,14 +159,17 @@ public class InputManager : MonoBehaviour
                 inspectionManager.ExitInspection();
                 uIManager.DeactivateInspectionMenu();
                 interactionsManager.HoldObject(inventoryManager.GetCurrentItem());
-            }
-            if(Cam.activeSelf==false){
+            } else if(Cam.activeSelf==false){
                 cameraSwitcher.ExitCurrentCamera();
-            }
-            if(uIManager.notePad.activeSelf == true){
+            } else if(uIManager.notePad.activeSelf == true){
                 uIManager.ActivateNotePad(false);
-            }
-            
+            }else if(uIManager.IsPaused()){
+                playerandCameraHolders.PlayerCanMove(true);
+                uIManager.HidePause();
+            }else{
+                playerandCameraHolders.PlayerCanMove(false);
+                uIManager.ShowPause();
+            } 
         }
 
         if(Input.GetKeyDown(KeyCode.Tab) && !lanternManager.IsUsingLantern()){

@@ -397,6 +397,8 @@
 "Assets/Scripts/Player/MoveCamera.cs"
 "Assets/Scripts/Player/PlayerCam.cs"
 "Assets/Scripts/Player/PlayerMovement.cs"
+"Assets/Scripts/UI/MainMenu.cs"
+"Assets/Scripts/UI/PauseMenu.cs"
 -langversion:9.0
 
 /deterministic
