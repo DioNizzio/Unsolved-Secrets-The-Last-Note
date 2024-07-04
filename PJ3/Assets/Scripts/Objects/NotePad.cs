@@ -85,7 +85,7 @@ public class NotePad : MonoBehaviour {
 
     private int currentNotepadPage = 1;
 
-    private Dictionary<string, Sprite> helps = new();
+    public Dictionary<string, Sprite> helps = new();
     public UnityEvent OnFlip;
     float radius1, radius2;
     //Spine Bottom
@@ -130,20 +130,6 @@ public class NotePad : MonoBehaviour {
 
         ShadowLTR.rectTransform.sizeDelta = new Vector2(pageWidth, shadowPageHeight);
         ShadowLTR.rectTransform.pivot = new Vector2(0, (pageWidth / 2) / shadowPageHeight);
-
-        helps.Add("books1", books1);
-        helps.Add("paintings", paintings);
-        helps.Add("clockBells", clockBells);
-        helps.Add("books2", books2);
-        helps.Add("safe", safe);
-        helps.Add("fireplace", fireplace);
-        helps.Add("tutorialRoom", tutorialRoom);
-        helps.Add("piano", piano);
-        helps.Add("coatOfArms", coatOfArms);
-        helps.Add("desk", desk);
-        helps.Add("closet", closet);
-        helps.Add("cypherWheel", cypherWheel);
-        helps.Add("globe", globe);
 
 
     }

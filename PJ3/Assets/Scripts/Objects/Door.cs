@@ -8,6 +8,8 @@ public class Door : MonoBehaviour, IInteractable
     public GameObject door;
     private bool locked;
 
+    public UIManager uIManager;
+
     void Start()
     {
         locked = true;   
@@ -21,10 +23,17 @@ public class Door : MonoBehaviour, IInteractable
                 locked = false;
                 return true;
             }
+            else{
+                uIManager.ShowDialogue("Seems locked, I need to find a key somewhere.");
+            }
         }
         else{
             if(locked==false){
                 door.GetComponent<Animator>().SetTrigger("Open");
+                uIManager.ShowDialogue("Nice, there we go.");
+            }
+            else{
+                uIManager.ShowDialogue("Seems locked, I need to find a key somewhere.");
             }
         }
         return false;

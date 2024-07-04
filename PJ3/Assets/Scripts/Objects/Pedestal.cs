@@ -25,6 +25,7 @@ public class Pedestal : MonoBehaviour, IInteractable
     public int posbook5=5;
     public int posbook6=6;
     public int posbook7=7;
+    public float waitTime=0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,14 @@ public class Pedestal : MonoBehaviour, IInteractable
 
     // Update is called once per frame
     void Update()
-    {
+    {  
+        if(first!=0 && second!=0){
+            waitTime += Time.deltaTime;
+            if(waitTime > 1.0f){
+                SwitchBooks();
+                waitTime = 0.0f;
+            }
+        }
         
     }
 
@@ -67,7 +75,8 @@ public class Pedestal : MonoBehaviour, IInteractable
             }
             else{
                 CheckBook(second).GetComponent<Animator>().SetTrigger("UpDown" + CheckPosBook(second));
-                SwitchBooks();
+               
+                //SwitchBooks();
             }
         }
     }

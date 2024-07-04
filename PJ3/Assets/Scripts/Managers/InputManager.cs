@@ -182,6 +182,7 @@ public class InputManager : MonoBehaviour
 
         if(Input.GetKeyDown(helpKey)){
             helpsManager.AskForHelp();
+            helpsManager.HideHelpAvailable();
         }
         if (Input.GetKeyDown(rotateRightKey)){
             clock.RotateHands(1);

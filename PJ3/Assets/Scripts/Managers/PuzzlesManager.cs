@@ -37,6 +37,11 @@ public class PuzzlesManager : MonoBehaviour
 
     public GameObject bookshelfCompartment2;
 
+    public GameObject keyGlobe;
+    public GameObject keyTutorial;
+
+
+
     public CoatofArms coatofArms;
 
     public Pedestal pedestal;
@@ -73,6 +78,10 @@ public class PuzzlesManager : MonoBehaviour
 
     public bool cypherWheelSolved;
 
+    public bool globeSolved;
+    public bool tutorialRoomSolved;
+
+
     private List<string> pianoSolution;
     
 
@@ -104,6 +113,8 @@ public class PuzzlesManager : MonoBehaviour
         notstarted = false;
         deskLockSolved = false;
         cypherWheelSolved = false;
+        globeSolved = false;
+        tutorialRoomSolved = false;
         pianoSolution = new List<string>
         {
             "4g",
@@ -176,6 +187,16 @@ public class PuzzlesManager : MonoBehaviour
         }
         if(!cypherWheelSolved){
             CheckCypherWheel();
+        }
+        if(!globeSolved){
+            if(keyGlobe.activeSelf==true){
+                globeSolved=true;
+            }
+        }
+        if(!tutorialRoomSolved){
+            if(keyTutorial.activeSelf==true){
+                tutorialRoomSolved=true;
+            }
         }
 
     }
