@@ -104,6 +104,12 @@ public class InspectionManager : MonoBehaviour
         uIManager.HideCrossair();
         if(inspectObj!=null){
             inspectObj.layer = 0;
+            // if(inspectObj.transform.childCount!=0){
+
+            // }
+            // else{
+            //     inspectObjRb.isKinematic = false;
+            // }
             inspectObjRb.isKinematic = false;
             inspectObj.transform.parent = null;
             inspectObj = null;

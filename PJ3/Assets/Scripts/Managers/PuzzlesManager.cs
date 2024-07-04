@@ -41,6 +41,8 @@ public class PuzzlesManager : MonoBehaviour
 
     public Pedestal pedestal;
 
+    public CypherWheel cypherWheel;
+
     public bool paintingsSolved;
 
     public bool bookshelvesSolved;
@@ -68,6 +70,8 @@ public class PuzzlesManager : MonoBehaviour
     public bool notstarted;
 
     public bool deskLockSolved;
+
+    public bool cypherWheelSolved;
 
     private List<string> pianoSolution;
     
@@ -99,6 +103,7 @@ public class PuzzlesManager : MonoBehaviour
         pedestalSolved = false;
         notstarted = false;
         deskLockSolved = false;
+        cypherWheelSolved = false;
         pianoSolution = new List<string>
         {
             "4g",
@@ -169,6 +174,9 @@ public class PuzzlesManager : MonoBehaviour
         if(!deskLockSolved){
             CheckDeskLock();
         }
+        if(!cypherWheelSolved){
+            CheckCypherWheel();
+        }
 
     }
 
@@ -193,8 +201,7 @@ public class PuzzlesManager : MonoBehaviour
         int[] shelf3 = Shelf3.GetComponent<Bookshelf>().CheckBookshelf();
         int[] shelf4 = Shelf4.GetComponent<Bookshelf>().CheckBookshelf();
         int[] shelf5 = Shelf5.GetComponent<Bookshelf>().CheckBookshelf();
-        if(shelf1[0] == 0 && shelf1[1] == 16 && shelf2[0] == 4 && shelf2[1] == 12 && shelf3[0] == 7 && shelf3[1] == 9 && shelf4[0] == 11 && shelf4[1] == 5 && shelf5[0] == 13 && shelf5[1] == 3){
-            Debug.Log("Puzzle Solved");
+        if(shelf1[0] == 12 && shelf1[1] == 4 && shelf2[0] == 2 && shelf2[1] == 14 && shelf3[0] == 11 && shelf3[1] == 5 && shelf4[0] == 6 && shelf4[1] == 10 && shelf5[0] == 13 && shelf5[1] == 3){
             bookshelvesSolved = true;
             bookshelfCompartment1.GetComponent<Animator>().SetTrigger("Open");
             bookshelfCompartment2.GetComponent<Animator>().SetTrigger("Open");
@@ -271,10 +278,6 @@ public class PuzzlesManager : MonoBehaviour
 
     public void CheckDeskLock(){
         //3830
-        Debug.Log("Lock1: " + deskLock.lock1.transform.eulerAngles.z);
-        Debug.Log("Lock2: " +deskLock.lock2.transform.eulerAngles.z);
-        Debug.Log("Lock3: " +deskLock.lock3.transform.eulerAngles.z);
-        Debug.Log("Lock4: " +deskLock.lock4.transform.eulerAngles.z);
         if(deskLock.lock1.transform.eulerAngles.z > 143 &&  deskLock.lock1.transform.eulerAngles.z < 145  && deskLock.lock2.transform.eulerAngles.z > 143 && deskLock.lock2.transform.eulerAngles.z < 145 && deskLock.lock3.transform.eulerAngles.z > 143 && deskLock.lock3.transform.eulerAngles.z < 145 && deskLock.lock4.transform.eulerAngles.z > 71 && deskLock.lock4.transform.eulerAngles.z < 73){
             deskLockSolved=true;
             cameraSwitcher.ExitCurrentCamera();
@@ -303,6 +306,14 @@ public class PuzzlesManager : MonoBehaviour
             pedestal.OpenCompartment();
             pedestalSolved = true;
             //cameraSwitcher.ExitCurrentCamera();
+        }
+    }
+
+    public void CheckCypherWheel(){
+        if(cypherWheel.wheelInside.transform.eulerAngles.z > 231 &&  cypherWheel.wheelInside.transform.eulerAngles.z < 233  && cypherWheel.wheelMid.transform.eulerAngles.z > 301 && cypherWheel.wheelMid.transform.eulerAngles.z < 303 && cypherWheel.wheelOutside.transform.eulerAngles.z > 16 && cypherWheel.wheelOutside.transform.eulerAngles.z < 18){
+            cypherWheelSolved=true;
+            cameraSwitcher.ExitCurrentCamera();
+            cypherWheel.PlayAnimations(4);
         }
     }
 

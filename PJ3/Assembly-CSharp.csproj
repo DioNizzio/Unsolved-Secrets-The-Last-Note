@@ -84,6 +84,7 @@
      <Compile Include="Assets\Scripts\Objects\CypherWheel.cs" />
      <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Objects\FireplaceOrnaments.cs" />
+     <Compile Include="Assets\Scripts\Objects\Door.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Managers\PuzzlesManager.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

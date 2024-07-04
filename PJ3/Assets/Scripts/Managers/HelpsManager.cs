@@ -18,6 +18,17 @@ public class HelpsManager : MonoBehaviour
 
     public NotePad notePad;
 
+
+    // public Sprite books2;
+
+    // public Sprite cypherWheel;
+
+    // public Sprite desk;
+
+    // public Sprite closet;
+
+    // public Sprite tutorialRoom;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,8 +47,18 @@ public class HelpsManager : MonoBehaviour
         helpedList.Add("fireplace", false);
         timeList.Add("globe", 0);
         helpedList.Add("globe", false);
-        timeList.Add(key: "brasao", 0);
-        helpedList.Add("brasao", false);
+        timeList.Add(key: "coatOfArms", 0);
+        helpedList.Add("coatOfArms", false);
+        timeList.Add(key: "books2", 0);
+        helpedList.Add("books2", false);
+        timeList.Add(key: "cypherWheel", 0);
+        helpedList.Add("cypherWheel", false);
+        timeList.Add(key: "desk", 0);
+        helpedList.Add("desk", false);
+        timeList.Add(key: "closet", 0);
+        helpedList.Add("closet", false);
+        timeList.Add(key: "tutorialRoom", 0);
+        helpedList.Add("tutorialRoom", false);
         globalTime = Time.deltaTime;
     }
 
@@ -45,14 +66,29 @@ public class HelpsManager : MonoBehaviour
     void Update()
     {
         globalTime += Time.deltaTime;
+        if(helpedList["tutorialRoom"]==false){
+            timeList["tutorialRoom"] += Time.deltaTime;
+        }
         if(puzzlesManager.bookshelvesSolved==false && helpedList["books1"]==false){
             timeList["books1"] += Time.deltaTime;
         }
         if(puzzlesManager.paintingsSolved==false && helpedList["paintings"]==false){
             timeList["paintings"] += Time.deltaTime;
         }
-        if(puzzlesManager.safeSolved==false && puzzlesManager.paintingsSolved==true && helpedList["safe"]==false){
+        if(puzzlesManager.safeSolved==false && puzzlesManager.fireplaceSolved==true && helpedList["safe"]==false){
             timeList["safe"] += Time.deltaTime;
+        }
+        if(puzzlesManager.pedestalSolved == false && puzzlesManager.coatofArmsSolved==true && helpedList["books2"]==false){
+            timeList["books2"] += Time.deltaTime;
+        }
+        if(puzzlesManager.deskLockSolved == false && puzzlesManager.coatofArmsSolved==true && helpedList["desk"]==false){
+            timeList["desk"] += Time.deltaTime;
+        }
+        if(puzzlesManager.closetLockSolved == false && puzzlesManager.deskLockSolved==true && helpedList["closet"]==false){
+            timeList["closet"] += Time.deltaTime;
+        }
+        if(puzzlesManager.cypherWheelSolved == false && puzzlesManager.closetLockSolved==true && helpedList["cypherWheel"]==false){
+            timeList["cypherWheel"] += Time.deltaTime;
         }
         CheckForHelp();
     }

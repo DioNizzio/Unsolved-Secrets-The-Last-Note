@@ -63,7 +63,27 @@ public class NotePad : MonoBehaviour {
 
     public Sprite clockBells;
 
-    private int currentNotepadPage = 0;
+    public Sprite fireplace;
+
+    public Sprite globe;
+
+    public Sprite books2;
+
+    public Sprite cypherWheel;
+
+    public Sprite desk;
+
+    public Sprite closet;
+
+    public Sprite piano;
+
+    public Sprite safe;
+
+    public Sprite coatOfArms;
+
+    public Sprite tutorialRoom;
+
+    private int currentNotepadPage = 1;
 
     private Dictionary<string, Sprite> helps = new();
     public UnityEvent OnFlip;
@@ -114,6 +134,16 @@ public class NotePad : MonoBehaviour {
         helps.Add("books1", books1);
         helps.Add("paintings", paintings);
         helps.Add("clockBells", clockBells);
+        helps.Add("books2", books2);
+        helps.Add("safe", safe);
+        helps.Add("fireplace", fireplace);
+        helps.Add("tutorialRoom", tutorialRoom);
+        helps.Add("piano", piano);
+        helps.Add("coatOfArms", coatOfArms);
+        helps.Add("desk", desk);
+        helps.Add("closet", closet);
+        helps.Add("cypherWheel", cypherWheel);
+        helps.Add("globe", globe);
 
 
     }

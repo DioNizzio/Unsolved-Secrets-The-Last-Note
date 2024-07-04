@@ -19,6 +19,8 @@ public class CameraSwitcher : MonoBehaviour
 
     public GameObject deskLockCamera;
 
+    public GameObject cypherWheelCamera;
+
     public GameObject safe;
 
     public GameObject clock;
@@ -30,6 +32,8 @@ public class CameraSwitcher : MonoBehaviour
     public GameObject deskLock;
 
     public GameObject pedestal;
+
+    public GameObject cypherWheel;
 
     private string cameraActivated;
 
@@ -69,6 +73,9 @@ public class CameraSwitcher : MonoBehaviour
         else if(deskLock.GetComponent<Lock>().cameraActive){
             cameraActivated = "deskLock";
         }
+        else if(cypherWheel.GetComponent<CypherWheel>().cameraActive){
+            cameraActivated = "cypherWheel";
+        }
         else{
             cameraActivated = "main";
         }
@@ -80,6 +87,7 @@ public class CameraSwitcher : MonoBehaviour
             lockCamera.SetActive(false);
             pedestalCamera.SetActive(false);
             deskLockCamera.SetActive(false);
+            cypherWheelCamera.SetActive(false);
             uIManager.HideUI(false);
             if(uIManager.notePad.activeSelf==true){
                 uIManager.ChangeCursor("close");
@@ -96,6 +104,7 @@ public class CameraSwitcher : MonoBehaviour
             lockCamera.SetActive(false);
             pedestalCamera.SetActive(false);
             deskLockCamera.SetActive(false);
+            cypherWheelCamera.SetActive(false);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
             playerandCameraHolders.PlayerCanMove(false);
@@ -108,6 +117,7 @@ public class CameraSwitcher : MonoBehaviour
             lockCamera.SetActive(false);
             pedestalCamera.SetActive(false);
             deskLockCamera.SetActive(false);
+            cypherWheelCamera.SetActive(false);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
             playerandCameraHolders.PlayerCanMove(false);
@@ -120,6 +130,7 @@ public class CameraSwitcher : MonoBehaviour
             lockCamera.SetActive(false);
             pedestalCamera.SetActive(false);
             deskLockCamera.SetActive(false);
+            cypherWheelCamera.SetActive(false);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
             playerandCameraHolders.PlayerCanMove(false);
@@ -132,6 +143,7 @@ public class CameraSwitcher : MonoBehaviour
             lockCamera.SetActive(true);
             pedestalCamera.SetActive(false);
             deskLockCamera.SetActive(false);
+            cypherWheelCamera.SetActive(false);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
             playerandCameraHolders.PlayerCanMove(false);
@@ -144,6 +156,7 @@ public class CameraSwitcher : MonoBehaviour
             lockCamera.SetActive(false);
             pedestalCamera.SetActive(true);
             deskLockCamera.SetActive(false);
+            cypherWheelCamera.SetActive(false);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
             playerandCameraHolders.PlayerCanMove(false);
@@ -156,6 +169,20 @@ public class CameraSwitcher : MonoBehaviour
             lockCamera.SetActive(false);
             pedestalCamera.SetActive(false);
             deskLockCamera.SetActive(true);
+            cypherWheelCamera.SetActive(false);
+            uIManager.ChangeCursor("close");
+            uIManager.HideUI(true);
+            playerandCameraHolders.PlayerCanMove(false);
+        }
+        else if(cameraActivated.Contains(value: "cypherWheel")){
+            mainCamera.SetActive(false);
+            safeCamera.SetActive(false);
+            clockCamera.SetActive(false);
+            pianoCamera.SetActive(false);
+            lockCamera.SetActive(false);
+            pedestalCamera.SetActive(false);
+            deskLockCamera.SetActive(false);
+            cypherWheelCamera.SetActive(true);
             uIManager.ChangeCursor("close");
             uIManager.HideUI(true);
             playerandCameraHolders.PlayerCanMove(false);
@@ -184,6 +211,9 @@ public class CameraSwitcher : MonoBehaviour
         else if(deskLockCamera.activeSelf==true){
             deskLock.GetComponent<Lock>().ExitCameraLock();
         }
+        else if(cypherWheelCamera.activeSelf==true){
+            cypherWheel.GetComponent<CypherWheel>().ExitCameraCypher();
+        }
     }
 
     public GameObject GetCurrentCamera(){
@@ -207,6 +237,9 @@ public class CameraSwitcher : MonoBehaviour
         }
         else if(deskLockCamera.activeSelf==true){
             return deskLockCamera;
+        }
+        else if(cypherWheelCamera.activeSelf==true){
+            return cypherWheelCamera;
         }
         return null;
     }

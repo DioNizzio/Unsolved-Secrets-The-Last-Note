@@ -116,6 +116,10 @@ public class InteractionsManager : MonoBehaviour
                     heldObjRb.isKinematic = true;
                     heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
                     heldObj.layer = 7; //change the object layer to the holdLayer
+                    for(int i = 0; i < heldObj.transform.childCount;i++){
+                        heldObj.transform.GetChild(i).gameObject.layer = 7;
+                        //Physics.IgnoreCollision(heldObj.transform.GetChild(i).GetComponent<Collider>(), interactorSource.gameObject.GetComponent<Collider>(), true);
+                    }
                     //make sure object doesnt collide with player, it can cause weird bugs
                     Physics.IgnoreCollision(collider1: heldObj.GetComponent<Collider>(), interactorSource.gameObject.GetComponent<Collider>(), true);
                 
@@ -135,6 +139,10 @@ public class InteractionsManager : MonoBehaviour
                     heldObjRb.isKinematic = true;
                     heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
                     heldObj.layer = 7; //change the object layer to the holdLayer
+                    for(int i = 0; i < heldObj.transform.childCount;i++){
+                        heldObj.transform.GetChild(i).gameObject.layer = 7;
+                        //Physics.IgnoreCollision(heldObj.transform.GetChild(i).GetComponent<Collider>(), interactorSource.gameObject.GetComponent<Collider>(), true);
+                    }
                     //make sure object doesnt collide with player, it can cause weird bugs
                     Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), interactorSource.gameObject.GetComponent<Collider>(), true);
                 
