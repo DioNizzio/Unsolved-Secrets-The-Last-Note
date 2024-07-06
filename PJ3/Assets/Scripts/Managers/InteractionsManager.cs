@@ -12,6 +12,17 @@ interface IInteractable{
     public bool Interact(GameObject currentObj);
 }
 
+interface IPickable{
+
+    
+    public void Pickup();
+}
+interface IInspectable{
+
+    
+    public void Inspect();
+}
+
 public class InteractionsManager : MonoBehaviour
 {
     // Origin Point of the interaction: our player
@@ -83,7 +94,9 @@ public class InteractionsManager : MonoBehaviour
 
         if (Physics.Raycast(r, out RaycastHit hitInfo, interactRange))
         {
-            
+            if (hitInfo.collider.gameObject.TryGetComponent(out IPickable obj)){
+                obj.Pickup();
+            }
             //make sure pickup tag is attached
             GameObject interactObj = hitInfo.collider.gameObject;
             // if (hitInfo.collider.gameObject.TryGetComponent(out GameObject interactObj))
@@ -91,6 +104,8 @@ public class InteractionsManager : MonoBehaviour
             //pass in object hit into the PickUpObject function
             if (interactObj.GetComponent<Rigidbody>() && (interactObj.tag == "Pickable" || interactObj.tag == "Readable")) //make sure the object has a RigidBody
             {
+                Debug.Log("PICKING");
+                
                 inventoryManager.AddItem(interactObj);
                 //HoldObject(interactObj);
             }

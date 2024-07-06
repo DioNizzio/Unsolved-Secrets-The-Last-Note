@@ -30,7 +30,7 @@ public class VisionsManager : MonoBehaviour
             globalTime += Time.deltaTime;
             if (globalTime>videoPlayer.clip.length){
                 globalTime = 0.0f;
-                imageShowing.SetActive(false);
+                //imageShowing.SetActive(false);
                 videoPlayer.clip = null;
             }
         }
@@ -38,21 +38,21 @@ public class VisionsManager : MonoBehaviour
 
     public void ShowImage(string s){
         if(s.Contains("1")){    
-            imageShowing.SetActive(true);
+            //imageShowing.SetActive(true);
             videoPlayer.clip = hour1;
             videoPlayer.Play();
             cameraSwitcher.ExitCurrentCamera();
         }
 
         if(s.Contains("2")){    
-            imageShowing.SetActive(true);
+            //imageShowing.SetActive(true);
             //videoPlayer.clip = hour2;
             videoPlayer.Play();
             cameraSwitcher.ExitCurrentCamera();
         }
 
         if(s.Contains("3")){    
-            imageShowing.SetActive(true);
+            //imageShowing.SetActive(true);
             //videoPlayer.clip = hour3;
             videoPlayer.Play();
             cameraSwitcher.ExitCurrentCamera();

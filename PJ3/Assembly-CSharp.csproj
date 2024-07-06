@@ -40,6 +40,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.10f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\UI\Buttons.cs" />
      <Compile Include="Assets\Scripts\Objects\Bookshelf.cs" />
      <Compile Include="Assets\Scripts\Managers\HelpsManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Clock.cs" />
@@ -88,6 +89,7 @@
      <Compile Include="Assets\Scripts\Objects\Door.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Managers\PuzzlesManager.cs" />
+     <Compile Include="Assets\Scripts\Objects\Objects.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

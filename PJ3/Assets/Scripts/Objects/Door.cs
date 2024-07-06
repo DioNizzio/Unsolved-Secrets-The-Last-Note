@@ -17,14 +17,17 @@ public class Door : MonoBehaviour, IInteractable
     public bool Interact(GameObject currentObj)
     {
         if(currentObj!=null){
-            if (currentObj.name.Contains("key")){
+            if (currentObj.name.Contains("Key")){
                 key.SetActive(true);
                 Destroy(currentObj);
                 locked = false;
                 return true;
             }
             else{
-                uIManager.ShowDialogue("Seems locked, I need to find a key somewhere.");
+                if(locked==false){
+                    door.GetComponent<Animator>().SetTrigger("Open");
+                    uIManager.ShowDialogue("Nice, there we go.");
+                }
             }
         }
         else{

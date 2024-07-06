@@ -57,11 +57,13 @@ public class UIManager : MonoBehaviour
     public Texture2D cursorClose;
 
     public GameObject PauseMenu;
+
+    public TMP_Text readPages;
     
 
     private List<string> textToShow;
 
-
+    private int diary = 1;
 
     private PostProcessVolume ppVolume;
 
@@ -129,7 +131,7 @@ public class UIManager : MonoBehaviour
             Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
             Cursor.lockState = CursorLockMode.Locked;
         }
-
+        Debug.Log(cursor + ": " + Cursor.lockState);
     }
 
     public void clearSlots(GameObject[] inventorySlots){
@@ -484,6 +486,53 @@ public class UIManager : MonoBehaviour
         }else{
             return true;
         }
+    }
+
+    public void ReadPages(GameObject current = null){
+        if(current==null){
+
+        }
+        else if(current.name.Contains("2")){
+            readPages.text = "May 15th\n\nRain again today. As the drops patter against the window, my thoughts drift to Salisbury, a place forever etched in my heart. The town, so rich with history, brimmed with music at every corner, an ever-present serenade that now, in this quieter setting, I find myself longing for deeply.\nHere, the nights unfold in silence—a stark contrast to those vibrant Salisbury evenings where the air was alive with the hum of piano keys and spirited conversations. I often found myself amidst groups of music lovers, debating the merits of compositions old and new, quietly ranking our favorite masters in a game of shared admiration.\nThere were many a night when Mozart's melodies would spark lively debates, or when Beethoven's powerful sonatas filled our hearts with awe. Sergei's compositions often whispered into our evening gatherings, his pieces painting sorrow and ecstasy with such raw beauty. And of course, Bach's structured fugues provided a foundation for many arguments on musical theory and the beauty of order.";
+        }
+        else if(current.name.Contains("3")){
+            readPages.text = "September 21st\n\nThere's a peculiar stillness in Williamsburg at 7:30 in the morning, a quiet that feels foreign to me. The first light of dawn barely touches the old brick buildings, casting long shadows that stretch across the cobblestone streets. I often find myself wandering these paths, avoiding the sun's first rays, as the world around me begins to stir.\nIn Salisbury, mornings were a prelude to the day's symphony, a time of anticipation. Here, the air is thick with humidity, and the only sounds are the distant calls of birds and the occasional footsteps of early risers. The charm of this place lies in its history, yet it lacks the vibrant spirit that once filled my mornings with joy.\nAs I walk through the city, I think of those precious moments back in Salisbury—the bustle of 7:30 am when the town came alive, each day a new composition waiting to be played. Here, I move through the quiet streets of Williamsburg, a silent observer in a world that feels strangely apart from my own. The longing for my true home grows with each passing dawn, a melody of memories that plays endlessly in my heart.";
+        }
+        else if(current.name.Contains("4")){
+            readPages.text = "even the smallest details can hold great significance.\ntoday, as i walked through the gardens, i noticed the  first blooms of spring beginning to emerge. the delicate petals, unfurling in the morning light, reminded me that <b>R</b>enewal is a constant part of life. it’s easy to overlook these moments in the rush of our daily routines, but they are the ones that bring color and meaning to our existence.\nthis morning, i took the time to enjoy a quiet cup of  tea before the day’s demands set in. the simple act of sitting in stillness, watching the steam rise and feeling the warmth of the cup in my hands, grounded <b>M</b>e. it’s moments like these that remind us to breathe, to pause, and to appreciate the present.\nas you go about your day, <b>T</b>ake a moment to notice the world around you. listen to the rustle of leaves in the breeze, feel the texture of the earth beneath your feet, and let the small wonders of life fill you with a sense of peace. these are the moments that sustain us, that give us strength and clarity.\nmay you find <b>J</b>oy in the simplest things.\n\n-emrick godfrey";
+        }
+        else if(current.name.Contains("5")){
+            readPages.text = "Title: 'Happy Birthday' or is it?\nOrder:\n\n- 3g (2x) - 3g# - 3g - 4c - 4b\n\n- 3g (2x) - 3g# - 3g - 4d - 4c\n\n- 3g (2x) - 4g - 4e - 4c - 4b - 3g#\n\n- 4f (2x) - 4e - 4c# - 4d - 4c";
+        }
+        else if(current.name.Contains("6")){
+            readPages.text = "   2        3       4\n\n ABC  DEF  GHI\n   5        6         7\n\n JKL  MNO  PQRS\n   8          9\n TUV  WXYZ";
+        }
+        else if(current.name.Contains("7")){
+            readPages.text = "October 10th, 1999\n\nToday, young Lisa did not show up for her lesson. I hope everything is alright at home. She has been progressing so well, and it would be a shame for her to fall behind. I'll give her parents a call this evening to check in and offer to reschedule her session. Every child's musical journey is important, and I want to ensure she doesn't miss out on the joy and discipline that music brings.\n\nOctober 14th, 1999\n\nAndrew arrived on time today and played beautifully. His progress is truly remarkable. I'm so proud of his dedication and hard work. His parents have every reason to be proud as well. I'll send them a note this evening to share my praise and encourage them to continue supporting his practice at home. Positive reinforcement is key to fostering a lifelong love of music.";
+        }
+        else if(current.name.Contains("8")){
+            readPages.text = "7th January, 1999\nIt's always so dark in here. Today, during our piano lesson, Timmy tried to open the curtains to let in some sunlight. I thought the bright light might help us read the sheet music better.\nBut, as soon as he started pulling them back, the professor shouted at him. He looked really angry, more than I've ever seen him before. He rushed over and yanked the curtains closed again, muttering something under his breath. I don't understand why he's so strict about keeping the room dark all the time. It's not like a little sunlight would hurt anything, right? Anyway, we'll just have to get used to playing in the dim light.";
+        }
+        else if(current.name.Contains("9")){
+            readPages.text = "I only saw these stories with my dad, but he's gotta be a vampire. There's no other option. Those teeth, the shortage of light, and he still looks young for such a serious person. He never comes outside during the day, and he got really upset when Andrew tried to open the curtains. I even saw him avoid garlic last week. Everything fits the stories Dad told me.\nI'll see tomorrow. Dad, I'm gonna solve this case.\nJust like you do!";
+        }
+        else if(current.name.Contains("9")){
+            readPages.text = "I only saw these stories with my dad, but he's gotta be a vampire. There's no other option. Those teeth, the shortage of light, and he still looks young for such a serious person. He never comes outside during the day, and he got really upset when Andrew tried to open the curtains. I even saw him avoid garlic last week. Everything fits the stories Dad told me.\nI'll see tomorrow. Dad, I'm gonna solve this case.\nJust like you do!";
+        }
+        else if(current.name.Contains("Diary")){
+            if(diary==1){
+                readPages.text = "April 16th, 2000\n\nThis Timmy seems to be noticing some things. I have to be careful not to commit the same mistake again. Today, he tried to open the curtains during our piano lesson. The moment the sunlight started to filter in, I felt a surge of panic. I couldn't let him see my reaction, but I know I was too harsh when I shouted at him. His eyes widened in surprise and maybe even a bit of fear. I must remember to stay calm and composed, no matter what.\nHe's a clever boy, always asking questions and observing everything around him. Last week, he noticed my aversion to garlic when he brought a snack to class. I had to make up a quick excuse about allergies.\nAnd just yesterday, he commented on how he's never seen me during the day outside of our lessons. I laughed it off, saying I'm a night owl, but I could tell he wasn't entirely convinced.\nI can't afford to be careless. The last thing I need is for Timmy—or anyone else—to discover my true nature. I'll have to keep a close watch on Timmy. He's perceptive, and his curiosity could be dangerous. For now, I'll continue to play the part of the strict, eccentric piano teacher. But, I must stay vigilant. One slip-up could unravel everything.\n1/2";
+                diary=2;
+            }else if(diary==2){
+                readPages.text = "May 8th, 2000\n\nCrap, that Timmy noticed the other kid's notebook. I shouldn't have rampaged out. My teeth were out, maybe now he knows too much.\nIt all happened so quickly. Timmy had finished his lesson and was gathering his things when he spotted a notebook left behind by one of my other students. I didn't think much of it until I saw the look of curiosity in his eyes as he flipped through the pages. Then, he found the note about the dark room and my odd behavior.\nIn a moment of panic, I snatched the notebook from his hands, I saw the shock on his face as my teeth extended just for a split second, but long enough for him to see. He backed away, fear and confusion mingling in his wide eyes. I quickly composed myself, but the damage was done.\nI made up a flimsy excuse about needing privacy and that the notebook contained personal information, but I could see he wasn't convinced. Timmy is smart, too smart. He'll start putting the pieces together if he hasn't already.\nI need to handle this situation carefully, but one thing is certain, I must be more vigilant than ever. I can't afford any more mistakes\n2/2.";
+                diary=1;
+            }
+        }
+        if(current==null){
+            readPages.gameObject.SetActive(!readPages.gameObject.activeSelf);
+        }
+        //readPages.gameObject.SetActive(!readPages.gameObject.activeSelf);
+        //enabled = true;
     }
 
 }

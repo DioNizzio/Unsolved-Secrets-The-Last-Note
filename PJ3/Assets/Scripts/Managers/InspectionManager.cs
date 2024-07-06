@@ -27,6 +27,8 @@ public class InspectionManager : MonoBehaviour
     // Used to continue in inspection even if there is no item in a slot
     // forces the player to exit inspection
     private bool barrier = false;
+
+    private bool reading = false;
     
     // Start is called before the first frame update
     void Start()
@@ -37,7 +39,7 @@ public class InspectionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inspectObj != null){
+        if (inspectObj != null && !IsReading()){
             if(inspectObj.tag.Contains("Readable")){
                 inspectObj.transform.position = readPos.transform.position;
             }
@@ -72,6 +74,10 @@ public class InspectionManager : MonoBehaviour
                 inspectObj.transform.parent = holdPos.transform;
                 inspectObj = null;
             }
+            if(go.TryGetComponent(out IInspectable obj)){
+                obj.Inspect();
+            }
+            
             inspectObj = go; //assign heldObj to the object that was hit by the raycast (no longer == null) 
             //inspectObj.layer = 0;        
             inspectObj.gameObject.SetActive(true);
@@ -126,5 +132,24 @@ public class InspectionManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public bool IsReading(){
+        return reading;
+    }
+
+    public void Read(){
+        if(!IsReading()){
+            inspectObj.layer=0;
+            inspectObjRb.isKinematic = true;
+            reading=true;
+        }
+    }
+    public void Unread(){
+        if(IsReading()){
+            inspectObj.layer=7;
+            inspectObjRb.isKinematic = false;
+            reading=false;
+        }
     }
 }

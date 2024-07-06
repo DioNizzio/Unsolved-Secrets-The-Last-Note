@@ -92,6 +92,9 @@ public class CameraSwitcher : MonoBehaviour
             if(uIManager.notePad.activeSelf==true){
                 uIManager.ChangeCursor("close");
             }
+            else if(uIManager.PauseMenu.activeSelf==true){
+                uIManager.ChangeCursor("close");
+            }
             else{
                 uIManager.ChangeCursor("locked");
             }

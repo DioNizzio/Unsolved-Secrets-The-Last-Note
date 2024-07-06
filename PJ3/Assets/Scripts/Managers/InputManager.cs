@@ -35,6 +35,7 @@ public class InputManager : MonoBehaviour
     public KeyCode rotateRightKey = KeyCode.RightArrow;
 
     public KeyCode rotateLeftKey = KeyCode.LeftArrow;
+    public KeyCode readKey = KeyCode.R;
 
     public Clock clock;
 
@@ -81,7 +82,7 @@ public class InputManager : MonoBehaviour
         }
         //Cam Rotation
         if((Input.GetAxisRaw("Mouse X")!=0f||Input.GetAxisRaw("Mouse Y")!=0f) && inspectionManager.IsInspecting() == false){
-            if (Cam.activeSelf==true && uIManager.notePad.activeSelf == false){
+            if (Cam.activeSelf==true && uIManager.notePad.activeSelf == false && uIManager.PauseMenu.activeSelf == false){
                 Debug.Log("Cam1");
                 moveCamera.CameraRotation(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
             }
@@ -111,6 +112,12 @@ public class InputManager : MonoBehaviour
             if(Cursor.lockState == CursorLockMode.Locked){
                 interactionsManager.Interaction();
             }
+            // else if(Cursor.lockState != CursorLockMode.None && Cam.activeSelf!=true){
+            //     interactionsManager.CloseUpInteraction();
+            // }
+            // else if(Cursor.lockState != CursorLockMode.None && uIManager.notePad.activeSelf == true){
+            //     interactionsManager.CloseUpInteraction();
+            // }
             else{
                 interactionsManager.CloseUpInteraction();
             }
@@ -155,10 +162,13 @@ public class InputManager : MonoBehaviour
 
         // Exit Inspection
         if(Input.GetKeyDown(exitKey) ){
-            if(inspectionManager.IsInspecting() == true){
+            if(inspectionManager.IsInspecting() == true && inspectionManager.IsReading()==false){
                 inspectionManager.ExitInspection();
                 uIManager.DeactivateInspectionMenu();
                 interactionsManager.HoldObject(inventoryManager.GetCurrentItem());
+            } else if(inspectionManager.IsReading()==true){
+                inspectionManager.Unread();
+                uIManager.ReadPages();
             } else if(Cam.activeSelf==false){
                 cameraSwitcher.ExitCurrentCamera();
             } else if(uIManager.notePad.activeSelf == true){
@@ -172,7 +182,7 @@ public class InputManager : MonoBehaviour
             } 
         }
 
-        if(Input.GetKeyDown(KeyCode.Tab) && !lanternManager.IsUsingLantern()){
+        if(Input.GetKeyDown(KeyCode.Tab) && !lanternManager.IsUsingLantern() && uIManager.notePad.activeSelf == false && uIManager.PauseMenu.activeSelf == false){
             uIManager.ActivateNotePad(true);
         }
 
@@ -189,6 +199,17 @@ public class InputManager : MonoBehaviour
         }
         if (Input.GetKeyDown(key: rotateLeftKey)){
             clock.RotateHands(-1);
+        }
+
+        if (Input.GetKeyDown(readKey)){
+            if (inspectionManager.IsInspecting() == true && inventoryManager.GetCurrentItem().tag.Contains("Readable")){
+                inspectionManager.Read();
+                uIManager.ReadPages(inventoryManager.GetCurrentItem());
+            }
+            else if(inspectionManager.IsReading() == true){
+                inspectionManager.Read();
+                uIManager.ReadPages(inventoryManager.GetCurrentItem());
+            }
         }
 
 

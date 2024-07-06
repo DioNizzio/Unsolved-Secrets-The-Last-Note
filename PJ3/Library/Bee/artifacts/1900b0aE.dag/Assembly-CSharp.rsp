@@ -388,6 +388,7 @@
 "Assets/Scripts/Objects/LockNumbers.cs"
 "Assets/Scripts/Objects/MusicBox.cs"
 "Assets/Scripts/Objects/NotePad.cs"
+"Assets/Scripts/Objects/Objects.cs"
 "Assets/Scripts/Objects/Painting.cs"
 "Assets/Scripts/Objects/PaintingSpot.cs"
 "Assets/Scripts/Objects/Pedestal.cs"
@@ -401,6 +402,7 @@
 "Assets/Scripts/Player/PlayerCam.cs"
 "Assets/Scripts/Player/PlayerMovement.cs"
 "Assets/Scripts/Triggers/FirstTrigger.cs"
+"Assets/Scripts/UI/Buttons.cs"
 "Assets/Scripts/UI/MainMenu.cs"
 "Assets/Scripts/UI/PauseMenu.cs"
 -langversion:9.0
