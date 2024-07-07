@@ -120,7 +120,7 @@ public class InputManager : MonoBehaviour
                 interactionsManager.Interaction();
                 tutorialManager.TutorialNext(10);
             }
-            else if(Cursor.lockState == CursorLockMode.None && (Cam.activeSelf!=true || uIManager.notePad.activeSelf == true)){
+            else if(Cursor.lockState == CursorLockMode.None && Cam.activeSelf!=true ){
                 interactionsManager.CloseUpInteraction();
             }
             // else if(Cursor.lockState == CursorLockMode.None && uIManager.notePad.activeSelf == true){

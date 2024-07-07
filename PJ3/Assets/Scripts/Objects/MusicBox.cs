@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 
 public class MusicBox : MonoBehaviour, IInteractable
@@ -15,11 +16,14 @@ public class MusicBox : MonoBehaviour, IInteractable
 
     public bool cameraActive;
 
+    private bool openned;
+
     // Start is called before the first frame update
     void Start()
     {
         cameraActive = false;
         audioPlayer = gameObject.transform.parent.transform.parent.gameObject.GetComponent<AudioSource>();
+        openned = false;
     }
 
     // Update is called once per frame
@@ -33,6 +37,7 @@ public class MusicBox : MonoBehaviour, IInteractable
             transform.parent.GetComponent<Animator>().SetTrigger("OpenBox");
             door.GetComponent<Animator>().SetTrigger("OpenBox");
             drawer.GetComponent<Animator>().SetTrigger("OpenBox");
+            openned = true;
         }
         else{
             cameraActive=true;
@@ -45,6 +50,8 @@ public class MusicBox : MonoBehaviour, IInteractable
 
     public void ExitCameraMusicBox(){
         cameraActive = false;
-        GetComponent<BoxCollider>().enabled = true;
+        if(!openned){
+            GetComponent<BoxCollider>().enabled = true;
+        }
     }
 }

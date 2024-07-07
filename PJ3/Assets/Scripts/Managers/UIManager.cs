@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using System.IO;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -78,6 +80,8 @@ public class UIManager : MonoBehaviour
 
     InventoryManager inventoryManager;
 
+    //AssetPreviewGenerator assetPreviewGenerator; 
+
     private float time;
 
     private bool firstDialogue;
@@ -93,6 +97,7 @@ public class UIManager : MonoBehaviour
         ppVolume = plandc.Camera.GetComponent<PostProcessVolume>();
         playerRB = plandc.Player.GetComponent<Rigidbody>();
         inventoryManager = gameObject.GetComponent<InventoryManager>();
+        //assetPreviewGenerator = gameObject.GetComponent<AssetPreviewGenerator>();
         textToShow = new List<string>();
         time = Time.deltaTime;
         firstDialogue = true;
@@ -281,55 +286,143 @@ public class UIManager : MonoBehaviour
     public void LoadObjectImages(GameObject[] inventorySlots){
         if(inventorySlots[0] != null){
             slot0.SetActive(value: true);
-            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[0]);
+            byte[] img;
+            if(inventorySlots[0].GetComponent<MeshFilter>()!=null){
+                Debug.Log(inventorySlots[0].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", ""));
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[0].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            }else if(inventorySlots[0].gameObject.name.Contains("Lighter")){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
+            }
+            else {
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Diary_preview.png"));
+            }
+            Texture2D myTexture2D = new Texture2D(128, 128);
+            myTexture2D.LoadImage(img);
             var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
             image0.sprite = mySprite;
         }
         if(inventorySlots[1] != null){
             slot1.SetActive(value: true);
-            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[1]);
-            var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
+            byte[] img;
+            if(inventorySlots[1].GetComponent<MeshFilter>()!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[1].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            }else if(inventorySlots[1].gameObject.name.Contains("Lighter")){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
+            }
+            else {
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Diary_preview.png"));
+            }
+            Texture2D myTexture2D = new Texture2D(128, 128);
+            myTexture2D.LoadImage(img);            var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
             image1.sprite = mySprite;
         }
         if(inventorySlots[2] != null){
             slot2.SetActive(value: true);
-            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[2]);
-            var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
+            byte[] img;
+            if(inventorySlots[2].GetComponent<MeshFilter>()!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[2].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            }else if(inventorySlots[2].gameObject.name.Contains("Lighter")){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
+            }
+            else {
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Diary_preview.png"));
+            }
+            Texture2D myTexture2D = new Texture2D(128, 128);
+            myTexture2D.LoadImage(img);            var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
             image2.sprite = mySprite;
         }
         if(inventorySlots[3] != null){
             slot3.SetActive(value: true);
-            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[3]);
-            var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
+            byte[] img;
+            if(inventorySlots[3].GetComponent<MeshFilter>()!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[3].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            }else if(inventorySlots[3].gameObject.name.Contains("Lighter")){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
+            }
+            else {
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Diary_preview.png"));
+            }
+            Texture2D myTexture2D = new Texture2D(128, 128);
+            myTexture2D.LoadImage(img);            var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
             image3.sprite = mySprite;
         }
         if(inventorySlots[4] != null){
             slot4.SetActive(value: true);
-            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[4]);
+            byte[] img;
+            if(inventorySlots[4].GetComponent<MeshFilter>()!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[4].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            }else if(inventorySlots[4].gameObject.name.Contains("Lighter")){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
+            }
+            else {
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Diary_preview.png"));
+            }
+            Texture2D myTexture2D = new Texture2D(128, 128);
+            myTexture2D.LoadImage(img);
             var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
             image4.sprite = mySprite;
         }
         if(inventorySlots[5] != null){
             slot5.SetActive(value: true);
-            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[5]);
+            byte[] img;
+            if(inventorySlots[5].GetComponent<MeshFilter>()!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[5].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            }else if(inventorySlots[5].gameObject.name.Contains("Lighter")){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
+            }
+            else {
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Diary_preview.png"));
+            }
+            Texture2D myTexture2D = new Texture2D(128, 128);
+            myTexture2D.LoadImage(img);
             var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
             image5.sprite = mySprite;
         }
         if(inventorySlots[6] != null){
             slot6.SetActive(value: true);
-            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[6]);
+            byte[] img;
+            if(inventorySlots[6].GetComponent<MeshFilter>()!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[6].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            }else if(inventorySlots[6].gameObject.name.Contains("Lighter")){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
+            }
+            else {
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Diary_preview.png"));
+            }
+            Texture2D myTexture2D = new Texture2D(128, 128);
+            myTexture2D.LoadImage(img);
             var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
             image6.sprite = mySprite;
         }
         if(inventorySlots[7] != null){
             slot7.SetActive(value: true);
-            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[7]);
+            byte[] img;
+            if(inventorySlots[7].GetComponent<MeshFilter>()!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[7].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            }else if(inventorySlots[7].gameObject.name.Contains("Lighter")){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
+            }
+            else {
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Diary_preview.png"));
+            }
+            Texture2D myTexture2D = new Texture2D(128, 128);
+            myTexture2D.LoadImage(img);
             var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
             image7.sprite = mySprite;
         }
         if(inventorySlots[8] != null){
             slot8.SetActive(value: true);
-            var myTexture2D = UnityEditor.AssetPreview.GetAssetPreview(inventorySlots[8]);
+            byte[] img;
+            if(inventorySlots[8].GetComponent<MeshFilter>()!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[8].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            }else if(inventorySlots[8].gameObject.name.Contains("Lighter")){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
+            }
+            else {
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Diary_preview.png"));
+            }
+            Texture2D myTexture2D = new Texture2D(128, 128);
+            myTexture2D.LoadImage(img);
             var mySprite = Sprite.Create(GetNewTexture(myTexture2D), new Rect(0.0f, 0.0f, myTexture2D.width, myTexture2D.height), new Vector2(0.5f, 0.5f), 100.0f);
             image8.sprite = mySprite;
         }

@@ -96,18 +96,23 @@ public class CameraSwitcher : MonoBehaviour
             deskLockCamera.SetActive(false);
             cypherWheelCamera.SetActive(false);
             musicBoxCamera.SetActive(false);
-            uIManager.HideUI(false);
+            uIManager.HideActiveSlotsandFixesSlots(false);
+            
             if(uIManager.notePad.activeSelf==true){
                 uIManager.ChangeCursor("close");
+                uIManager.HideCrossair(true);
             }
             else if(uIManager.PauseMenu.activeSelf==true){
                 uIManager.ChangeCursor("close");
+                uIManager.HideCrossair(true);
             }
             else if(uIManager.Options.activeSelf==true){
                 uIManager.ChangeCursor("close");
+                uIManager.HideCrossair(true);
             }
             else{
                 uIManager.ChangeCursor("locked");
+                uIManager.HideCrossair(false);
             }
         }
         else if(cameraActivated.Contains("safe")){    
