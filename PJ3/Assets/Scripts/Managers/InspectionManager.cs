@@ -66,7 +66,7 @@ public class InspectionManager : MonoBehaviour
 
     public void InspectItem(GameObject go){
         uIManager.ActivateBlur(true);
-        uIManager.HideCrossair();
+        uIManager.HideCrossair(true);
         if(go!=null){
             if(inspectObj!=null){
                 inspectObj.gameObject.SetActive(false);
@@ -107,7 +107,7 @@ public class InspectionManager : MonoBehaviour
 
     public void ExitInspection(){
         uIManager.ActivateBlur(false);
-        uIManager.HideCrossair();
+        uIManager.HideCrossair(false);
         if(inspectObj!=null){
             inspectObj.layer = 0;
             // if(inspectObj.transform.childCount!=0){

@@ -120,18 +120,18 @@ public class LanternManager : MonoBehaviour
             if(interactionsManager.IsHolding()){
                 interactionsManager.ClearHeldObj();
                 lantern.SetActive(true);
-                uIManager.HideCrossair();
+                uIManager.HideCrossair(true);
             }
             else{
                 lantern.SetActive(true);
-                uIManager.HideCrossair();
+                uIManager.HideCrossair(true);
             }
         }
         else{
             wallBooks.GetComponent<BoxCollider>().enabled=false;
             clockBell1.transform.parent.transform.parent.GetComponent<BoxCollider>().enabled=false;
             lantern.SetActive(false);
-            uIManager.HideCrossair();
+            uIManager.HideCrossair(false);
         }
     }
     

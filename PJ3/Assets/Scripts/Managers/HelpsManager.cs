@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
-using UnityEditor.Timeline;
 using UnityEngine;
 
 public class HelpsManager : MonoBehaviour
@@ -149,9 +148,8 @@ public class HelpsManager : MonoBehaviour
             helpAvailable.SetActive(true);
             helpAvailable.GetComponent<Animator>().SetTrigger("Help");
             played=true;
-        }
-        else if(globalTime>120f){
-            played=false;
+        }else if(timeList.Values.Max()>300f && played){
+            played = false;
         }
     }
 

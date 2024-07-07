@@ -21,6 +21,8 @@ public class CameraSwitcher : MonoBehaviour
 
     public GameObject cypherWheelCamera;
 
+    public GameObject musicBoxCamera;
+
     public GameObject safe;
 
     public GameObject clock;
@@ -34,6 +36,8 @@ public class CameraSwitcher : MonoBehaviour
     public GameObject pedestal;
 
     public GameObject cypherWheel;
+
+    public GameObject musicBox;
 
     private string cameraActivated;
 
@@ -76,6 +80,9 @@ public class CameraSwitcher : MonoBehaviour
         else if(cypherWheel.GetComponent<CypherWheel>().cameraActive){
             cameraActivated = "cypherWheel";
         }
+        else if(musicBox.GetComponent<MusicBox>().cameraActive){
+            cameraActivated = "musicBox";
+        }
         else{
             cameraActivated = "main";
         }
@@ -88,11 +95,15 @@ public class CameraSwitcher : MonoBehaviour
             pedestalCamera.SetActive(false);
             deskLockCamera.SetActive(false);
             cypherWheelCamera.SetActive(false);
+            musicBoxCamera.SetActive(false);
             uIManager.HideUI(false);
             if(uIManager.notePad.activeSelf==true){
                 uIManager.ChangeCursor("close");
             }
             else if(uIManager.PauseMenu.activeSelf==true){
+                uIManager.ChangeCursor("close");
+            }
+            else if(uIManager.Options.activeSelf==true){
                 uIManager.ChangeCursor("close");
             }
             else{
@@ -108,8 +119,10 @@ public class CameraSwitcher : MonoBehaviour
             pedestalCamera.SetActive(false);
             deskLockCamera.SetActive(false);
             cypherWheelCamera.SetActive(false);
+            musicBoxCamera.SetActive(false);
             uIManager.ChangeCursor("close");
-            uIManager.HideUI(true);
+            uIManager.HideActiveSlotsandFixesSlots(true);
+            uIManager.HideCrossair(true);
             playerandCameraHolders.PlayerCanMove(false);
         }
         else if(cameraActivated.Contains("clock")){
@@ -121,8 +134,10 @@ public class CameraSwitcher : MonoBehaviour
             pedestalCamera.SetActive(false);
             deskLockCamera.SetActive(false);
             cypherWheelCamera.SetActive(false);
+            musicBoxCamera.SetActive(false);
             uIManager.ChangeCursor("close");
-            uIManager.HideUI(true);
+            uIManager.HideActiveSlotsandFixesSlots(true);
+            uIManager.HideCrossair(true);
             playerandCameraHolders.PlayerCanMove(false);
         }
         else if(cameraActivated.Contains(value: "piano")){
@@ -134,8 +149,10 @@ public class CameraSwitcher : MonoBehaviour
             pedestalCamera.SetActive(false);
             deskLockCamera.SetActive(false);
             cypherWheelCamera.SetActive(false);
+            musicBoxCamera.SetActive(false);
             uIManager.ChangeCursor("close");
-            uIManager.HideUI(true);
+            uIManager.HideActiveSlotsandFixesSlots(true);
+            uIManager.HideCrossair(true);
             playerandCameraHolders.PlayerCanMove(false);
         }
         else if(cameraActivated.Contains(value: "lock")){
@@ -147,8 +164,10 @@ public class CameraSwitcher : MonoBehaviour
             pedestalCamera.SetActive(false);
             deskLockCamera.SetActive(false);
             cypherWheelCamera.SetActive(false);
+            musicBoxCamera.SetActive(false);
             uIManager.ChangeCursor("close");
-            uIManager.HideUI(true);
+            uIManager.HideActiveSlotsandFixesSlots(true);
+            uIManager.HideCrossair(true);
             playerandCameraHolders.PlayerCanMove(false);
         }
         else if(cameraActivated.Contains(value: "pedestal")){
@@ -160,8 +179,10 @@ public class CameraSwitcher : MonoBehaviour
             pedestalCamera.SetActive(true);
             deskLockCamera.SetActive(false);
             cypherWheelCamera.SetActive(false);
+            musicBoxCamera.SetActive(false);
             uIManager.ChangeCursor("close");
-            uIManager.HideUI(true);
+            uIManager.HideActiveSlotsandFixesSlots(true);
+            uIManager.HideCrossair(true);
             playerandCameraHolders.PlayerCanMove(false);
         }
         else if(cameraActivated.Contains(value: "deskLock")){
@@ -173,8 +194,10 @@ public class CameraSwitcher : MonoBehaviour
             pedestalCamera.SetActive(false);
             deskLockCamera.SetActive(true);
             cypherWheelCamera.SetActive(false);
+            musicBoxCamera.SetActive(false);
             uIManager.ChangeCursor("close");
-            uIManager.HideUI(true);
+            uIManager.HideActiveSlotsandFixesSlots(true);
+            uIManager.HideCrossair(true);
             playerandCameraHolders.PlayerCanMove(false);
         }
         else if(cameraActivated.Contains(value: "cypherWheel")){
@@ -186,8 +209,25 @@ public class CameraSwitcher : MonoBehaviour
             pedestalCamera.SetActive(false);
             deskLockCamera.SetActive(false);
             cypherWheelCamera.SetActive(true);
+            musicBoxCamera.SetActive(false);
             uIManager.ChangeCursor("close");
-            uIManager.HideUI(true);
+            uIManager.HideActiveSlotsandFixesSlots(true);
+            uIManager.HideCrossair(true);
+            playerandCameraHolders.PlayerCanMove(false);
+        }
+        else if(cameraActivated.Contains(value: "musicBox")){
+            mainCamera.SetActive(false);
+            safeCamera.SetActive(false);
+            clockCamera.SetActive(false);
+            pianoCamera.SetActive(false);
+            lockCamera.SetActive(false);
+            pedestalCamera.SetActive(false);
+            deskLockCamera.SetActive(false);
+            cypherWheelCamera.SetActive(false);
+            musicBoxCamera.SetActive(true);
+            uIManager.ChangeCursor("close");
+            uIManager.HideActiveSlotsandFixesSlots(true);
+            uIManager.HideCrossair(hide: true);
             playerandCameraHolders.PlayerCanMove(false);
         }
     }
@@ -217,6 +257,9 @@ public class CameraSwitcher : MonoBehaviour
         else if(cypherWheelCamera.activeSelf==true){
             cypherWheel.GetComponent<CypherWheel>().ExitCameraCypher();
         }
+        else if(musicBox.activeSelf==true){
+            musicBox.GetComponent<MusicBox>().ExitCameraMusicBox();
+        }
     }
 
     public GameObject GetCurrentCamera(){
@@ -243,6 +286,9 @@ public class CameraSwitcher : MonoBehaviour
         }
         else if(cypherWheelCamera.activeSelf==true){
             return cypherWheelCamera;
+        }
+        else if(musicBoxCamera.activeSelf==true){
+            return musicBoxCamera;
         }
         return null;
     }

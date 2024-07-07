@@ -15,10 +15,6 @@ public class PauseMenu : MonoBehaviour, IInteractable
 
     // Start is called before the first frame update
 
-    void Awake(){
-        //Continue.onClick.AddListener(ExitPause);
-        Debug.Log("AWAKING");
-    }
     void Start()
     {
         uIManager = Managers.GetComponent<UIManager>();

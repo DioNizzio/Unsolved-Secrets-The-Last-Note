@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -58,6 +57,10 @@ public class UIManager : MonoBehaviour
 
     public GameObject PauseMenu;
 
+    public GameObject Options;
+
+    public GameObject ExitPanel;
+
     public TMP_Text readPages;
     
 
@@ -107,7 +110,7 @@ public class UIManager : MonoBehaviour
             }
         }
         else{
-            if(dialogueMenu==null){
+            if(dialogueMenu.activeSelf==false){
                 time=0;
             }else{
                 time+=Time.deltaTime;
@@ -363,7 +366,7 @@ public class UIManager : MonoBehaviour
         ActivateBlur(activate);
         notePad.SetActive(activate);
         HideActiveSlotsandFixesSlots(activate);
-        HideCrossair();
+        HideCrossair(true);
         if(activate){
             ChangeCursor("close");
         }
@@ -426,8 +429,8 @@ public class UIManager : MonoBehaviour
         ppVolume.enabled = activate;
     }
 
-    public void HideCrossair(){
-        if(crosshair.activeSelf){
+    public void HideCrossair(bool hide){
+        if(hide){
             crosshair.SetActive(false);
         }
         else{
@@ -468,7 +471,7 @@ public class UIManager : MonoBehaviour
         playerMove = false;
         PauseMenu.SetActive(true);
         ActivateBlur(true);
-        HideCrossair();
+        HideCrossair(true);
         ChangeCursor("close");
     }
 
@@ -476,7 +479,7 @@ public class UIManager : MonoBehaviour
         playerMove = true;
         PauseMenu.SetActive(false);
         ActivateBlur(false);
-        HideCrossair();
+        HideCrossair(true);
         ChangeCursor("locked");
     }
 
@@ -519,6 +522,9 @@ public class UIManager : MonoBehaviour
         else if(current.name.Contains("9")){
             readPages.text = "I only saw these stories with my dad, but he's gotta be a vampire. There's no other option. Those teeth, the shortage of light, and he still looks young for such a serious person. He never comes outside during the day, and he got really upset when Andrew tried to open the curtains. I even saw him avoid garlic last week. Everything fits the stories Dad told me.\nI'll see tomorrow. Dad, I'm gonna solve this case.\nJust like you do!";
         }
+        else if(current.name.Contains("10")){
+            readPages.text = "Those were the days when music felt like the very  pulse of existence, a sentiment sorely missing where  I now reside. The absence of this musical  communion has left a quiet void in my evenings. I sometimes indulge in the memory of those discussions, each note and nuance, and wonder if such richness will ever grace my days again.\nFor now, these memories must suffice, as I sit in the solitude of my current retreat, the rain's rhythm a faint echo of piano keys from a world away. Maybe tomorrow will carry a melody, a whisper of the past, or perhaps a promise of a return to the music-filled streets of Salisbury.\nThere was a certain magic to 11:45 in Salisbury. It was the time when the sun began its gentle descent, casting a golden glow over the town, and the streets would fill with the soft murmur of people coming together. Here, this time is just another minute, but in Salisbury, it was a moment of pure enchantment.\nUntil then, this diary shall hold my confessions, my silent songs of yearning for a city that sang to the very beat of my soul.";
+        }
         else if(current.name.Contains("Diary")){
             if(diary==1){
                 readPages.text = "April 16th, 2000\n\nThis Timmy seems to be noticing some things. I have to be careful not to commit the same mistake again. Today, he tried to open the curtains during our piano lesson. The moment the sunlight started to filter in, I felt a surge of panic. I couldn't let him see my reaction, but I know I was too harsh when I shouted at him. His eyes widened in surprise and maybe even a bit of fear. I must remember to stay calm and composed, no matter what.\nHe's a clever boy, always asking questions and observing everything around him. Last week, he noticed my aversion to garlic when he brought a snack to class. I had to make up a quick excuse about allergies.\nAnd just yesterday, he commented on how he's never seen me during the day outside of our lessons. I laughed it off, saying I'm a night owl, but I could tell he wasn't entirely convinced.\nI can't afford to be careless. The last thing I need is for Timmy—or anyone else—to discover my true nature. I'll have to keep a close watch on Timmy. He's perceptive, and his curiosity could be dangerous. For now, I'll continue to play the part of the strict, eccentric piano teacher. But, I must stay vigilant. One slip-up could unravel everything.\n1/2";
@@ -529,7 +535,9 @@ public class UIManager : MonoBehaviour
             }
         }
         if(current==null){
-            readPages.gameObject.SetActive(!readPages.gameObject.activeSelf);
+            readPages.gameObject.SetActive(false);
+        }else{
+            readPages.gameObject.SetActive(true);
         }
         //readPages.gameObject.SetActive(!readPages.gameObject.activeSelf);
         //enabled = true;

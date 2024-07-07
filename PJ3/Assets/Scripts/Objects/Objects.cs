@@ -18,6 +18,11 @@ public class Doors : MonoBehaviour, IInteractable, IPickable, IInspectable
         if(name.Contains("Ornament")){
             uIManager.ShowDialogue("What is this for?");
         }
+        if(name.Contains("5")){
+            if(transform.localScale.x<25){
+                transform.localScale = new Vector3(transform.localScale.x*1.9f,transform.localScale.y*1.9f,transform.localScale.z*1.9f);
+            }
+        }
         if(name.Contains("Key")){
             uIManager.ShowDialogue("This key must be important.");
         }
@@ -34,4 +39,5 @@ public class Doors : MonoBehaviour, IInteractable, IPickable, IInspectable
             uIManager.ShowDialogue("This was Timmy's friend...");
         }
     }
+    //28.83186
 }

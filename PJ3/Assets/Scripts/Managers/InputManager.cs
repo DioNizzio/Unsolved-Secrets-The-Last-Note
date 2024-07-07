@@ -56,6 +56,8 @@ public class InputManager : MonoBehaviour
 
     PlayerandCameraHolders playerandCameraHolders;
 
+    TutorialManager tutorialManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +72,7 @@ public class InputManager : MonoBehaviour
         lanternManager = gameObject.GetComponent<LanternManager>();
         helpsManager = gameObject.GetComponent<HelpsManager>();
         playerandCameraHolders = gameObject.GetComponent<PlayerandCameraHolders>();
+        tutorialManager= gameObject.GetComponent<TutorialManager>();
     }
 
     // Update is called once per frame
@@ -79,10 +82,11 @@ public class InputManager : MonoBehaviour
         //Walking
         if(Input.GetAxisRaw("Horizontal") != 0f || Input.GetAxisRaw("Vertical") != 0f){
             playerMove.MovePlayer(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            tutorialManager.TutorialNext(2);
         }
         //Cam Rotation
         if((Input.GetAxisRaw("Mouse X")!=0f||Input.GetAxisRaw("Mouse Y")!=0f) && inspectionManager.IsInspecting() == false){
-            if (Cam.activeSelf==true && uIManager.notePad.activeSelf == false && uIManager.PauseMenu.activeSelf == false){
+            if (Cam.activeSelf==true && uIManager.notePad.activeSelf == false && uIManager.PauseMenu.activeSelf == false && uIManager.Options.activeSelf == false){
                 Debug.Log("Cam1");
                 moveCamera.CameraRotation(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
             }
@@ -95,10 +99,12 @@ public class InputManager : MonoBehaviour
         //Jumping
         if(Input.GetKey(jumpKey)){
             playerMove.Jump();
+            tutorialManager.TutorialNext(3);
         }
         //Crouching
         if(Input.GetKeyDown(crouchKey)){
             playerMove.CrouchPlayer();
+            tutorialManager.TutorialNext(4);
         }
         //Uncrouching
         if(Input.GetKeyUp(crouchKey)){
@@ -107,28 +113,36 @@ public class InputManager : MonoBehaviour
         //Interacting with objects
         if(Input.GetKeyDown(interactKey) && !lanternManager.IsUsingLantern()){
             interactionsManager.Interaction();
+            tutorialManager.TutorialNext(10);
         }
         if(Input.GetMouseButtonDown(0)){
             if(Cursor.lockState == CursorLockMode.Locked){
                 interactionsManager.Interaction();
+                tutorialManager.TutorialNext(10);
             }
-            // else if(Cursor.lockState != CursorLockMode.None && Cam.activeSelf!=true){
-            //     interactionsManager.CloseUpInteraction();
-            // }
-            // else if(Cursor.lockState != CursorLockMode.None && uIManager.notePad.activeSelf == true){
+            else if(Cursor.lockState == CursorLockMode.None && (Cam.activeSelf!=true || uIManager.notePad.activeSelf == true)){
+                interactionsManager.CloseUpInteraction();
+            }
+            // else if(Cursor.lockState == CursorLockMode.None && uIManager.notePad.activeSelf == true){
             //     interactionsManager.CloseUpInteraction();
             // }
             else{
-                interactionsManager.CloseUpInteraction();
+                //interactionsManager.CloseUpInteraction();
+                Ray r = Cam.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(r, out RaycastHit hitInfo, 0.1f)){
+                    Debug.Log(hitInfo.collider.gameObject);
+                }
             }
         }
         // Pick-Up Objects
         if(Input.GetKeyDown(pickupKey) && !lanternManager.IsUsingLantern()){
+            tutorialManager.TutorialNext(8);
             interactionsManager.Picking_Up();
         }
         // Drop Object
         if(Input.GetKeyDown(dropKey) && inspectionManager.IsInspecting() == false){
             interactionsManager.Droping();
+            tutorialManager.TutorialNext(11);
         }
         // Move Up in the inventory
         if(Input.GetAxis("Mouse ScrollWheel")>0){
@@ -156,6 +170,7 @@ public class InputManager : MonoBehaviour
         }
         // Inspect Object
         if(Input.GetKeyDown(inspectKey) && interactionsManager.IsHolding() == true){
+            tutorialManager.TutorialNext(9);
             inspectionManager.InspectItem(inventoryManager.GetCurrentItem());
             uIManager.ActivateInspectionMenu(inventoryManager.GetCurrentItem());
         }
@@ -172,6 +187,7 @@ public class InputManager : MonoBehaviour
             } else if(Cam.activeSelf==false){
                 cameraSwitcher.ExitCurrentCamera();
             } else if(uIManager.notePad.activeSelf == true){
+                tutorialManager.TutorialNext(6);
                 uIManager.ActivateNotePad(false);
             }else if(uIManager.IsPaused()){
                 playerandCameraHolders.PlayerCanMove(true);
@@ -182,12 +198,14 @@ public class InputManager : MonoBehaviour
             } 
         }
 
-        if(Input.GetKeyDown(KeyCode.Tab) && !lanternManager.IsUsingLantern() && uIManager.notePad.activeSelf == false && uIManager.PauseMenu.activeSelf == false){
+        if(Input.GetKeyDown(KeyCode.Tab) && !lanternManager.IsUsingLantern() && uIManager.notePad.activeSelf == false && uIManager.PauseMenu.activeSelf == false && inspectionManager.IsInspecting() == false && inspectionManager.IsReading() == false){
             uIManager.ActivateNotePad(true);
+            tutorialManager.TutorialNext(5);
         }
 
-        if(Input.GetKeyDown(lanternKey)){
+        if(Input.GetKeyDown(lanternKey) && uIManager.notePad.activeSelf == false && uIManager.PauseMenu.activeSelf == false && inspectionManager.IsInspecting() == false && inspectionManager.IsReading() == false){
             lanternManager.ActivateLantern();
+            tutorialManager.TutorialNext(7);
         }
 
         if(Input.GetKeyDown(helpKey)){

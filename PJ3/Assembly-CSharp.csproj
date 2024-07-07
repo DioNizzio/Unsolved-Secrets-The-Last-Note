@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Objects\Fireplace.cs" />
      <Compile Include="Assets\Scripts\Objects\PianoKey.cs" />
      <Compile Include="Assets\Scripts\Objects\Safe.cs" />
+     <Compile Include="Assets\Scripts\Managers\TutorialManager.cs" />
      <Compile Include="Assets\Scripts\Objects\ClockBells.cs" />
      <Compile Include="Assets\Scripts\Objects\PedestalBook.cs" />
      <Compile Include="Assets\Scripts\Objects\MusicBox.cs" />
