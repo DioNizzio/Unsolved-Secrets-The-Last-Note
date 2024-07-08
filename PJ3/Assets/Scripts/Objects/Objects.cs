@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Doors : MonoBehaviour, IInteractable, IPickable, IInspectable
+public class Objects : MonoBehaviour, IInteractable, IPickable, IInspectable
 {
     public UIManager uIManager;
     public bool Interact(GameObject currentObj)

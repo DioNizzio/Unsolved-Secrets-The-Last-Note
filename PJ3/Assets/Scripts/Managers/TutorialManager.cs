@@ -151,7 +151,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
     public void DisplayInspect(){
-        if(inventoryManager.GetCurrentItem().tag == "Readable"){
+        if(inventoryManager.GetCurrentItem().name.Contains("Page")){
             ShowingImageSmall2.SetActive(true);
             showSmall2.sprite = Read;
         }else{

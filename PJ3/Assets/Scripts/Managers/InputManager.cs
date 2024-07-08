@@ -15,7 +15,7 @@ public class InputManager : MonoBehaviour
     MoveCamera moveCamera2;
 
     public KeyCode jumpKey = KeyCode.Space;
-    public KeyCode crouchKey = KeyCode.C;
+    public KeyCode crouchKey = KeyCode.LeftControl;
     public KeyCode interactKey = KeyCode.E;
 
     public KeyCode pickupKey = KeyCode.F;
@@ -135,9 +135,19 @@ public class InputManager : MonoBehaviour
             }
         }
         // Pick-Up Objects
-        if(Input.GetKeyDown(pickupKey) && !lanternManager.IsUsingLantern()){
-            tutorialManager.TutorialNext(8);
-            interactionsManager.Picking_Up();
+        if(Input.GetKeyDown(pickupKey)){
+            if(!lanternManager.IsUsingLantern()){
+                tutorialManager.TutorialNext(8);
+                interactionsManager.Picking_Up();
+            }else{
+                
+                tutorialManager.TutorialNext(8);
+                interactionsManager.Picking_Up();
+                if(inventoryManager.GetCurrentItem() != null){
+                    lanternManager.ActivateLantern();
+                }
+            }
+            
         }
         // Drop Object
         if(Input.GetKeyDown(dropKey) && inspectionManager.IsInspecting() == false){
@@ -189,9 +199,17 @@ public class InputManager : MonoBehaviour
             } else if(uIManager.notePad.activeSelf == true){
                 tutorialManager.TutorialNext(6);
                 uIManager.ActivateNotePad(false);
-            }else if(uIManager.IsPaused()){
+            }else if(uIManager.IsPaused() && uIManager.Options.activeSelf==false && uIManager.ExitPanel.activeSelf==false){
                 playerandCameraHolders.PlayerCanMove(true);
                 uIManager.HidePause();
+            }
+            else if(uIManager.IsPaused() && uIManager.Options.activeSelf==true){
+                uIManager.Options.SetActive(false);
+                uIManager.ShowPause();
+            }
+            else if(uIManager.IsPaused() && uIManager.ExitPanel.activeSelf==true){
+                uIManager.ExitPanel.SetActive(false);
+                uIManager.ShowPause();
             }else{
                 playerandCameraHolders.PlayerCanMove(false);
                 uIManager.ShowPause();
@@ -204,6 +222,9 @@ public class InputManager : MonoBehaviour
         }
 
         if(Input.GetKeyDown(lanternKey) && uIManager.notePad.activeSelf == false && uIManager.PauseMenu.activeSelf == false && inspectionManager.IsInspecting() == false && inspectionManager.IsReading() == false){
+            if(inventoryManager.GetCurrentItem()!=null){
+                inventoryManager.SetCurrentItem(10);
+            }
             lanternManager.ActivateLantern();
             tutorialManager.TutorialNext(7);
         }
@@ -220,7 +241,7 @@ public class InputManager : MonoBehaviour
         }
 
         if (Input.GetKeyDown(readKey)){
-            if (inspectionManager.IsInspecting() == true && inventoryManager.GetCurrentItem().tag.Contains("Readable")){
+            if (inspectionManager.IsInspecting() == true && inventoryManager.GetCurrentItem().name.Contains("Page")){
                 inspectionManager.Read();
                 uIManager.ReadPages(inventoryManager.GetCurrentItem());
             }

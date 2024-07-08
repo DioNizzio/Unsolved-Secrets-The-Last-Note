@@ -627,6 +627,10 @@ public class UIManager : MonoBehaviour
                 diary=1;
             }
         }
+        else{
+            readPages.text="";
+            readPages.gameObject.SetActive(false);
+        }
         if(current==null){
             readPages.gameObject.SetActive(false);
         }else{

@@ -148,7 +148,7 @@ public class HelpsManager : MonoBehaviour
             helpAvailable.SetActive(true);
             helpAvailable.GetComponent<Animator>().SetTrigger("Help");
             played=true;
-        }else if(timeList.Values.Max()>300f && played){
+        }else if(timeList.Values.Max()>300f && played && globalTime%120==0 && globalTime/120>1){
             played = false;
         }
     }
