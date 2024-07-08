@@ -7,19 +7,7 @@ public class Book : MonoBehaviour, IInteractable
     // Start is called before the first frame update
 
     public bool left;
-
-    public bool Interact(GameObject currentObj)
-    {
-        if(left){
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.44f);
-            left = false;
-        }
-        else{
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.44f);
-            left = true;
-        }
-        return false;
-    }
+    public SoundManager soundManager;
 
     void Start()
     {
@@ -30,6 +18,21 @@ public class Book : MonoBehaviour, IInteractable
             left = false;
         }
     }
+    public bool Interact(GameObject currentObj)
+    {
+        if(left){
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.44f);
+            left = false;
+        }
+        else{
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.44f);
+            left = true;
+        }
+        soundManager.Play("bookSliding");
+        return false;
+    }
+
+    
 
     // Update is called once per frame
     void Update()

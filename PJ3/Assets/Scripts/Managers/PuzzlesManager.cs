@@ -211,6 +211,10 @@ public class PuzzlesManager : MonoBehaviour
                 paintingBeethoven.transform.parent.parent.GetComponent<Animator>().SetTrigger("RightOrder");
                 paintingRachmaninoff.transform.parent.parent.GetComponent<Animator>().SetTrigger("RightOrder");
                 paintingBach.transform.parent.parent.GetComponent<Animator>().SetTrigger("RightOrder");
+                paintingMozart.transform.parent.parent.GetComponent<AudioSource>().Play();
+                paintingBeethoven.transform.parent.parent.GetComponent<AudioSource>().Play();
+                paintingRachmaninoff.transform.parent.parent.GetComponent<AudioSource>().Play();
+                paintingBach.transform.parent.parent.GetComponent<AudioSource>().Play();
             }
         }
         
@@ -226,6 +230,8 @@ public class PuzzlesManager : MonoBehaviour
             bookshelvesSolved = true;
             bookshelfCompartment1.GetComponent<Animator>().SetTrigger("Open");
             bookshelfCompartment2.GetComponent<Animator>().SetTrigger("Open");
+            bookshelfCompartment1.GetComponent<AudioSource>().Play();
+            bookshelfCompartment2.GetComponent<AudioSource>().Play();
         }
     }
 
@@ -256,18 +262,20 @@ public class PuzzlesManager : MonoBehaviour
     }
 
     public void CheckClockHours(){
-        //3:15
-        if(clock.minutes.transform.parent.eulerAngles.z > 14 && clock.minutes.transform.parent.eulerAngles.z < 16 && clock.hours.transform.parent.eulerAngles.z > 96 && clock.hours.transform.parent.eulerAngles.z < 98 && hour1 == false){
+        Debug.Log(clock.minutes.transform.parent.eulerAngles.z);
+        //11:45
+        if(clock.minutes.transform.parent.eulerAngles.z > 194 && clock.minutes.transform.parent.eulerAngles.z < 196 && clock.hours.transform.parent.eulerAngles.z < 353 && clock.hours.transform.parent.eulerAngles.z > 352 && hour1 == false){
+            Debug.Log("HOUR1");
             hour1 = true;
             visionsManager.ShowImage("hour1");
         }
         //7:30
-        if(clock.minutes.transform.parent.eulerAngles.z == -75 && clock.hours.transform.parent.eulerAngles.z < -164 && clock.hours.transform.parent.eulerAngles.z > -166 && hour2 == false){
+        if(clock.minutes.transform.parent.eulerAngles.z > 284 && clock.minutes.transform.parent.eulerAngles.z < 286 && clock.hours.transform.parent.eulerAngles.z < 196 && clock.hours.transform.parent.eulerAngles.z > 194 && hour2 == false && bookshelvesSolved==true){
             hour2 = true;
             visionsManager.ShowImage("hour2");
         }
-        //23:45
-        if (clock.minutes.transform.parent.eulerAngles.z == -165 && clock.hours.transform.parent.eulerAngles.z < -7 && clock.hours.transform.parent.eulerAngles.z > -8 && hour3 == false){
+        //3:15
+        if (clock.minutes.transform.parent.eulerAngles.z > 13 && clock.minutes.transform.parent.eulerAngles.z < 15 && clock.minutes.transform.parent.eulerAngles.z < 16 && clock.hours.transform.parent.eulerAngles.z > 96 && clock.hours.transform.parent.eulerAngles.z < 98 && hour3 == false && hour1 == true  && hour2 == true){
             hour3 = true;
             visionsManager.ShowImage("hour3");
         }
@@ -293,6 +301,8 @@ public class PuzzlesManager : MonoBehaviour
             cameraSwitcher.ExitCurrentCamera();
             locky.isUnlocked=true;
             locky.gameObject.SetActive(false);
+            locky.GetComponent<AudioSource>().clip=locky.unlock;
+            locky.GetComponent<AudioSource>().Play();
             locky2.SetActive(true);
         }
     }
@@ -304,6 +314,8 @@ public class PuzzlesManager : MonoBehaviour
             cameraSwitcher.ExitCurrentCamera();
             deskLock.isUnlocked=true;
             deskLock.gameObject.SetActive(false);
+            deskLock.GetComponent<AudioSource>().clip=locky.unlock;
+            deskLock.GetComponent<AudioSource>().Play();
             deskLock2.SetActive(true);
         }
     }

@@ -6,7 +6,13 @@ public class DeskComponents : MonoBehaviour, IInteractable
 {
        private Animator animator;
        public Lock deskLock;
-    
+
+       bool open=false;
+       AudioSource audioSource;
+
+       public AudioClip openD;
+
+       public AudioClip close;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +23,7 @@ public class DeskComponents : MonoBehaviour, IInteractable
         else{
             animator = transform.GetComponent<Animator>();
         }
+        audioSource = GetComponent<AudioSource>();
     }
 
     public bool Interact(GameObject currentObj)
@@ -24,10 +31,23 @@ public class DeskComponents : MonoBehaviour, IInteractable
         if(name.Contains("Cube")){
             if(deskLock.IsUnlocked()==true){
                 animator.SetTrigger("Open");
+                open=!open;
+                audioSource.clip = openD;
+                audioSource.Play();
             }
         }
         else{
+            open=!open;
             animator.SetTrigger("Open");
+            if(open){
+                audioSource.clip = openD;
+                audioSource.Play();
+            }
+            else{
+                audioSource.clip = close;
+                audioSource.Play();
+            }
+            
         }
         return false;
     }

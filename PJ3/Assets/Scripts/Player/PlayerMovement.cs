@@ -38,6 +38,15 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
+
+    public AudioClip walking;
+
+    public AudioClip walkingOnCarpet;
+
+    private AudioSource audioPlayer;
+
+    private bool isColliding;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -45,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
         moveSpeed = walkSpeed;
         startYScale = transform.localScale.y;
+        audioPlayer = GetComponent<AudioSource>();
+        isColliding = false;
     }
 
     private void Update()
@@ -60,6 +71,19 @@ public class PlayerMovement : MonoBehaviour
             rb.drag = 0;
     }
 
+    void OnCollisionEnter(Collision collision){
+        Debug.Log(collision.gameObject.name);
+        if(collision.gameObject.name.Contains("Carpet")){
+            audioPlayer.clip = walkingOnCarpet;
+        }else if(collision.gameObject.name.Contains("floor")){
+            audioPlayer.clip = walking;
+        }
+        isColliding = true;
+    }
+    void OnCollisionExit(Collision collision){
+        isColliding = false;
+    }
+
     public void MovePlayer(float horizontalInput, float verticalInput)
     {
         SpeedControl();
@@ -67,9 +91,14 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         // on ground
-        if(grounded)
+        if(grounded){
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-
+            if(!audioPlayer.isPlaying && !isColliding){
+                
+                audioPlayer.Play();
+            }
+         
+        }
         // in air
         else if(!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);

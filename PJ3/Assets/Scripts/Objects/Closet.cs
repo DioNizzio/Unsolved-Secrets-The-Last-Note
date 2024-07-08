@@ -11,10 +11,12 @@ public class Closet : MonoBehaviour, IInteractable
         
         if(name.Contains("drawer")){
             GetComponent<Animator>().SetTrigger("Open");
+            GetComponent<AudioSource>().Play();
         }
         else{
             if(locky.IsUnlocked()){
                 transform.parent.GetComponent<Animator>().SetTrigger("Open");
+                GetComponent<AudioSource>().Play();
             }
         }
         return false;

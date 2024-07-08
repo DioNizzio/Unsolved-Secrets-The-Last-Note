@@ -364,6 +364,7 @@
 "Assets/Scripts/Managers/LanternManager.cs"
 "Assets/Scripts/Managers/PlayerandCameraHolders.cs"
 "Assets/Scripts/Managers/PuzzlesManager.cs"
+"Assets/Scripts/Managers/SoundManager.cs"
 "Assets/Scripts/Managers/TutorialManager.cs"
 "Assets/Scripts/Managers/UIManager.cs"
 "Assets/Scripts/Managers/VisionsManager.cs"

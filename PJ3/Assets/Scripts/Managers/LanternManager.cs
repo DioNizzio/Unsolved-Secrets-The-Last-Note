@@ -35,12 +35,18 @@ public class LanternManager : MonoBehaviour
 
     UIManager uIManager;
 
+    AudioSource audioSource;
+
+    public AudioClip on;
+    public AudioClip off;
+
     // Start is called before the first frame update
     void Start()
     {
         interactionsManager = gameObject.GetComponent<InteractionsManager>();
         uIManager = gameObject.GetComponent<UIManager>();
         playerandCameraHolders = gameObject.GetComponent<PlayerandCameraHolders>();
+        audioSource = lantern.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -126,8 +132,12 @@ public class LanternManager : MonoBehaviour
                 lantern.SetActive(true);
                 uIManager.HideCrossair(true);
             }
+            audioSource.clip = on;
+            audioSource.Play();
         }
         else{
+            audioSource.clip = off;
+            audioSource.Play();
             wallBooks.GetComponent<BoxCollider>().enabled=false;
             clockBell1.transform.parent.transform.parent.GetComponent<BoxCollider>().enabled=false;
             lantern.SetActive(false);

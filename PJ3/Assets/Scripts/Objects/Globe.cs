@@ -10,6 +10,7 @@ public class Globe : MonoBehaviour, IInteractable
     private bool neverOpened;
 
     public GameObject fixedKey;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +24,13 @@ public class Globe : MonoBehaviour, IInteractable
         if (mAnimator != null){
             if(neverOpened){
                 if(currentObj!=null){
-                    if(currentObj.name.Contains("key")){
+                    if(currentObj.name.Contains("Key")){
                         fixedKey.SetActive(true);
                         Destroy(currentObj);
                         neverOpened = false;
                         mAnimator.SetTrigger("TrOpen");
                         mAnimator.SetBool("isClosed", false);
+                        transform.parent.GetComponent<AudioSource>().Play();
                         return true;
                     } 
                 }
@@ -37,12 +39,13 @@ public class Globe : MonoBehaviour, IInteractable
                 if(mAnimator.GetBool("isClosed")==true){
                     mAnimator.SetTrigger("TrOpen");
                     mAnimator.SetBool("isClosed", false);
-                    return true;
+                    transform.parent.GetComponent<AudioSource>().Play();
+                    return false;
                 }
                 else{
                     mAnimator.SetTrigger("TrClose");
                     mAnimator.SetBool("isClosed", true);
-                    return true;
+                    return false;
                 }
             }
 

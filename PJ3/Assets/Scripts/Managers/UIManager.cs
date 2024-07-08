@@ -80,6 +80,8 @@ public class UIManager : MonoBehaviour
 
     InventoryManager inventoryManager;
 
+    SoundManager soundManager;
+
     //AssetPreviewGenerator assetPreviewGenerator; 
 
     private float time;
@@ -101,7 +103,8 @@ public class UIManager : MonoBehaviour
         textToShow = new List<string>();
         time = Time.deltaTime;
         firstDialogue = true;
-        playerMove = true;      
+        playerMove = true;  
+        soundManager = gameObject.GetComponent<SoundManager>();    
     }
 
     // Update is called once per frame
@@ -543,7 +546,7 @@ public class UIManager : MonoBehaviour
         if(firstDialogue){
             ChangeCurrentDialogue();
         }
-
+        soundManager.Play("dialogue");
     }
 
     public void ChangeCurrentDialogue(){

@@ -9,6 +9,7 @@ public class Objects : MonoBehaviour, IInteractable, IPickable, IInspectable
     {
         if(name.Contains("LockedDoor")){
             uIManager.ShowDialogue("I can't leave yet, I need to know what happened. I need to find more clues about this case.");
+            gameObject.transform.parent.GetComponent<AudioSource>().Play();
         }
         return false;
     }

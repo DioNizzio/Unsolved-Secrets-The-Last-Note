@@ -203,6 +203,7 @@ public class Pedestal : MonoBehaviour, IInteractable
 
     public void OpenCompartment(){
         compartment.GetComponent<Animator>().SetTrigger("Open");
+        compartment.GetComponent<AudioSource>().Play();
     }
 
 }

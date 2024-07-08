@@ -23,10 +23,13 @@ public class HelpsManager : MonoBehaviour
 
     private bool played;
 
+    SoundManager soundManager;
+
     // Start is called before the first frame update
     void Start()
     {
         puzzlesManager = GetComponent<PuzzlesManager>();
+        soundManager =GetComponent<SoundManager>();
         timeList.Add("paintings", 0);
         helpedList.Add("paintings", false);
         timeList.Add("safe", 0);
@@ -163,6 +166,7 @@ public class HelpsManager : MonoBehaviour
             globalTime = 0.0f;
             notePad.AddNotepadWritings(key);
             notepadUpdated.GetComponent<Animator>().SetTrigger("Help");
+            soundManager.Play("notepad");
         }
     }
 

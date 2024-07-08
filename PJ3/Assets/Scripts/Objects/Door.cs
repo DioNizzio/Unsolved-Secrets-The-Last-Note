@@ -8,11 +8,18 @@ public class Door : MonoBehaviour, IInteractable
     public GameObject door;
     private bool locked;
 
+    AudioSource audioSource;
+
+    public AudioClip NotOpen;
+
+    public AudioClip Open;
+
     public UIManager uIManager;
 
     void Start()
     {
-        locked = true;   
+        locked = true;
+        audioSource = GetComponent<AudioSource>();
     }
     public bool Interact(GameObject currentObj)
     {
@@ -27,6 +34,8 @@ public class Door : MonoBehaviour, IInteractable
                 if(locked==false){
                     door.GetComponent<Animator>().SetTrigger("Open");
                     uIManager.ShowDialogue("Nice, there we go.");
+                    audioSource.clip = Open;
+                    audioSource.Play();
                 }
             }
         }
@@ -34,9 +43,13 @@ public class Door : MonoBehaviour, IInteractable
             if(locked==false){
                 door.GetComponent<Animator>().SetTrigger("Open");
                 uIManager.ShowDialogue("Nice, there we go.");
+                audioSource.clip = Open;
+                audioSource.Play();
             }
             else{
                 uIManager.ShowDialogue("Seems locked, I need to find a key somewhere.");
+                audioSource.clip = NotOpen;
+                audioSource.Play();
             }
         }
         return false;

@@ -12,6 +12,13 @@ public class Clock : MonoBehaviour, IInteractable
 
     public ClockHands hours;
     public ClockHands minutes;
+
+    private AudioSource audioSource;
+    
+    public AudioClip bells;
+    public AudioClip ticking;
+
+    public AudioClip correct;
     
 
     // Start is called before the first frame update
@@ -19,6 +26,7 @@ public class Clock : MonoBehaviour, IInteractable
     {
         cameraActive = false;
         bellSequence = "";
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,7 +47,8 @@ public class Clock : MonoBehaviour, IInteractable
             bellSequence = "";
         }
         bellSequence += s;
-        Debug.Log(bellSequence);
+        audioSource.clip = bells;
+        audioSource.Play();
     }
 
     public string GetBellSequence(){
@@ -48,10 +57,14 @@ public class Clock : MonoBehaviour, IInteractable
 
     public void OpenDrawer(){
         drawer.GetComponent<Animator>().SetTrigger("OpenGaveta");
+        audioSource.clip = correct;
+        audioSource.Play();
     }
 
     public void RotateHands(int angle){
         hours.Rotate(angle);
         minutes.Rotate(angle);
+        audioSource.clip = ticking;
+        audioSource.Play();
     }
 }

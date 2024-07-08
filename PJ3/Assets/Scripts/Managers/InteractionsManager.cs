@@ -47,12 +47,15 @@ public class InteractionsManager : MonoBehaviour
 
     InventoryManager inventoryManager;
 
+    SoundManager soundManager;
+
     CameraSwitcher cameraSwitcher;
     void Start(){
         inventoryManager = gameObject.GetComponent<InventoryManager>();
         cameraSwitcher = gameObject.GetComponent<CameraSwitcher>();
         cam = cameraSwitcher.GetCurrentCamera().GetComponent<Camera>();
         holdPos = holdPosNormal;
+        soundManager = gameObject.GetComponent<SoundManager>();
     }
 
     void Update(){
@@ -77,6 +80,7 @@ public class InteractionsManager : MonoBehaviour
                         heldObj.layer = 0;
                         ClearHeldObj();
                         inventoryManager.ClearItem();
+                        soundManager.Play("placeItem");
                     }                    
                 }
                 else{
@@ -104,8 +108,18 @@ public class InteractionsManager : MonoBehaviour
             //pass in object hit into the PickUpObject function
             if (interactObj.GetComponent<Rigidbody>() && (interactObj.tag == "Pickable" || interactObj.tag == "Readable")) //make sure the object has a RigidBody
             {
-                Debug.Log("PICKING");
-                
+                if(interactObj.name.Contains("Key")){
+                    soundManager.Play("pickKeys");
+                }  
+                else if(interactObj.name.Contains("Page")){
+                    soundManager.Play("page");
+                } 
+                else if(interactObj.name.Contains("Newspaper")){
+                    soundManager.Play("journal");
+                }
+                else{
+                    soundManager.Play("pickup");
+                }
                 inventoryManager.AddItem(interactObj);
                 //HoldObject(interactObj);
             }
@@ -204,6 +218,7 @@ public class InteractionsManager : MonoBehaviour
             heldObjRb.AddForce(cam.transform.forward * throwForce);
             heldObj = null;
             inventoryManager.ClearItem();
+            soundManager.Play("drop");
         }
     }
 

@@ -93,7 +93,14 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void SetCurrentItem(int i){
-        if (currentItem == 8 && i == 1){
+        if(i==10){
+            currentItem = 10;
+        }else if (currentItem == 10 && i == 1){
+            currentItem = 1;
+        }else if (currentItem==10 && i == -1){
+            currentItem = 8;
+        }
+        else if (currentItem == 8 && i == 1){
             currentItem = 0;
         }else if (currentItem==0 && i == -1){
             currentItem = 8;

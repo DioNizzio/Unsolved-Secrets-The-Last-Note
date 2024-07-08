@@ -8,17 +8,20 @@ public class VisionsManager : MonoBehaviour
 
     private float globalTime = 0.0f;
     public VideoClip hour1;
-    // public Image hour2;
-    // public Image hour3;
+    public VideoClip hour2;
+    public VideoClip hour3;
     public GameObject imageShowing;
     public VideoPlayer videoPlayer;
 
     CameraSwitcher cameraSwitcher;
+
+    PlayerandCameraHolders playerandCameraHolders;
     // Start is called before the first frame update
     void Start()
     {
         //imageShowing = showing.GetComponent<Image>();
         cameraSwitcher = gameObject.GetComponent<CameraSwitcher>();
+        playerandCameraHolders = gameObject.GetComponent<PlayerandCameraHolders>();
         globalTime = Time.deltaTime;
     }
 
@@ -29,32 +32,34 @@ public class VisionsManager : MonoBehaviour
             globalTime += Time.deltaTime;
             if (globalTime>videoPlayer.clip.length){
                 globalTime = 0.0f;
-                //imageShowing.SetActive(false);
+                imageShowing.SetActive(false);
                 videoPlayer.clip = null;
+                playerandCameraHolders.PlayerCanMove(true);
             }
         }
     }
 
     public void ShowImage(string s){
         if(s.Contains("1")){    
-            //imageShowing.SetActive(true);
+            imageShowing.SetActive(true);
             videoPlayer.clip = hour1;
             videoPlayer.Play();
-            cameraSwitcher.ExitCurrentCamera();
+            //cameraSwitcher.ExitCurrentCamera();
         }
 
         if(s.Contains("2")){    
-            //imageShowing.SetActive(true);
-            //videoPlayer.clip = hour2;
+            imageShowing.SetActive(true);
+            videoPlayer.clip = hour2;
             videoPlayer.Play();
-            cameraSwitcher.ExitCurrentCamera();
+            //cameraSwitcher.ExitCurrentCamera();
         }
 
         if(s.Contains("3")){    
-            //imageShowing.SetActive(true);
-            //videoPlayer.clip = hour3;
+            imageShowing.SetActive(true);
+            videoPlayer.clip = hour3;
             videoPlayer.Play();
-            cameraSwitcher.ExitCurrentCamera();
+            //cameraSwitcher.ExitCurrentCamera();
         }
+        playerandCameraHolders.PlayerCanMove(false);
     }
 }

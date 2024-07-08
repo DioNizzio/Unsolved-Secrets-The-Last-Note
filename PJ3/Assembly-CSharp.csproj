@@ -84,6 +84,7 @@
      <Compile Include="Assets\Scripts\Triggers\FirstTrigger.cs" />
      <Compile Include="Assets\Scripts\Objects\PaintingSpot.cs" />
      <Compile Include="Assets\Scripts\Objects\CoatofArms.cs" />
+     <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Objects\CypherWheel.cs" />
      <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Objects\FireplaceOrnaments.cs" />

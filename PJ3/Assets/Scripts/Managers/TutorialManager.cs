@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,10 @@ public class TutorialManager : MonoBehaviour
     public Sprite Arrows;
     public Sprite ESC;
 
+    public Sprite Scroll;
+
+    public Sprite Drag;
+
     public GameObject ShowingImage;
     public GameObject ShowingImageSmall1;
     public GameObject ShowingImageSmall2;
@@ -33,6 +38,10 @@ public class TutorialManager : MonoBehaviour
     bool Inspectfirst = true;
     bool Crouchfirst = true;
     bool ESCfirst = true;
+
+    bool Dragfirst = true;
+
+    bool ScrollFirst = true;
 
     Animator animator;
 
@@ -65,19 +74,19 @@ public class TutorialManager : MonoBehaviour
 
     void Update(){
         if(ShowingImage.activeSelf==false){
-            Debug.Log(cameraSwitcher.GetCurrentCamera().transform.parent.name!="CameraHolder");
-            if(uIManager.notePad.activeSelf==true || cameraSwitcher.GetCurrentCamera().transform.parent.name!="CameraHolder"){
-                Debug.Log("FIRST IF");
+            if(uIManager.notePad.activeSelf==true ){
+                DisplayESC();
+                DisplayDrag();
+            }else if(cameraSwitcher.GetCurrentCamera().transform.parent.name!="CameraHolder"){
                 DisplayESC();
                 DisplayArrows();
-            }else if(inspectionManager.IsInspecting()){
-                Debug.Log("SECOND IF");
+            }
+            else if(inspectionManager.IsInspecting()){
                 DisplayESC();
                 DisplayInspect();
             }else if(inventoryManager.GetCurrentItem()!=null){
-                Debug.Log("THIRD IF");
                 DisplayInteract();
-                ClearSecond();
+                //ClearSecond();
             }else{
                 uIManager.HideActiveSlotsandFixesSlots(false);
                 uIManager.HideCrossair(false);
@@ -86,8 +95,6 @@ public class TutorialManager : MonoBehaviour
         }
     }
     public void TutorialNext(int i){
-        Debug.Log("helper: " + helper);
-        Debug.Log(movefirst && i == helper);
         // if(movefirst && i == helper){
         //     show.sprite=move;
         //     movefirst=false;
@@ -107,6 +114,11 @@ public class TutorialManager : MonoBehaviour
         else if(Notepadfirst && i == helper){
             Notepadfirst=false;
             show.sprite=Notepad;
+            helper+=2;
+        }
+        else if(!Dragfirst && i == helper){
+            Dragfirst=false;
+            show.sprite=Drag;
             helper++;
         }
         else if(ESCfirst && i == helper){
@@ -135,12 +147,17 @@ public class TutorialManager : MonoBehaviour
             show.sprite=Interact;
             helper++;
         }
+        else if(ScrollFirst && i == helper){
+            ScrollFirst=false;
+            show.sprite=Scroll;
+            helper++;
+        }
         else if(Dropfirst && i == helper){
             Dropfirst=false;
             show.sprite=Drop;
             helper++;
         }
-        else if(i == 11 && i == helper){
+        else if(i == 13 && i == helper){
             ShowingImage.SetActive(false);
         }
     }
@@ -148,10 +165,14 @@ public class TutorialManager : MonoBehaviour
         if(!Inspectfirst){
             ShowingImageSmall1.SetActive(true);
             showSmall1.sprite = Inspect;
+            if(inventoryManager.GetAllItems().Distinct().Count()>2){
+                ShowingImageSmall2.SetActive(true);
+                showSmall2.sprite = Scroll;
+            }
         }
     }
     public void DisplayInspect(){
-        if(inventoryManager.GetCurrentItem().name.Contains("Page")){
+        if(inventoryManager.GetCurrentItem().name.Contains("paginas")){
             ShowingImageSmall2.SetActive(true);
             showSmall2.sprite = Read;
         }else{
@@ -166,10 +187,25 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+    // public void DisplayScroll(){        
+    //     ShowingImageSmall2.SetActive(true);
+    //     showSmall2.sprite = Scroll;
+        
+    // }
+
     public void DisplayArrows(){
         if(cameraSwitcher.GetCurrentCamera().transform.parent.name=="no faces on clock"){
             ShowingImageSmall2.SetActive(true);
             showSmall2.sprite = Arrows;
+        }else{
+            ShowingImageSmall2.SetActive(false);
+        }
+    }
+
+    public void DisplayDrag(){
+        if(uIManager.notePad.activeSelf){
+            ShowingImageSmall2.SetActive(true);
+            showSmall2.sprite = Drag;
         }else{
             ShowingImageSmall2.SetActive(false);
         }

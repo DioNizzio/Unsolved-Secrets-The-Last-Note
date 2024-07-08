@@ -18,19 +18,19 @@ public class CoatofArms : MonoBehaviour, IInteractable
     public bool Interact(GameObject currentObj)
     {
         if(currentObj!=null){
-            if(pearl.GetComponent<MeshRenderer>().material.name.Contains("invisible") && currentObj.name.Contains("brasão_LP.005")){
+            if(pearl.GetComponent<MeshRenderer>().material.name.Contains("invisible") && currentObj.name.Contains("Pearl")){
                 if (!topPart.GetComponent<MeshRenderer>().material.name.Contains("invisible") && !bottomPart.GetComponent<MeshRenderer>().material.name.Contains("invisible")){
                     pearl.GetComponent<MeshRenderer>().material = correctMaterial;
                     Destroy(currentObj);
                     return true;
                 }
             }
-            else if(bottomPart.GetComponent<MeshRenderer>().material.name.Contains("invisible") && currentObj.name.Contains("brasão_LP.003")){
+            else if(bottomPart.GetComponent<MeshRenderer>().material.name.Contains("invisible") && currentObj.name.Contains("Sharp Object")){
                 bottomPart.GetComponent<MeshRenderer>().material = correctMaterial;
                 Destroy(currentObj);
                 return true;
             }
-            else if(topPart.GetComponent<MeshRenderer>().material.name.Contains("invisible") && currentObj.name.Contains("brasão_LP.004")){
+            else if(topPart.GetComponent<MeshRenderer>().material.name.Contains("invisible") && currentObj.name.Contains("Round Object")){
                 topPart.GetComponent<MeshRenderer>().material = correctMaterial;
                 Destroy(currentObj);
                 return true;
@@ -42,5 +42,6 @@ public class CoatofArms : MonoBehaviour, IInteractable
 
     public void PlayAnimation(){
         door.GetComponent<Animator>().SetTrigger("Open");
+        door.GetComponent<AudioSource>().Play();
     }
 }

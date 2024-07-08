@@ -9,6 +9,8 @@ public class CypherWheel : MonoBehaviour, IInteractable
     public GameObject wheelOutside;
     public GameObject fireplace;
 
+    public AudioSource audioSource;
+
     public bool cameraActive;
 
     // Start is called before the first frame update
@@ -37,6 +39,7 @@ public class CypherWheel : MonoBehaviour, IInteractable
         else{
             fireplace.GetComponent<Animator>().SetTrigger("Open");
         }
+        audioSource.Play();
     }
 
     public bool Interact(GameObject currentObj)

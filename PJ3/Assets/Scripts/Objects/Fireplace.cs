@@ -14,6 +14,7 @@ public class Fireplace : MonoBehaviour
 
     public void PlayAnimation(){
         bit.GetComponent<Animator>().SetTrigger("Open");
+        bit.GetComponent<AudioSource>().Play();
     }
 
 

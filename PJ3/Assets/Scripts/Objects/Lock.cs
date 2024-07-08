@@ -13,6 +13,15 @@ public class Lock : MonoBehaviour, IInteractable
     public GameObject lock3;
     public GameObject lock4;
 
+    AudioSource audioSource;
+
+
+    public AudioClip unlock;
+
+    void Start(){
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public bool isUnlocked = false;
     public bool IsUnlocked(){
         return isUnlocked;
