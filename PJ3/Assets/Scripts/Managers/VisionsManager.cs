@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
 public class VisionsManager : MonoBehaviour
@@ -34,7 +35,7 @@ public class VisionsManager : MonoBehaviour
                 globalTime = 0.0f;
                 imageShowing.SetActive(false);
                 videoPlayer.clip = null;
-                playerandCameraHolders.PlayerCanMove(true);
+                playerandCameraHolders.PlayerCanMove(true);             
             }
         }
     }

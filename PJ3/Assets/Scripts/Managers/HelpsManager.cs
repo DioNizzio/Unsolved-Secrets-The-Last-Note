@@ -159,7 +159,6 @@ public class HelpsManager : MonoBehaviour
 
     public void AskForHelp(){
         if(globalTime>120f && timeList.Values.Max()>300f){
-            Debug.Log(timeList.FirstOrDefault(x => x.Value == timeList.Values.Max()).Key);
             var key = timeList.FirstOrDefault(x => x.Value == timeList.Values.Max()).Key;
             helpedList[key] = true;
             timeList[key] = 0.0f;

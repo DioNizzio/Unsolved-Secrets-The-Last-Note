@@ -45,11 +45,14 @@ public class CameraSwitcher : MonoBehaviour
 
     PlayerandCameraHolders playerandCameraHolders;
 
+    InspectionManager inspectionManager;
+
     // Start is called before the first frame update
     void Start()
     {
         uIManager = GetComponent<UIManager>();
         playerandCameraHolders = gameObject.GetComponent<PlayerandCameraHolders>();
+        inspectionManager = gameObject.GetComponent<InspectionManager>();
     }
 
     // Update is called once per frame
@@ -110,9 +113,65 @@ public class CameraSwitcher : MonoBehaviour
                 uIManager.ChangeCursor("close");
                 uIManager.HideCrossair(true);
             }
+            else if(inspectionManager.IsInspecting()){
+                uIManager.HideCrossair(true);
+            }else if(inspectionManager.IsReading()){
+                uIManager.HideCrossair(true);
+            } 
             else{
-                uIManager.ChangeCursor("locked");
-                uIManager.HideCrossair(false);
+                Ray r = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
+                // If the ray catches anything in the range, it will try to interact with it
+                if (Physics.Raycast(r, out RaycastHit hitInfo, 2)){
+                    if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)){
+                        // if(hitInfo.collider.gameObject.tag == "Pickable" || hitInfo.collider.gameObject.tag == "Readable"){
+                        //     uIManager.ChangeCursor("grab");
+                        //     uIManager.HideCrossair(true);      
+                        // }else{
+                        foreach(Transform child in piano.transform){
+                            if(hitInfo.collider.gameObject.name==child.name && !hitInfo.collider.gameObject.name.Contains("key")){
+                                uIManager.ChangeCursor("lupa");
+                                uIManager.HideCrossair(true);      
+                            }
+                        }
+                        if(hitInfo.collider.gameObject.name==safe.name){
+                            uIManager.ChangeCursor("lupa");
+                            uIManager.HideCrossair(true);      
+                        }
+                        else if(hitInfo.collider.gameObject.name==clock.name){
+                            uIManager.ChangeCursor("lupa");
+                            uIManager.HideCrossair(true);      
+                        }
+                        else if(hitInfo.collider.gameObject.name==locky.name){
+                            uIManager.ChangeCursor("lupa");
+                            uIManager.HideCrossair(true);      
+                        }
+                        else if(hitInfo.collider.gameObject.name==deskLock.name){
+                            uIManager.ChangeCursor("lupa");
+                            uIManager.HideCrossair(true);      
+                        }
+                        else if(hitInfo.collider.gameObject.name==cypherWheel.name){
+                            uIManager.ChangeCursor("lupa");
+                            uIManager.HideCrossair(true);      
+                        }
+                        else if(hitInfo.collider.gameObject.name==pedestal.name){
+                            uIManager.ChangeCursor("lupa");
+                            uIManager.HideCrossair(true);      
+                        }
+                        else if(hitInfo.collider.gameObject.name==musicBox.name){
+                            uIManager.ChangeCursor("lupa");
+                            uIManager.HideCrossair(true);      
+                        }
+                        else if(hitInfo.collider.gameObject.tag == "Pickable" || hitInfo.collider.gameObject.tag == "Readable"){
+                                uIManager.ChangeCursor("grab");
+                                uIManager.HideCrossair(true);      
+                        }
+                    } 
+                    
+                }
+                else{
+                    uIManager.ChangeCursor("locked");
+                    uIManager.HideCrossair(false);
+                }
             }
         }
         else if(cameraActivated.Contains("safe")){    

@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using System.IO;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class UIManager : MonoBehaviour
 {
@@ -57,6 +58,10 @@ public class UIManager : MonoBehaviour
 
     public Texture2D cursorClose;
 
+    public Texture2D grabHand;
+
+    public Texture2D lupa;
+
     public GameObject PauseMenu;
 
     public GameObject Options;
@@ -82,8 +87,6 @@ public class UIManager : MonoBehaviour
 
     SoundManager soundManager;
 
-    //AssetPreviewGenerator assetPreviewGenerator; 
-
     private float time;
 
     private bool firstDialogue;
@@ -99,7 +102,6 @@ public class UIManager : MonoBehaviour
         ppVolume = plandc.Camera.GetComponent<PostProcessVolume>();
         playerRB = plandc.Player.GetComponent<Rigidbody>();
         inventoryManager = gameObject.GetComponent<InventoryManager>();
-        //assetPreviewGenerator = gameObject.GetComponent<AssetPreviewGenerator>();
         textToShow = new List<string>();
         time = Time.deltaTime;
         firstDialogue = true;
@@ -142,7 +144,14 @@ public class UIManager : MonoBehaviour
             Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
             Cursor.lockState = CursorLockMode.Locked;
         }
-        Debug.Log(cursor + ": " + Cursor.lockState);
+        else if(cursor=="grab"){
+            Cursor.SetCursor(grabHand, Vector2.zero, CursorMode.ForceSoftware);
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else if(cursor=="lupa"){
+            Cursor.SetCursor(lupa, Vector2.zero, CursorMode.ForceSoftware);
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     public void clearSlots(GameObject[] inventorySlots){
@@ -289,10 +298,34 @@ public class UIManager : MonoBehaviour
     public void LoadObjectImages(GameObject[] inventorySlots){
         if(inventorySlots[0] != null){
             slot0.SetActive(value: true);
+            // string[] assetPaths = AssetDatabase.GetAllAssetPaths();
+            // if (!AssetDatabase.IsValidFolder("Assets/Previews2"))
+            // {
+            //     AssetDatabase.CreateFolder("Assets", "Previews2");
+            // }
+            // foreach (string assetPath in assetPaths)
+            // {
+            //     if(assetPath.Contains(".fbx")){
+            //         Debug.Log("" + assetPath);
+            //         UnityEngine.Object asset = AssetDatabase.LoadMainAssetAtPath(assetPath);
+            //         if (asset != null)
+            //         {
+            //             Texture2D preview = AssetPreview.GetAssetPreview(asset);
+            //             if (preview != null)
+            //             {
+            //                 byte[] bytes = preview.EncodeToPNG();
+            //                 string previewPath = Path.Combine("Assets/Previews2", asset.name + "_preview.png");
+            //                 File.WriteAllBytes(previewPath, bytes);
+            //             }
+            //         }
+            //     }
+                
+            // }
+
+            // AssetDatabase.Refresh();
             byte[] img;
-            if(inventorySlots[0].GetComponent<MeshFilter>()!=null){
-                Debug.Log(inventorySlots[0].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", ""));
-                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[0].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            if(inventorySlots[0].gameObject.name!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[0].gameObject.name+"_preview.png"));
             }else if(inventorySlots[0].gameObject.name.Contains("Lighter")){
                 img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
             }
@@ -307,8 +340,8 @@ public class UIManager : MonoBehaviour
         if(inventorySlots[1] != null){
             slot1.SetActive(value: true);
             byte[] img;
-            if(inventorySlots[1].GetComponent<MeshFilter>()!=null){
-                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[1].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            if(inventorySlots[1].gameObject.name!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[1].gameObject.name+"_preview.png"));
             }else if(inventorySlots[1].gameObject.name.Contains("Lighter")){
                 img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
             }
@@ -322,8 +355,8 @@ public class UIManager : MonoBehaviour
         if(inventorySlots[2] != null){
             slot2.SetActive(value: true);
             byte[] img;
-            if(inventorySlots[2].GetComponent<MeshFilter>()!=null){
-                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[2].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            if(inventorySlots[2].gameObject.name!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[2].gameObject.name+"_preview.png"));
             }else if(inventorySlots[2].gameObject.name.Contains("Lighter")){
                 img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
             }
@@ -337,8 +370,8 @@ public class UIManager : MonoBehaviour
         if(inventorySlots[3] != null){
             slot3.SetActive(value: true);
             byte[] img;
-            if(inventorySlots[3].GetComponent<MeshFilter>()!=null){
-                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[3].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            if(inventorySlots[3].gameObject.name!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[3].gameObject.name+"_preview.png"));
             }else if(inventorySlots[3].gameObject.name.Contains("Lighter")){
                 img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
             }
@@ -352,8 +385,8 @@ public class UIManager : MonoBehaviour
         if(inventorySlots[4] != null){
             slot4.SetActive(value: true);
             byte[] img;
-            if(inventorySlots[4].GetComponent<MeshFilter>()!=null){
-                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[4].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            if(inventorySlots[4].gameObject.name!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[4].gameObject.name+"_preview.png"));
             }else if(inventorySlots[4].gameObject.name.Contains("Lighter")){
                 img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
             }
@@ -368,8 +401,8 @@ public class UIManager : MonoBehaviour
         if(inventorySlots[5] != null){
             slot5.SetActive(value: true);
             byte[] img;
-            if(inventorySlots[5].GetComponent<MeshFilter>()!=null){
-                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[5].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            if(inventorySlots[5].gameObject.name!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[5].gameObject.name+"_preview.png"));
             }else if(inventorySlots[5].gameObject.name.Contains("Lighter")){
                 img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
             }
@@ -384,8 +417,8 @@ public class UIManager : MonoBehaviour
         if(inventorySlots[6] != null){
             slot6.SetActive(value: true);
             byte[] img;
-            if(inventorySlots[6].GetComponent<MeshFilter>()!=null){
-                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[6].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            if(inventorySlots[6].gameObject.name!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[6].gameObject.name+"_preview.png"));
             }else if(inventorySlots[6].gameObject.name.Contains("Lighter")){
                 img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
             }
@@ -400,8 +433,8 @@ public class UIManager : MonoBehaviour
         if(inventorySlots[7] != null){
             slot7.SetActive(value: true);
             byte[] img;
-            if(inventorySlots[7].GetComponent<MeshFilter>()!=null){
-                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[7].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            if(inventorySlots[7].gameObject.name!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[7].gameObject.name+"_preview.png"));
             }else if(inventorySlots[7].gameObject.name.Contains("Lighter")){
                 img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
             }
@@ -416,8 +449,8 @@ public class UIManager : MonoBehaviour
         if(inventorySlots[8] != null){
             slot8.SetActive(value: true);
             byte[] img;
-            if(inventorySlots[8].GetComponent<MeshFilter>()!=null){
-                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[8].GetComponent<MeshFilter>().mesh.name.Replace(" Instance", "")+"_preview.png"));
+            if(inventorySlots[8].gameObject.name!=null){
+                img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, inventorySlots[8].gameObject.name+"_preview.png"));
             }else if(inventorySlots[8].gameObject.name.Contains("Lighter")){
                 img = File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath, "Lighter_preview.png"));
             }
@@ -449,6 +482,7 @@ public class UIManager : MonoBehaviour
 
     public void ActivateInspectionMenu(GameObject go){
         inspectionMenu.SetActive(true);
+        HideCrossair(true);
         gameObjectName.text = go.name;
     }
 
@@ -508,6 +542,7 @@ public class UIManager : MonoBehaviour
 
     public void DeactivateInspectionMenu(){
         inspectionMenu.SetActive(false);
+        HideCrossair(false);
     }
 
     public void HideUI(bool hide){
@@ -601,7 +636,7 @@ public class UIManager : MonoBehaviour
             readPages.text = "even the smallest details can hold great significance.\ntoday, as i walked through the gardens, i noticed the  first blooms of spring beginning to emerge. the delicate petals, unfurling in the morning light, reminded me that <b>R</b>enewal is a constant part of life. it’s easy to overlook these moments in the rush of our daily routines, but they are the ones that bring color and meaning to our existence.\nthis morning, i took the time to enjoy a quiet cup of  tea before the day’s demands set in. the simple act of sitting in stillness, watching the steam rise and feeling the warmth of the cup in my hands, grounded <b>M</b>e. it’s moments like these that remind us to breathe, to pause, and to appreciate the present.\nas you go about your day, <b>T</b>ake a moment to notice the world around you. listen to the rustle of leaves in the breeze, feel the texture of the earth beneath your feet, and let the small wonders of life fill you with a sense of peace. these are the moments that sustain us, that give us strength and clarity.\nmay you find <b>J</b>oy in the simplest things.\n\n-emrick godfrey";
         }
         else if(current.name.Contains("5")){
-            readPages.text = "Title: 'Happy Birthday' or is it?\nOrder:\n\n- 3g (2x) - 3g# - 3g - 4c - 4b\n\n- 3g (2x) - 3g# - 3g - 4d - 4c\n\n- 3g (2x) - 4g - 4e - 4c - 4b - 3g#\n\n- 4f (2x) - 4e - 4c# - 4d - 4c";
+            readPages.text = "Title: 'Happy Birthday' or is it?\nOrder:\n\n- 3g (2x) - 3g# - 3g - 4c - 3b\n\n- 3g (2x) - 3g# - 3g - 4d - 4c\n\n- 3g (2x) - 4g - 4e - 4c - 3b - 3g#\n\n- 4f (2x) - 4e - 4c# - 4d - 4c";
         }
         else if(current.name.Contains("6")){
             readPages.text = "   2        3       4\n\n ABC  DEF  GHI\n   5        6         7\n\n JKL  MNO  PQRS\n   8          9\n TUV  WXYZ";
@@ -620,6 +655,12 @@ public class UIManager : MonoBehaviour
         }
         else if(current.name.Contains("10")){
             readPages.text = "Those were the days when music felt like the very  pulse of existence, a sentiment sorely missing where  I now reside. The absence of this musical  communion has left a quiet void in my evenings. I sometimes indulge in the memory of those discussions, each note and nuance, and wonder if such richness will ever grace my days again.\nFor now, these memories must suffice, as I sit in the solitude of my current retreat, the rain's rhythm a faint echo of piano keys from a world away. Maybe tomorrow will carry a melody, a whisper of the past, or perhaps a promise of a return to the music-filled streets of Salisbury.\nThere was a certain magic to 11:45 in Salisbury. It was the time when the sun began its gentle descent, casting a golden glow over the town, and the streets would fill with the soft murmur of people coming together. Here, this time is just another minute, but in Salisbury, it was a moment of pure enchantment.\nUntil then, this diary shall hold my confessions, my silent songs of yearning for a city that sang to the very beat of my soul.";
+        }
+        else if(current.name.Contains("11")){
+            readPages.text = "May 9th, 2000\nIt's been an exhausting night. It's 3:15 and I feel utterly drained and can barely keep my eyes open. I need to replenish my energy soon. Thankfully, I have those bottles, full of their blood, ready for just such an occasion. They always give me the strength I need to carry on, especially after nights like this.\nThe events with Timmy have taken a toll on me. I must remain vigilant and ensure no more slip-ups occur. But first,I need to regain my strength. A quick drink should do the trick.";
+        }
+        else if(current.name.Contains("Newspaper")){
+            readPages.text = "Salisbury Journal\nVolume 36, Issue 7 October 1952\nBodies Found: Mass Murderer or Animal Revenge? the dense, shadowy depths of Pinewood Forest, a chilling discovery was made that left the local community in a state of shock and fear. Over the span of several weeks, the bodies of seven hikers were found scattered in various locations within the forest. Each body bore signs of a violent end, but the exact cause of death remained shrouded in mystery. The initial examinations revealed deep gashes and fang-like marks on the victims, raising the terrifying question of whether these unfortunate souls had fallen prey to a vicious animal or something more sinister. The police is putting every resoure possible into finding who or what is responsible for these acts and to put a stop to it. The local authorities, baffled by the gruesome findings, launched an extensive investigation, calling in forensic experts and wildlife specialists to help unravel the enigma. The presence of large predators in the area, such as bears or mountain lions, made the animal attack theory plausible. However, certain inconsistencies in the injuries and the distribution of the bodies suggested that a human element might be involved. The lack of definitive evidence pointing conclusively to either scenario left the investigators in a perplexing quandary, unable to rule out the possibility of a deranged individual lurking in the forest. If these attacks were done by a human being, he is most likely long gone from Salisbury, although the authorities fear he is still in town. More to come on this story in the next editions.";
         }
         else if(current.name.Contains("Diary")){
             if(diary==1){

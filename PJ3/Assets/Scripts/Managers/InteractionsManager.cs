@@ -64,7 +64,7 @@ public class InteractionsManager : MonoBehaviour
         if (heldObj != null){
             
             heldObj.transform.position = holdPos.transform.position;
-            heldObj.transform.eulerAngles = holdPos.transform.eulerAngles;            
+            heldObj.transform.eulerAngles = holdPos.transform.eulerAngles;
         } 
     }
 
@@ -108,7 +108,7 @@ public class InteractionsManager : MonoBehaviour
             //pass in object hit into the PickUpObject function
             if (interactObj.GetComponent<Rigidbody>() && (interactObj.tag == "Pickable" || interactObj.tag == "Readable")) //make sure the object has a RigidBody
             {
-                if(interactObj.name.Contains("Key")){
+                if(interactObj.name.Contains("Golden Key")|| interactObj.name.Contains("Door Key")){
                     soundManager.Play("pickKeys");
                 }  
                 else if(interactObj.name.Contains("Page")){
@@ -213,6 +213,9 @@ public class InteractionsManager : MonoBehaviour
             }
             Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), interactorSource.GetComponent<Collider>(), false);
             heldObj.layer = 0;
+            for(int i = 0; i < heldObj.transform.childCount; i++){
+                heldObj.transform.GetChild(i).gameObject.layer = 0;
+            }
             heldObjRb.isKinematic = false;
             heldObj.transform.parent = null;
             heldObjRb.AddForce(cam.transform.forward * throwForce);

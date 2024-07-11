@@ -18,6 +18,8 @@ public class MusicBox : MonoBehaviour, IInteractable
 
     private bool openned;
 
+    public UIManager uIManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,7 @@ public class MusicBox : MonoBehaviour, IInteractable
             door.GetComponent<Animator>().SetTrigger("OpenBox");
             drawer.GetComponent<Animator>().SetTrigger("OpenBox");
             openned = true;
+            uIManager.ShowDialogue("This sounds like the song he played in the beggining. I miss you.");
         }
         else{
             cameraActive=true;

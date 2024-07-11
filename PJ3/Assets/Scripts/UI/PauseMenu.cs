@@ -25,21 +25,18 @@ public class PauseMenu : MonoBehaviour, IInteractable
     }
 
     public void ExitPause(){
-        Debug.Log("Exit Pause");
 
         uIManager.HidePause();
         playerandCamera.PlayerCanMove(true);
     }
 
     public void ExitGame(){
-        Debug.Log("Exit Game");
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public bool Interact(GameObject currentObj)
     {
-        Debug.Log("AIIIII");
         return false;
     }
 }

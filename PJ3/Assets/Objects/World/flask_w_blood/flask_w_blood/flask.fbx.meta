@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Blood_Vial1
-    second: {fileID: 2100000, guid: 0e8c6a897bca9f44583422ac8ec84ae2, type: 2}
+    second: {fileID: 2100000, guid: 337fd4d79cab0364bb1301a88e2fb18b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -59,15 +59,12 @@ public class Pedestal : MonoBehaviour, IInteractable
     }
 
     public void UpNumber(string number){
-        Debug.Log("number: " + number);
         if(first == 0){
             first = int.Parse(number.Split("_")[1]);
-            Debug.Log("first: " + first);
             CheckBook(first).GetComponent<Animator>().SetTrigger("UpDown" + CheckPosBook(first));
         } 
         else{
             second = int.Parse(number.Split("_")[1]);
-            Debug.Log("second: " + second);
             if(second == first){
                 CheckBook(second).GetComponent<Animator>().SetTrigger("UpDown" + CheckPosBook(second));
                 first=0;
@@ -110,15 +107,12 @@ public class Pedestal : MonoBehaviour, IInteractable
 
     public int CheckPosBook(int bookNumber){
         if(bookNumber == 1){
-            Debug.Log("posbook1: " + posbook1);
             return posbook1;
         }
         else if(bookNumber == 2){
-            Debug.Log("posbook2: " + posbook2);
             return posbook2;
         }
         else if(bookNumber == 3){
-            Debug.Log("posbook3: " + posbook3);
             return posbook3;
         }
         else if(bookNumber == 4){
@@ -144,7 +138,6 @@ public class Pedestal : MonoBehaviour, IInteractable
     }
 
     public void UpdateBoookPos(){
-        Debug.Log("asserting positions: " + first + ";" + second);
         int aux = 0;
         int a = CheckPosBook(first);
         int b = CheckPosBook(second);
@@ -203,7 +196,9 @@ public class Pedestal : MonoBehaviour, IInteractable
 
     public void OpenCompartment(){
         compartment.GetComponent<Animator>().SetTrigger("Open");
-        compartment.GetComponent<AudioSource>().Play();
+        gameObject.GetComponent<BoxCollider>().enabled = false;
+        // compartment.GetComponent<Box>().Play("");
+        //compartment.GetComponent<AudioSource>().Play();
     }
 
 }

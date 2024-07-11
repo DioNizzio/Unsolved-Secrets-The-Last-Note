@@ -89,7 +89,6 @@ public class InputManager : MonoBehaviour
         //Cam Rotation
         if((Input.GetAxisRaw("Mouse X")!=0f||Input.GetAxisRaw("Mouse Y")!=0f) && inspectionManager.IsInspecting() == false){
             if (Cam.activeSelf==true && uIManager.notePad.activeSelf == false && uIManager.PauseMenu.activeSelf == false && uIManager.Options.activeSelf == false){
-                Debug.Log("Cam1");
                 moveCamera.CameraRotation(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
             }
             // else if(Cam2.activeSelf==true){
@@ -132,7 +131,6 @@ public class InputManager : MonoBehaviour
                 //interactionsManager.CloseUpInteraction();
                 Ray r = Cam.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(r, out RaycastHit hitInfo, 0.1f)){
-                    Debug.Log(hitInfo.collider.gameObject);
                     // tutorialManager.TutorialNext(6);
                 }
             }
@@ -245,15 +243,15 @@ public class InputManager : MonoBehaviour
             helpsManager.AskForHelp();
             helpsManager.HideHelpAvailable();
         }
-        if (Input.GetKeyDown(rotateRightKey)){
+        if (Input.GetKeyDown(rotateRightKey) && Cam.activeSelf==false){
             clock.RotateHands(1);
         }
-        if (Input.GetKeyDown(key: rotateLeftKey)){
+        if (Input.GetKeyDown(key: rotateLeftKey)  && Cam.activeSelf==false){
             clock.RotateHands(-1);
         }
 
         if (Input.GetKeyDown(readKey)){
-            if (inspectionManager.IsInspecting() == true && inventoryManager.GetCurrentItem().name.Contains("paginas")){
+            if (inspectionManager.IsInspecting() == true && (inventoryManager.GetCurrentItem().name.Contains("Page") || inventoryManager.GetCurrentItem().name.Contains("Diary"))){
                 inspectionManager.Read();
                 uIManager.ReadPages(inventoryManager.GetCurrentItem());
             }

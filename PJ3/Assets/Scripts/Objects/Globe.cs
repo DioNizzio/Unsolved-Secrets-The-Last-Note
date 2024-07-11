@@ -11,6 +11,7 @@ public class Globe : MonoBehaviour, IInteractable
 
     public GameObject fixedKey;
     
+    public UIManager uIManager;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,8 @@ public class Globe : MonoBehaviour, IInteractable
                         neverOpened = false;
                         mAnimator.SetTrigger("TrOpen");
                         mAnimator.SetBool("isClosed", false);
-                        transform.parent.GetComponent<AudioSource>().Play();
+                        GetComponent<AudioSource>().Play();
+                        uIManager.ShowDialogue("Cool bar. These are very expensive bottles of wine. I do love the taste of a good sweet bottle of wine, even after everything I lost.");
                         return true;
                     } 
                 }
@@ -39,7 +41,7 @@ public class Globe : MonoBehaviour, IInteractable
                 if(mAnimator.GetBool("isClosed")==true){
                     mAnimator.SetTrigger("TrOpen");
                     mAnimator.SetBool("isClosed", false);
-                    transform.parent.GetComponent<AudioSource>().Play();
+                    GetComponent<AudioSource>().Play();
                     return false;
                 }
                 else{

@@ -24,7 +24,6 @@ public class Piano : MonoBehaviour, IInteractable
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("piano camera: " + cameraActive);
     }
 
 

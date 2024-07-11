@@ -40,6 +40,8 @@ public class PuzzlesManager : MonoBehaviour
     public GameObject keyGlobe;
     public GameObject keyTutorial;
 
+    public GameObject triggerEnd;
+
 
 
     public CoatofArms coatofArms;
@@ -71,8 +73,6 @@ public class PuzzlesManager : MonoBehaviour
     public bool coatofArmsSolved;
 
     public bool pedestalSolved;
-
-    public bool notstarted;
 
     public bool deskLockSolved;
 
@@ -110,7 +110,6 @@ public class PuzzlesManager : MonoBehaviour
         fireplaceSolved = false;
         coatofArmsSolved = false;
         pedestalSolved = false;
-        notstarted = false;
         deskLockSolved = false;
         cypherWheelSolved = false;
         globeSolved = false;
@@ -126,6 +125,7 @@ public class PuzzlesManager : MonoBehaviour
             "4g",
             "4g",
             "4g#",
+            "4g",
             "5d",
             "5c",
             "4g",
@@ -179,7 +179,7 @@ public class PuzzlesManager : MonoBehaviour
         if(!coatofArmsSolved){
             CheckCoatofArms();
         }
-        if(!pedestalSolved && !notstarted){
+        if(!pedestalSolved){
             CheckPedestalBooks();
         }
         if(!deskLockSolved){
@@ -239,11 +239,10 @@ public class PuzzlesManager : MonoBehaviour
     public void CheckSafeCode(){
         if(safe.GetNeedsCheck()==true){
             if(safe.GetCode()=="1712"){
-                Debug.Log("Puzzle Solved!");
                 safeSolved=true;
                 safe.PlayAnimations(true);
                 cameraSwitcher.ExitCurrentCamera();
-                uIManager.ShowDialogue("Wow, I managed to crack the code, that's crazy let's goooooooo");
+                uIManager.ShowDialogue("Nice, I'm always sharp.");
                 
             }
             else{
@@ -262,10 +261,8 @@ public class PuzzlesManager : MonoBehaviour
     }
 
     public void CheckClockHours(){
-        Debug.Log(clock.minutes.transform.parent.eulerAngles.z);
         //11:45
         if(clock.minutes.transform.parent.eulerAngles.z > 194 && clock.minutes.transform.parent.eulerAngles.z < 196 && clock.hours.transform.parent.eulerAngles.z < 353 && clock.hours.transform.parent.eulerAngles.z > 352 && hour1 == false){
-            Debug.Log("HOUR1");
             hour1 = true;
             visionsManager.ShowImage("hour1");
         }
@@ -296,26 +293,34 @@ public class PuzzlesManager : MonoBehaviour
     }
 
     public void CheckClosetLock(){
-        if(locky.lock1.transform.eulerAngles.y > -1 &&  locky.lock1.transform.eulerAngles.y < 1  && locky.lock2.transform.eulerAngles.y > 215 && locky.lock2.transform.eulerAngles.y < 217 && locky.lock3.transform.eulerAngles.y > 323 && locky.lock3.transform.eulerAngles.y < 325 && locky.lock4.transform.eulerAngles.y > 251 && locky.lock4.transform.eulerAngles.y < 253){
+        Debug.Log(locky.lock1.transform.eulerAngles.y);
+        Debug.Log(locky.lock2.transform.eulerAngles.y);
+        Debug.Log(locky.lock3.transform.eulerAngles.y);
+        Debug.Log(locky.lock4.transform.eulerAngles.y);
+        if(locky.lock1.transform.eulerAngles.y > 179 &&  locky.lock1.transform.eulerAngles.y < 181  && locky.lock2.transform.eulerAngles.y > 35 && locky.lock2.transform.eulerAngles.y < 37 && locky.lock3.transform.eulerAngles.y > 143 && locky.lock3.transform.eulerAngles.y < 145 && locky.lock4.transform.eulerAngles.y > 71 && locky.lock4.transform.eulerAngles.y < 73){
             closetLockSolved=true;
             cameraSwitcher.ExitCurrentCamera();
             locky.isUnlocked=true;
-            locky.gameObject.SetActive(false);
             locky.GetComponent<AudioSource>().clip=locky.unlock;
             locky.GetComponent<AudioSource>().Play();
+            locky.gameObject.SetActive(false);
             locky2.SetActive(true);
         }
     }
 
     public void CheckDeskLock(){
-        //3830
-        if(deskLock.lock1.transform.eulerAngles.z > 143 &&  deskLock.lock1.transform.eulerAngles.z < 145  && deskLock.lock2.transform.eulerAngles.z > 143 && deskLock.lock2.transform.eulerAngles.z < 145 && deskLock.lock3.transform.eulerAngles.z > 143 && deskLock.lock3.transform.eulerAngles.z < 145 && deskLock.lock4.transform.eulerAngles.z > 71 && deskLock.lock4.transform.eulerAngles.z < 73){
+        //7529
+        // Debug.Log(deskLock.lock1.transform.eulerAngles.z);
+        // Debug.Log(deskLock.lock2.transform.eulerAngles.z);
+        // Debug.Log(deskLock.lock3.transform.eulerAngles.z);
+        // Debug.Log(deskLock.lock4.transform.eulerAngles.z);
+        if(deskLock.lock1.transform.eulerAngles.z > -1 &&  deskLock.lock1.transform.eulerAngles.z < 1  && deskLock.lock2.transform.eulerAngles.z > 251 && deskLock.lock2.transform.eulerAngles.z < 253 && deskLock.lock3.transform.eulerAngles.z > 179 && deskLock.lock3.transform.eulerAngles.z < 181 && deskLock.lock4.transform.eulerAngles.z > 107 && deskLock.lock4.transform.eulerAngles.z < 109){
             deskLockSolved=true;
             cameraSwitcher.ExitCurrentCamera();
             deskLock.isUnlocked=true;
-            deskLock.gameObject.SetActive(false);
             deskLock.GetComponent<AudioSource>().clip=locky.unlock;
             deskLock.GetComponent<AudioSource>().Play();
+            deskLock.gameObject.SetActive(value: false);
             deskLock2.SetActive(true);
         }
     }
@@ -330,6 +335,7 @@ public class PuzzlesManager : MonoBehaviour
     public void CheckCoatofArms(){
         if(!coatofArms.bottomPart.GetComponent<MeshRenderer>().material.name.Contains("invisible")&&!coatofArms.topPart.GetComponent<MeshRenderer>().material.name.Contains("invisible")&&!coatofArms.pearl.GetComponent<MeshRenderer>().material.name.Contains("invisible")){
             coatofArms.PlayAnimation();
+            uIManager.ShowDialogue("This is why the didn't find anything. I'm onto you now Emrick");
             coatofArmsSolved = true;
         }
     }
@@ -347,6 +353,7 @@ public class PuzzlesManager : MonoBehaviour
             cypherWheelSolved=true;
             cameraSwitcher.ExitCurrentCamera();
             cypherWheel.PlayAnimations(4);
+            triggerEnd.GetComponent<BoxCollider>().enabled=true;
         }
     }
 

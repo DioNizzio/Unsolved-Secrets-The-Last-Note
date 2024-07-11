@@ -8,7 +8,6 @@ public class FirstTrigger : MonoBehaviour
     public UIManager uIManager;
     void OnTriggerEnter(Collider collision)
     {
-        Debug.Log(collision.gameObject.name);
         //Check for a match with the specified name on any GameObject that collides with your GameObject
         if (collision.gameObject.name == "Player")
         {

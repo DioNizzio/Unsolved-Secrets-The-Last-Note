@@ -72,7 +72,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision){
-        Debug.Log(collision.gameObject.name);
         if(collision.gameObject.name.Contains("Carpet")){
             audioPlayer.clip = walkingOnCarpet;
         }else if(collision.gameObject.name.Contains("floor")){

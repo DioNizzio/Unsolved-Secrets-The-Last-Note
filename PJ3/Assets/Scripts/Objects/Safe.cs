@@ -70,7 +70,9 @@ public class Safe : MonoBehaviour, IInteractable
 
     public void ExitCameraSafe(){
         cameraActive = false;
-        GetComponent<BoxCollider>().enabled = true;
+        if(!hideNums){
+            GetComponent<BoxCollider>().enabled = true;
+        }
     }
 
 

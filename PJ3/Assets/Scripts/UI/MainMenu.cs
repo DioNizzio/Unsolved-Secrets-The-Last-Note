@@ -9,6 +9,10 @@ public class MainMenu : MonoBehaviour
     public GameObject Options;
     public GameObject Main;
 
+    void Update(){
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void PlayGame (){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -22,7 +26,6 @@ public class MainMenu : MonoBehaviour
     }
 
     public void QuitGame (){
-        Debug.Log("Quit");
         Application.Quit();
     }
 }

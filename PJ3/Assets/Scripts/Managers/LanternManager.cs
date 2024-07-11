@@ -56,12 +56,9 @@ public class LanternManager : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(lantern.transform.position, lantern.transform.forward*-1, out hit, 10))
             {
-                Debug.Log(hit.transform.name);
-                Debug.DrawRay(hit.transform.position, playerandCameraHolders.Camera.transform.forward, new Color(0,0,0) ,10.0f);
                 GameObject target = hit.transform.gameObject;
                 if (target != null)
                 {
-                    Debug.Log("Target not null");
 
                     if(target.name == "relogio"){
                         clockBell1.GetComponent<MeshRenderer>().material = bells2;
@@ -83,7 +80,6 @@ public class LanternManager : MonoBehaviour
                     //     clockBell3.GetComponent<MeshRenderer>().material = bells2;
                     // }
                     if(target==wallBooks){
-                        Debug.Log("Should change mat");
                         wallBooks.GetComponent<MeshRenderer>().material = wallB2;
                     }else{
                         wallBooks.GetComponent<MeshRenderer>().material = wallB1;
