@@ -2,6 +2,7 @@
 Unsolved Secrets: The Last Note is a first-person puzzle-mystery narrative-driven, where the player takes the position of Alan Morris, an ex-detective, as he ventures into Emrick’s mansion, to uncover the truth behind an unsolved case. The player will explore the house and solve its enigmas and puzzles to find out what happened and expose the shocking truth.
 
 Members and Roles
+
 Daniel Moreira - Team Leader
 
 Bernardo Leandro - Programmer
